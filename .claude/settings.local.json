@@ -1,0 +1,37 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run lint)",
+      "Bash(dir C:bardserversrc)",
+      "Bash(mv:*)",
+      "Bash(npx prisma migrate dev:*)",
+      "Bash(npx prisma migrate:*)",
+      "Bash(dir:*)",
+      "Bash(npm install:*)",
+      "Bash(npm run test:performance:validate:*)",
+      "Bash(cat:*)",
+      "Bash(npm run build:*)",
+      "Bash(npx tsc:*)",
+      "Bash(npm run test:unit:*)",
+      "Bash(npm run preview:*)",
+      "Bash(npm run dev:*)",
+      "Bash(timeout 10 npm run dev)",
+      "Bash(PORT=3000 npm run dev)",
+      "Bash(tasklist)",
+      "Bash(findstr:*)",
+      "Bash(taskkill:*)",
+      "Bash(netstat:*)",
+      "Bash(mkdir:*)",
+      "Bash(npm run test:performance:*)",
+      "Bash(Get-Process node -ErrorAction SilentlyContinue)",
+      "Bash(Stop-Process -Force)",
+      "Bash(node:*)",
+      "Bash(npm run dev:mem:*)",
+      "Bash(timeout:*)",
+      "Bash(curl:*)",
+      "Read(//c/bard/PRDs/**)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

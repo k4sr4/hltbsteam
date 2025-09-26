@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <header class="popup-header">
+      <h1>HLTB for Steam</h1>
+      <span class="version">v1.0.0</span>
+    </header>
+
+    <main class="popup-content">
+      <!-- Enable/Disable Toggle -->
+      <div class="setting-row">
+        <label for="enableToggle">Extension Enabled</label>
+        <input type="checkbox" id="enableToggle" checked>
+      </div>
+
+      <!-- Cache Toggle -->
+      <div class="setting-row">
+        <label for="cacheToggle">Use Cache</label>
+        <input type="checkbox" id="cacheToggle" checked>
+      </div>
+
+      <!-- Clear Cache Button -->
+      <button id="clearCacheBtn" class="btn btn-secondary">
+        Clear Cache
+      </button>
+
+      <!-- Status Section -->
+      <div class="status-section">
+        <div id="statusMessage"></div>
+      </div>
+    </main>
+
+    <footer class="popup-footer">
+      <a href="https://github.com/yourusername/hltb-steam" target="_blank">
+        GitHub
+      </a>
+      <a href="#" id="reportIssue">Report Issue</a>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

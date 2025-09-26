@@ -1,0 +1,339 @@
+/* HLTB Steam Integration - Content Script Styles */
+
+/* Font import for Steam consistency */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+/* HLTB Container - Main wrapper for game completion times */
+.hltb-container {
+  font-family: "Motiva Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background: linear-gradient(to bottom, #2a475e 0%, #1b2838 100%);
+  border: 1px solid #000;
+  border-radius: 4px;
+  padding: 12px 16px;
+  margin: 16px 0;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  color: #c7d5e0;
+  font-size: 13px;
+  line-height: 1.4;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Add subtle glow effect on hover */
+.hltb-container:hover {
+  box-shadow: 0 2px 12px rgba(102, 192, 244, 0.15);
+  border-color: #1a1a1a;
+}
+
+/* HLTB Header */
+.hltb-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.hltb-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.hltb-badge {
+  background: linear-gradient(135deg, #66c0f4 0%, #4a9fd5 100%);
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 3px;
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Completion Times Grid */
+.hltb-times {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.hltb-time-item {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 3px;
+  padding: 8px 10px;
+  text-align: center;
+  transition: all 0.2s ease;
+}
+
+.hltb-time-item:hover {
+  background: rgba(102, 192, 244, 0.1);
+  border-color: rgba(102, 192, 244, 0.3);
+  transform: translateY(-1px);
+}
+
+.hltb-time-label {
+  font-size: 11px;
+  color: #8b98a5;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+
+.hltb-time-value {
+  font-size: 18px;
+  font-weight: 700;
+  color: #66c0f4;
+  display: block;
+}
+
+.hltb-time-value.long {
+  color: #f4c666;
+}
+
+.hltb-time-value.very-long {
+  color: #f47b66;
+}
+
+/* Loading State */
+.hltb-loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: #8b98a5;
+}
+
+.hltb-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid rgba(102, 192, 244, 0.2);
+  border-top-color: #66c0f4;
+  border-radius: 50%;
+  animation: hltb-spin 0.8s linear infinite;
+  margin-right: 8px;
+}
+
+@keyframes hltb-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Error State */
+.hltb-error {
+  background: rgba(244, 123, 102, 0.1);
+  border: 1px solid rgba(244, 123, 102, 0.3);
+  color: #f47b66;
+  padding: 12px;
+  border-radius: 3px;
+  font-size: 12px;
+  text-align: center;
+}
+
+/* No Data State */
+.hltb-no-data {
+  color: #8b98a5;
+  font-style: italic;
+  text-align: center;
+  padding: 16px;
+  font-size: 12px;
+}
+
+/* Link to HLTB */
+.hltb-link {
+  display: inline-block;
+  margin-top: 8px;
+  color: #66c0f4;
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.2s ease;
+}
+
+.hltb-link:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Accuracy Indicator */
+.hltb-accuracy {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  color: #8b98a5;
+  margin-left: auto;
+}
+
+.hltb-accuracy-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #66c0f4;
+}
+
+.hltb-accuracy.high .hltb-accuracy-dot {
+  background: #5cbf60;
+}
+
+.hltb-accuracy.medium .hltb-accuracy-dot {
+  background: #f4c666;
+}
+
+.hltb-accuracy.low .hltb-accuracy-dot {
+  background: #f47b66;
+}
+
+/* Completion Percentage Bar */
+.hltb-completion-bar {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.hltb-completion-label {
+  font-size: 11px;
+  color: #8b98a5;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.hltb-completion-track {
+  height: 6px;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 3px;
+  overflow: hidden;
+  position: relative;
+}
+
+.hltb-completion-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #66c0f4 0%, #4a9fd5 100%);
+  border-radius: 3px;
+  transition: width 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.hltb-completion-fill::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* Responsive adjustments for smaller game cards */
+@media (max-width: 768px) {
+  .hltb-times {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+
+  .hltb-time-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+
+  .hltb-time-value {
+    font-size: 16px;
+  }
+}
+
+/* Integration with Steam's game page */
+.game_details .hltb-container {
+  margin-top: 20px;
+}
+
+.game_area_purchase .hltb-container {
+  margin-bottom: 16px;
+}
+
+/* Tooltip for additional info */
+.hltb-tooltip {
+  position: absolute;
+  background: #171a21;
+  border: 1px solid #66c0f4;
+  border-radius: 3px;
+  padding: 8px 12px;
+  font-size: 12px;
+  color: #c7d5e0;
+  white-space: nowrap;
+  z-index: 1000;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.hltb-tooltip.visible {
+  opacity: 1;
+}
+
+/* Inline display mode for store listings */
+.hltb-inline {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4px 8px;
+  background: rgba(42, 71, 94, 0.4);
+  border-radius: 3px;
+  font-size: 11px;
+  margin-left: 8px;
+}
+
+.hltb-inline .hltb-time-item {
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.hltb-inline .hltb-time-label {
+  margin: 0;
+  font-size: 10px;
+}
+
+.hltb-inline .hltb-time-value {
+  font-size: 12px;
+}
+
+/* Dark mode override for better contrast */
+@media (prefers-color-scheme: dark) {
+  .hltb-container {
+    background: linear-gradient(to bottom, #1e3445 0%, #0e1621 100%);
+  }
+
+  .hltb-time-item {
+    background: rgba(0, 0, 0, 0.5);
+  }
+}

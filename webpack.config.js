@@ -18,12 +18,23 @@ module.exports = (env, argv) => {
     module: {
       rules: [
         {
+          test: /\.ts$/,
+          exclude: /node_modules/,
+          use: {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: !isProduction,
+              configFile: 'tsconfig.json'
+            }
+          }
+        },
+        {
           test: /\.js$/,
           exclude: /node_modules/,
           use: {
             loader: 'babel-loader',
             options: {
-              presets: ['@babel/preset-env']
+              presets: ['@babel/preset-env', '@babel/preset-typescript']
             }
           }
         }
@@ -58,7 +69,16 @@ module.exports = (env, argv) => {
     devtool: isProduction ? false : 'cheap-module-source-map',
     mode: argv.mode || 'development',
     resolve: {
-      extensions: ['.js', '.json']
+      extensions: ['.ts', '.js', '.json'],
+      alias: {
+        '@': path.resolve(__dirname, 'src'),
+        '@/content': path.resolve(__dirname, 'src/content'),
+        '@/background': path.resolve(__dirname, 'src/background'),
+        '@/popup': path.resolve(__dirname, 'src/popup'),
+        '@/shared': path.resolve(__dirname, 'src/shared'),
+        '@/types': path.resolve(__dirname, 'src/types'),
+        '@/utils': path.resolve(__dirname, 'src/utils')
+      }
     },
     optimization: {
       splitChunks: false // Chrome extensions don't support code splitting

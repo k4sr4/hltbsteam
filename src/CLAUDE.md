@@ -10,11 +10,20 @@
 - **Error Handling**: Graceful degradation with user-friendly error messages
 
 ### Content Script (content.js)
-- **Steam Detection**: URL matching for game pages
+- **Steam Detection**: URL matching for game pages (Store and Community)
 - **Game Info Extraction**: App ID from URL, title from meta tags
 - **DOM Injection**: Safe element creation without innerHTML
+- **Multiple Injection Points**: Fallback selectors for Store/Community pages
 - **SPA Navigation**: MutationObserver for Steam's dynamic routing
 - **XSS Prevention**: All user data sanitized before display
+
+### Enhanced Detection System (TypeScript - src/content/)
+- **6-Strategy Title Extraction**: OpenGraph → AppName → JSON-LD → Breadcrumb → PageTitle → Fallback
+- **Performance Optimized**: <10ms detection target with caching
+- **Advanced Navigation Observer**: Debounced mutations, selective monitoring
+- **State Management**: Comprehensive navigation and detection state tracking
+- **Security Hardened**: Prototype pollution protection in JSON parsing
+- **Status**: Architecture complete, compilation issues need resolution
 
 ### Popup Interface (popup.html/js)
 - **Real-time Settings**: Immediate storage updates
@@ -86,6 +95,23 @@ try {
 - Only `storage` and `alarms` permissions requested
 - Host permissions limited to Steam and HLTB domains
 - No broad host permissions like `<all_urls>`
+
+## Critical Bug Fixes & Lessons
+
+### MutationObserver Options Bug
+- **Issue**: MutationObserver requires options in `observe()` method, not constructor
+- **Error**: "The options object must set at least one of 'attributes', 'characterData', or 'childList' to true"
+- **Fix**: Pass options to `observer.observe(target, options)` not to constructor
+
+### Injection Point Compatibility
+- **Store Pages**: Use `.game_area_purchase` selector, inject BEFORE element
+- **Community Pages**: Use `.apphub_AppName` selector, inject AFTER element
+- **Solution**: Multiple fallback selectors with page-specific insertion logic
+
+### TypeScript Build Issues
+- **Problem**: tsconfig.json rootDir conflicts with test files location
+- **Workaround**: Fallback to JavaScript content.js when TypeScript fails
+- **Fix Needed**: Separate tsconfig for tests vs source compilation
 
 ## Performance Optimizations
 

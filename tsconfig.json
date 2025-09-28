@@ -1,0 +1,70 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable"],
+    "moduleResolution": "node",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "declaration": false,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./src",
+    "removeComments": true,
+    "noEmitOnError": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+
+    // Chrome Extension specific settings
+    "types": ["chrome", "node", "jest"],
+    "typeRoots": ["./node_modules/@types", "./src/types"],
+
+    // Strict type checking
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "noImplicitReturns": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUncheckedIndexedAccess": false,
+    "noImplicitOverride": true,
+
+    // Additional checks (relaxed for initial implementation)
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "exactOptionalPropertyTypes": false,
+    "noPropertyAccessFromIndexSignature": false,
+
+    // Path mapping for cleaner imports
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["*"],
+      "@/content/*": ["content/*"],
+      "@/background/*": ["background/*"],
+      "@/popup/*": ["popup/*"],
+      "@/shared/*": ["shared/*"],
+      "@/types/*": ["types/*"],
+      "@/utils/*": ["utils/*"]
+    }
+  },
+  "include": [
+    "src/**/*",
+    "types/**/*",
+    "tests/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "coverage",
+    "*.js",
+    "*.config.js"
+  ],
+  "ts-node": {
+    "esm": true
+  }
+}

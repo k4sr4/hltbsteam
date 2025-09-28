@@ -1,0 +1,32 @@
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "../dist/tests",
+    "rootDir": ".",
+    "noImplicitAny": false,
+    "strictNullChecks": false,
+    "types": ["jest", "node", "chrome"],
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "baseUrl": "..",
+    "paths": {
+      "@/*": ["src/*"],
+      "@/content/*": ["src/content/*"],
+      "@/background/*": ["src/background/*"],
+      "@/popup/*": ["src/popup/*"],
+      "@/shared/*": ["src/shared/*"],
+      "@/types/*": ["src/types/*"],
+      "@/utils/*": ["src/utils/*"]
+    }
+  },
+  "include": [
+    "./**/*",
+    "../src/**/*"
+  ],
+  "exclude": [
+    "../node_modules",
+    "../dist",
+    "../coverage"
+  ]
+}

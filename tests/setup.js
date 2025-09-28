@@ -1,5 +1,29 @@
 // Jest setup file for Chrome extension testing
-// Mocks Chrome APIs for all test files
+// Mocks Chrome APIs and performance APIs for all test files
+
+// Enhanced Performance API mock
+const mockPerformance = {
+  now: jest.fn(() => Date.now()),
+  memory: {
+    usedJSHeapSize: 1024 * 1024, // 1MB
+    totalJSHeapSize: 10 * 1024 * 1024, // 10MB
+    jsHeapSizeLimit: 100 * 1024 * 1024 // 100MB
+  },
+  timeOrigin: Date.now(),
+  mark: jest.fn(),
+  measure: jest.fn(),
+  clearMarks: jest.fn(),
+  clearMeasures: jest.fn(),
+  getEntries: jest.fn(() => []),
+  getEntriesByName: jest.fn(() => []),
+  getEntriesByType: jest.fn(() => []),
+  toJSON: jest.fn()
+};
+
+Object.defineProperty(global, 'performance', {
+  value: mockPerformance,
+  writable: true
+});
 
 // Create a global chrome object with all necessary APIs
 global.chrome = {
@@ -141,14 +165,25 @@ global.window = {
 };
 
 // Mock MutationObserver for content script tests
-global.MutationObserver = class MutationObserver {
-  constructor(callback) {
-    this.callback = callback;
-    this.observe = jest.fn();
-    this.disconnect = jest.fn();
-    this.takeRecords = jest.fn();
+global.MutationObserver = jest.fn().mockImplementation((callback) => ({
+  observe: jest.fn(),
+  disconnect: jest.fn(),
+  takeRecords: jest.fn(() => [])
+}));
+
+// Custom Jest matchers
+expect.extend({
+  toBeOneOf(received, expected) {
+    const pass = expected.includes(received);
+    return {
+      pass,
+      message: () =>
+        pass
+          ? `Expected ${received} not to be one of ${expected.join(', ')}`
+          : `Expected ${received} to be one of ${expected.join(', ')}`
+    };
   }
-};
+});
 
 // Export for use in tests if needed
 module.exports = {

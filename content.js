@@ -133,12 +133,36 @@ function injectHLTBData(data) {
   container.appendChild(header);
   container.appendChild(timesContainer);
 
-  // Find injection point (simplified)
-  const purchaseArea = document.querySelector('.game_area_purchase');
-  if (purchaseArea) {
-    purchaseArea.parentNode.insertBefore(container, purchaseArea);
-    console.log('[HLTB] UI injected successfully');
-  } else {
+  // Find injection point - try multiple selectors for Store and Community pages
+  const injectionSelectors = [
+    '.game_area_purchase',          // Store page - before purchase area
+    '.game_area_purchase_game',     // Store page - alternative selector
+    '.apphub_AppName',              // Community page - after app name
+    '.apphub_HomeHeader',           // Community page - header area
+    '.rightcol',                    // Store page - right column
+    '.game_meta_data',              // Store page - meta area
+    '#appHubAppName'                // Community page - app hub name
+  ];
+
+  let injected = false;
+  for (const selector of injectionSelectors) {
+    const element = document.querySelector(selector);
+    if (element) {
+      // For community pages, inject after the header; for store pages, before purchase area
+      if (selector.includes('apphub') || selector.includes('appHub')) {
+        // Community page - insert after the header element
+        element.parentNode.insertBefore(container, element.nextSibling);
+      } else {
+        // Store page - insert before the element
+        element.parentNode.insertBefore(container, element);
+      }
+      console.log('[HLTB] UI injected successfully at:', selector);
+      injected = true;
+      break;
+    }
+  }
+
+  if (!injected) {
     console.warn('[HLTB] Could not find injection point');
   }
 }

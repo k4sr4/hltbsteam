@@ -6,7 +6,7 @@ module.exports = (env, argv) => {
 
   return {
     entry: {
-      background: './background.js',
+      background: './src/background/service-worker.ts',
       content: './content.js',
       popup: './popup.js'
     },
@@ -23,8 +23,8 @@ module.exports = (env, argv) => {
           use: {
             loader: 'ts-loader',
             options: {
-              transpileOnly: !isProduction,
-              configFile: 'tsconfig.json'
+              transpileOnly: true,
+              configFile: 'tsconfig.build.json'
             }
           }
         },

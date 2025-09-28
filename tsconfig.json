@@ -13,7 +13,7 @@
     "declaration": false,
     "sourceMap": true,
     "outDir": "./dist",
-    "rootDir": "./src",
+    "rootDir": "./",
     "removeComments": true,
     "noEmitOnError": true,
     "experimentalDecorators": true,

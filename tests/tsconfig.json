@@ -2,7 +2,7 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "outDir": "../dist/tests",
-    "rootDir": ".",
+    "rootDir": "..",
     "noImplicitAny": false,
     "strictNullChecks": false,
     "types": ["jest", "node", "chrome"],

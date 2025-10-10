@@ -281,8 +281,8 @@ export class HLTBApiClient {
       return null;
     }
 
-    // Find best match
-    const bestMatch = this.findBestMatch(gameTitle, results);
+    // Find best match using sophisticated title matching
+    const bestMatch = await this.findBestMatch(gameTitle, results);
     return bestMatch;
   }
 
@@ -506,99 +506,47 @@ export class HLTBApiClient {
   }
 
   /**
-   * Find the best matching game from results
+   * Find the best matching game from results using sophisticated title matching
    */
-  private findBestMatch(searchTitle: string, results: ParsedHLTBData[]): ParsedHLTBData | null {
+  private async findBestMatch(searchTitle: string, results: ParsedHLTBData[]): Promise<ParsedHLTBData | null> {
     if (results.length === 0) {
       return null;
     }
 
-    const normalizedSearch = this.normalizeTitle(searchTitle);
-    let bestMatch = results[0];
-    let bestScore = 0;
+    // Import TitleMatcher dynamically to avoid circular dependency
+    const { titleMatcher } = await import('./title-matcher');
 
-    for (const game of results) {
-      const normalizedGame = this.normalizeTitle(game.gameName);
-      const score = this.calculateSimilarity(normalizedSearch, normalizedGame);
+    // Convert ParsedHLTBData to HLTBSearchResult format
+    const searchResults = results.map(game => ({
+      gameId: game.gameId,
+      gameName: game.gameName,
+      gameImage: game.gameImage,
+      mainStory: game.mainStory,
+      mainExtra: game.mainExtra,
+      completionist: game.completionist,
+      allStyles: game.allStyles
+    }));
 
-      if (score > bestScore) {
-        bestScore = score;
-        bestMatch = game;
-      }
+    // Use the sophisticated title matcher
+    const matchResult = await titleMatcher.findBestMatch(searchTitle, searchResults);
 
-      // Perfect match
-      if (score === 1) {
-        break;
-      }
-    }
-
-    // Require at least 50% similarity
-    if (bestScore < 0.5) {
-      console.log(`[HLTBApiClient] No good match found for "${searchTitle}" (best score: ${bestScore})`);
+    if (!matchResult || !matchResult.match) {
+      console.log(`[HLTBApiClient] No match found for "${searchTitle}"`);
       return null;
     }
 
-    return bestMatch;
-  }
-
-  /**
-   * Normalize game title for comparison
-   */
-  private normalizeTitle(title: string): string {
-    return title
-      .toLowerCase()
-      .replace(/[^a-z0-9\s]/g, '') // Remove special characters
-      .replace(/\s+/g, ' ')         // Normalize whitespace
-      .trim();
-  }
-
-  /**
-   * Calculate similarity between two strings using Levenshtein distance
-   */
-  private calculateSimilarity(str1: string, str2: string): number {
-    if (str1 === str2) return 1;
-
-    const longer = str1.length > str2.length ? str1 : str2;
-    const shorter = str1.length > str2.length ? str2 : str1;
-
-    if (longer.length === 0) return 0;
-
-    const editDistance = this.levenshteinDistance(longer, shorter);
-    return (longer.length - editDistance) / longer.length;
-  }
-
-  /**
-   * Calculate Levenshtein distance between two strings
-   */
-  private levenshteinDistance(str1: string, str2: string): number {
-    const matrix: number[][] = [];
-
-    // Initialize first column
-    for (let i = 0; i <= str2.length; i++) {
-      matrix[i] = [i];
+    if (matchResult.skip) {
+      console.log(`[HLTBApiClient] Skipping "${searchTitle}": ${matchResult.reason}`);
+      return null;
     }
 
-    // Initialize first row
-    for (let j = 0; j <= str1.length; j++) {
-      matrix[0][j] = j;
-    }
+    console.log(
+      `[HLTBApiClient] Matched "${searchTitle}" -> "${matchResult.match.gameName}" ` +
+      `(${(matchResult.confidence * 100).toFixed(1)}% via ${matchResult.method})`
+    );
 
-    // Fill matrix
-    for (let i = 1; i <= str2.length; i++) {
-      for (let j = 1; j <= str1.length; j++) {
-        if (str2.charAt(i - 1) === str1.charAt(j - 1)) {
-          matrix[i][j] = matrix[i - 1][j - 1];
-        } else {
-          matrix[i][j] = Math.min(
-            matrix[i - 1][j - 1] + 1, // Substitution
-            matrix[i][j - 1] + 1,      // Insertion
-            matrix[i - 1][j] + 1       // Deletion
-          );
-        }
-      }
-    }
-
-    return matrix[str2.length][str1.length];
+    // Find and return the original ParsedHLTBData
+    return results.find(r => r.gameId === matchResult.match!.gameId) || null;
   }
 
   /**

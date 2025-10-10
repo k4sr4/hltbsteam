@@ -384,43 +384,44 @@ export class HLTBScraper {
   /**
    * Find best matching game from scraped results
    */
-  findBestMatch(searchTitle: string, games: ScrapedGameData[]): ScrapedGameData | null {
+  async findBestMatch(searchTitle: string, games: ScrapedGameData[]): Promise<ScrapedGameData | null> {
     if (!games || games.length === 0) {
       return null;
     }
 
-    const normalizedSearch = this.normalizeTitle(searchTitle);
-    let bestMatch = games[0];
-    let bestScore = 0;
+    // Import TitleMatcher dynamically
+    const { titleMatcher } = await import('./title-matcher');
 
-    for (const game of games) {
-      const normalizedGame = this.normalizeTitle(game.name);
-      const score = this.calculateSimilarity(normalizedSearch, normalizedGame);
+    // Convert ScrapedGameData to HLTBSearchResult format
+    const searchResults = games.map(game => ({
+      gameId: game.id || '',
+      gameName: game.name,
+      mainStory: game.mainStory,
+      mainExtra: game.mainExtra,
+      completionist: game.completionist,
+      allStyles: game.allStyles
+    }));
 
-      if (score > bestScore) {
-        bestScore = score;
-        bestMatch = game;
-      }
-    }
+    // Use the sophisticated title matcher
+    const matchResult = await titleMatcher.findBestMatch(searchTitle, searchResults);
 
-    // Require minimum similarity score
-    if (bestScore < 0.4) {
-      console.log(`[HLTB Scraper] Best match score too low: ${bestScore} for "${searchTitle}"`);
+    if (!matchResult || !matchResult.match) {
+      console.log(`[HLTB Scraper] No match found for "${searchTitle}"`);
       return null;
     }
 
-    console.log(`[HLTB Scraper] Best match: "${bestMatch.name}" (score: ${bestScore.toFixed(2)})`);
-    return bestMatch;
-  }
+    if (matchResult.skip) {
+      console.log(`[HLTB Scraper] Skipping "${searchTitle}": ${matchResult.reason}`);
+      return null;
+    }
 
-  /**
-   * Normalize title for comparison
-   */
-  private normalizeTitle(title: string): string {
-    return title
-      .toLowerCase()
-      .replace(/[^a-z0-9]/g, '')
-      .trim();
+    console.log(
+      `[HLTB Scraper] Matched "${searchTitle}" -> "${matchResult.match.gameName}" ` +
+      `(${(matchResult.confidence * 100).toFixed(1)}% via ${matchResult.method})`
+    );
+
+    // Find and return the original ScrapedGameData
+    return games.find(g => g.name === matchResult.match!.gameName) || null;
   }
 
   /**

@@ -217,7 +217,7 @@ export class HLTBIntegratedService {
       const scrapingResult = await hltbScraper.scrapeGameData(title);
 
       if (scrapingResult && scrapingResult.games.length > 0) {
-        const bestMatch = hltbScraper.findBestMatch(title, scrapingResult.games);
+        const bestMatch = await hltbScraper.findBestMatch(title, scrapingResult.games);
 
         if (bestMatch) {
           console.log('[HLTB Integrated] Scraper success for:', title);

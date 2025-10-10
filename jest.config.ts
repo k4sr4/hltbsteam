@@ -30,7 +30,22 @@ const config: Config = {
   },
   transform: {
     '^.+\\.(ts|tsx)$': ['ts-jest', {
-      tsconfig: 'tests/tsconfig.json'
+      isolatedModules: true,
+      tsconfig: {
+        outDir: './dist/tests',
+        rootDir: '.',
+        noImplicitAny: false,
+        strictNullChecks: false,
+        strictPropertyInitialization: false,
+        types: ['jest', 'node', 'chrome'],
+        resolveJsonModule: true,
+        allowSyntheticDefaultImports: true,
+        esModuleInterop: true,
+        target: 'ES2020',
+        module: 'commonjs',
+        moduleResolution: 'node',
+        skipLibCheck: true
+      }
     }],
     '^.+\\.(js|jsx)$': 'babel-jest'
   },

@@ -39,11 +39,11 @@ async function initializeExtension() {
       appId: gameInfo.appId
     });
 
-    if (hltbResponse.success) {
+    if (hltbResponse.success && hltbResponse.data) {
       console.log('[HLTB] Data received:', hltbResponse.data);
       injectHLTBData(hltbResponse.data);
     } else {
-      console.error('[HLTB] Failed to fetch data:', hltbResponse.error);
+      console.error('[HLTB] Failed to fetch data:', hltbResponse.error || 'No data returned');
     }
 
   } catch (error) {
@@ -57,35 +57,79 @@ function extractGameInfo() {
   const appIdMatch = url.match(/\/app\/(\d+)/);
   if (!appIdMatch) return null;
 
-  // Extract game title
-  const ogTitle = document.querySelector('meta[property="og:title"]');
-  const gameTitle = ogTitle?.content || document.title.split(' on Steam')[0];
+  let gameTitle = '';
+
+  // Strategy 1: Extract from URL (most reliable)
+  // URL format: /app/1145350/Hades_II/
+  const urlTitleMatch = url.match(/\/app\/\d+\/([^\/\?#]+)/);
+  if (urlTitleMatch) {
+    gameTitle = urlTitleMatch[1]
+      .replace(/_/g, ' ')  // Replace underscores with spaces
+      .replace(/%20/g, ' ') // Replace URL encoded spaces
+      .trim();
+  }
+
+  // Strategy 2: Try app name element (community pages)
+  if (!gameTitle) {
+    const appNameElement = document.querySelector('#appHubAppName');
+    if (appNameElement) {
+      gameTitle = appNameElement.textContent.trim();
+    }
+  }
+
+  // Strategy 3: Fallback to meta tag with cleanup
+  if (!gameTitle) {
+    const ogTitle = document.querySelector('meta[property="og:title"]');
+    if (ogTitle?.content) {
+      gameTitle = ogTitle.content
+        .replace(/ on Steam$/, '')        // Remove " on Steam" suffix
+        .replace(/^Save \d+% on /, '')    // Remove "Save X% on " prefix
+        .trim();
+    }
+  }
+
+  // Strategy 4: Last resort - document title
+  if (!gameTitle) {
+    gameTitle = document.title
+      .replace(/ on Steam$/, '')
+      .replace(/^Save \d+% on /, '')
+      .trim();
+  }
 
   return {
     appId: appIdMatch[1],
-    title: gameTitle.trim()
+    title: gameTitle
   };
 }
 
 function injectHLTBData(data) {
-  // Sanitize data to prevent XSS
-  const sanitizeData = (str) => {
-    if (typeof str !== 'string') return 'N/A';
-    return str.replace(/[<>"'&]/g, (match) => {
-      const entities = {
-        '<': '&lt;',
-        '>': '&gt;',
-        '"': '&quot;',
-        "'": '&#x27;',
-        '&': '&amp;'
-      };
-      return entities[match];
-    });
+  // Helper to format hours properly
+  const formatHours = (hours) => {
+    if (hours === null || hours === undefined) {
+      return '--';
+    }
+    if (typeof hours === 'number') {
+      if (hours === 0) return '--';
+      return hours + (hours === 1 ? ' Hour' : ' Hours');
+    }
+    // For legacy string format
+    if (typeof hours === 'string') {
+      return hours || '--';
+    }
+    return '--';
   };
 
   // Create container element safely
   const container = document.createElement('div');
   container.className = 'hltb-container';
+
+  // Add data source attribute for styling
+  if (data.source) {
+    container.setAttribute('data-source', data.source);
+  }
+  if (data.confidence) {
+    container.setAttribute('data-confidence', data.confidence);
+  }
 
   // Create header
   const header = document.createElement('div');
@@ -99,6 +143,20 @@ function injectHLTBData(data) {
   title.className = 'hltb-title';
   title.textContent = 'HowLongToBeat';
 
+  // Add source indicator if available
+  if (data.source && data.source !== 'api') {
+    const sourceIndicator = document.createElement('span');
+    sourceIndicator.className = 'hltb-source';
+    const sourceText = data.source === 'cache' ? 'cached' :
+                      data.source === 'scraper' ? 'scraped' :
+                      data.source === 'fallback' ? 'estimated' : '';
+    if (sourceText) {
+      sourceIndicator.textContent = `(${sourceText})`;
+      title.appendChild(document.createTextNode(' '));
+      title.appendChild(sourceIndicator);
+    }
+  }
+
   header.appendChild(logo);
   header.appendChild(title);
 
@@ -108,27 +166,45 @@ function injectHLTBData(data) {
 
   // Create time boxes safely
   const timeBoxes = [
-    { label: 'Main Story', value: sanitizeData(data.mainStory) },
-    { label: 'Main + Extra', value: sanitizeData(data.mainExtra) },
-    { label: 'Completionist', value: sanitizeData(data.completionist) }
+    { label: 'Main Story', value: formatHours(data.mainStory) },
+    { label: 'Main + Extra', value: formatHours(data.mainExtra) },
+    { label: 'Completionist', value: formatHours(data.completionist) }
   ];
 
-  timeBoxes.forEach(({ label, value }) => {
-    const timeBox = document.createElement('div');
-    timeBox.className = 'hltb-time-box';
+  // Check if this is a multiplayer-only game (all times are null)
+  const isMultiplayerOnly = data.mainStory === null &&
+                            data.mainExtra === null &&
+                            data.completionist === null;
 
-    const labelEl = document.createElement('div');
-    labelEl.className = 'hltb-label';
-    labelEl.textContent = label;
+  if (isMultiplayerOnly) {
+    // Show special message for multiplayer games
+    const multiplayerBox = document.createElement('div');
+    multiplayerBox.className = 'hltb-multiplayer-notice';
+    multiplayerBox.textContent = 'Multiplayer Game - No completion times';
+    timesContainer.appendChild(multiplayerBox);
+  } else {
+    // Show regular time boxes
+    timeBoxes.forEach(({ label, value }) => {
+      const timeBox = document.createElement('div');
+      timeBox.className = 'hltb-time-box';
 
-    const hoursEl = document.createElement('div');
-    hoursEl.className = 'hltb-hours';
-    hoursEl.textContent = value;
+      if (value === '--') {
+        timeBox.classList.add('hltb-no-data');
+      }
 
-    timeBox.appendChild(labelEl);
-    timeBox.appendChild(hoursEl);
-    timesContainer.appendChild(timeBox);
-  });
+      const labelEl = document.createElement('div');
+      labelEl.className = 'hltb-label';
+      labelEl.textContent = label;
+
+      const hoursEl = document.createElement('div');
+      hoursEl.className = 'hltb-hours';
+      hoursEl.textContent = value;
+
+      timeBox.appendChild(labelEl);
+      timeBox.appendChild(hoursEl);
+      timesContainer.appendChild(timeBox);
+    });
+  }
 
   container.appendChild(header);
   container.appendChild(timesContainer);

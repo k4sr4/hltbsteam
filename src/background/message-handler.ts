@@ -1,7 +1,7 @@
-import { HLTBService } from './services/hltb-service';
+import { HLTBIntegratedService } from './services/hltb-integrated-service';
 
 export class MessageHandler {
-  constructor(private hltbService: HLTBService) {}
+  constructor(private hltbService: HLTBIntegratedService) {}
 
   async handle(request: any, sender: chrome.runtime.MessageSender) {
     switch (request.action) {
@@ -19,6 +19,15 @@ export class MessageHandler {
 
       case 'getSettings':
         return this.handleGetSettings();
+
+      case 'getDiagnostics':
+        return this.handleGetDiagnostics();
+
+      case 'getStats':
+        return this.handleGetStats();
+
+      case 'healthCheck':
+        return this.handleHealthCheck();
 
       default:
         throw new Error(`Unknown action: ${request.action}`);
@@ -50,13 +59,13 @@ export class MessageHandler {
   }
 
   private async handleClearCache() {
-    await chrome.storage.local.remove(['hltb_cache']);
-    return { success: true, message: 'Cache cleared' };
+    const cleared = await this.hltbService.clearCache();
+    return { success: true, message: `Cache cleared (${cleared} entries)` };
   }
 
   private async handleGetCacheStats() {
-    const stats = await this.hltbService.getCacheStats();
-    return { success: true, data: stats };
+    const diagnostics = await this.hltbService.getDiagnostics();
+    return { success: true, data: diagnostics.cache };
   }
 
   private async handleGetSettings() {
@@ -86,5 +95,35 @@ export class MessageHandler {
 
     const results = await this.hltbService.batchFetch(games);
     return { success: true, data: results };
+  }
+
+  private async handleGetDiagnostics() {
+    try {
+      const diagnostics = await this.hltbService.getDiagnostics();
+      return { success: true, data: diagnostics };
+    } catch (error) {
+      console.error('[HLTB] Error getting diagnostics:', error);
+      return { success: false, error: (error as Error).message };
+    }
+  }
+
+  private async handleGetStats() {
+    try {
+      const stats = this.hltbService.getStats();
+      return { success: true, data: stats };
+    } catch (error) {
+      console.error('[HLTB] Error getting stats:', error);
+      return { success: false, error: (error as Error).message };
+    }
+  }
+
+  private async handleHealthCheck() {
+    try {
+      const health = await this.hltbService.healthCheck();
+      return { success: true, data: health };
+    } catch (error) {
+      console.error('[HLTB] Error checking health:', error);
+      return { success: false, error: (error as Error).message };
+    }
   }
 }

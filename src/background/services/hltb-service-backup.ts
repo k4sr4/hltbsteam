@@ -1,6 +1,5 @@
 import { CacheService } from './cache-service';
 import { QueueService } from './queue-service';
-import { hltbScraper, ScrapedGameData } from './hltb-scraper';
 
 interface HLTBData {
   mainStory: number | null;
@@ -203,55 +202,6 @@ export class HLTBService {
   private async getFallbackData(gameTitle: string): Promise<HLTBData | null> {
     console.log('[HLTB] Using fallback data for:', gameTitle);
 
-    // First try web scraping
-    try {
-      const scrapedData = await this.tryWebScraping(gameTitle);
-      if (scrapedData) {
-        console.log('[HLTB] Web scraping successful for:', gameTitle);
-        return scrapedData;
-      }
-    } catch (error) {
-      console.warn('[HLTB] Web scraping failed:', error);
-    }
-
-    // Fall back to static data
-    console.log('[HLTB] Using static fallback data for:', gameTitle);
-    return this.getStaticFallbackData(gameTitle);
-  }
-
-  private async tryWebScraping(gameTitle: string): Promise<HLTBData | null> {
-    try {
-      const scrapingResult = await hltbScraper.scrapeGameData(gameTitle);
-
-      if (!scrapingResult || scrapingResult.games.length === 0) {
-        console.log('[HLTB] No scraped results found for:', gameTitle);
-        return null;
-      }
-
-      const bestMatch = hltbScraper.findBestMatch(gameTitle, scrapingResult.games);
-
-      if (!bestMatch) {
-        console.log('[HLTB] No good match found in scraped results for:', gameTitle);
-        return null;
-      }
-
-      return this.convertScrapedData(bestMatch);
-    } catch (error) {
-      console.error('[HLTB] Web scraping error:', error);
-      return null;
-    }
-  }
-
-  private convertScrapedData(scraped: ScrapedGameData): HLTBData {
-    return {
-      mainStory: scraped.mainStory,
-      mainExtra: scraped.mainExtra,
-      completionist: scraped.completionist,
-      allStyles: scraped.allStyles
-    };
-  }
-
-  private getStaticFallbackData(gameTitle: string): HLTBData {
     const fallbackData: { [key: string]: HLTBData } = {
       'portal': { mainStory: 3, mainExtra: 4, completionist: 8, allStyles: 4 },
       'portal2': { mainStory: 8, mainExtra: 10, completionist: 21, allStyles: 9 },
@@ -300,23 +250,5 @@ export class HLTBService {
 
   async getCacheStats() {
     return this.cacheService.getStats();
-  }
-
-  /**
-   * Get scraper health and diagnostic information
-   */
-  async getScraperDiagnostics() {
-    try {
-      const status = await hltbScraper.getScraperStatus();
-      return {
-        scraperAvailable: true,
-        status
-      };
-    } catch (error) {
-      return {
-        scraperAvailable: false,
-        error: error instanceof Error ? error.message : 'Unknown error'
-      };
-    }
   }
 }

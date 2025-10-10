@@ -1,12 +1,7 @@
 import { MessageHandler } from './message-handler';
-import { HLTBService } from './services/hltb-service';
-import { CacheService } from './services/cache-service';
-import { QueueService } from './services/queue-service';
+import { hltbIntegratedService } from './services/hltb-integrated-service';
 
-const cacheService = new CacheService();
-const queueService = new QueueService();
-const hltbService = new HLTBService(cacheService, queueService);
-const messageHandler = new MessageHandler(hltbService);
+const messageHandler = new MessageHandler(hltbIntegratedService);
 
 chrome.runtime.onInstalled.addListener(async (details) => {
   console.log('[HLTB] Extension installed:', details.reason);
@@ -54,5 +49,5 @@ chrome.alarms.onAlarm.addListener((alarm) => {
 
 chrome.runtime.onSuspend.addListener(() => {
   console.log('[HLTB] Service worker suspending...');
-  queueService.flush();
+  // Integrated service handles its own queue management
 });

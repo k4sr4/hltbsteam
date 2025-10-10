@@ -42,9 +42,9 @@ const mockChrome = {
   storage: {
     local: {
       get: jest.fn().mockResolvedValue({}),
-      set: jest.fn().mockResolvedValue(),
-      remove: jest.fn().mockResolvedValue(),
-      clear: jest.fn().mockResolvedValue()
+      set: jest.fn().mockResolvedValue(undefined),
+      remove: jest.fn().mockResolvedValue(undefined),
+      clear: jest.fn().mockResolvedValue(undefined)
     }
   }
 };

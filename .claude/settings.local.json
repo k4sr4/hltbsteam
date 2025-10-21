@@ -36,7 +36,11 @@
       "Bash(npm run build:ts:*)",
       "Bash(npm run test:ts:*)",
       "Bash(npx jest:*)",
-      "Bash(grep:*)"
+      "Bash(grep:*)",
+      "WebSearch",
+      "WebFetch(domain:github.com)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "WebFetch(domain:www.npmjs.com)"
     ],
     "deny": [],
     "ask": []

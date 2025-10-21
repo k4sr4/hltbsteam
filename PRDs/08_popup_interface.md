@@ -18,9 +18,23 @@ Build a clean, functional popup that allows users to configure the extension, vi
 
 ## Why
 - **User Control**: Users need to customize behavior
-- **Transparency**: Show cache statistics and performance
+- **Transparency**: Show database info and match statistics
 - **Quick Access**: Common actions without navigation
 - **Trust Building**: Professional interface builds confidence
+- **Community**: Encourage contributions to the game database
+
+## What Changed from Original PRD
+**Original Approach (Abandoned)**:
+- ❌ API settings and rate limiting configuration
+- ❌ Network request statistics
+- ❌ Retry and timeout settings
+
+**New Approach (Current)**:
+- ✅ Database information (version, game count)
+- ✅ Match statistics (games matched, confidence levels)
+- ✅ "Suggest a Game" link to GitHub
+- ✅ Simplified cache management (match results only)
+- ✅ Offline-first messaging
 
 ## What
 Popup interface providing:
@@ -124,26 +138,32 @@ Popup interface providing:
       </div>
     </section>
 
-    <!-- Statistics -->
-    <section class="statistics">
-      <h2>Statistics</h2>
+    <!-- Database Info -->
+    <section class="database-info">
+      <h2>Database</h2>
       <div class="stat-grid">
         <div class="stat">
-          <span class="stat-value" id="cache-size">0 MB</span>
-          <span class="stat-label">Cache Size</span>
+          <span class="stat-value" id="db-version">1.0.0</span>
+          <span class="stat-label">Database Version</span>
         </div>
         <div class="stat">
-          <span class="stat-value" id="cache-items">0</span>
-          <span class="stat-label">Cached Games</span>
+          <span class="stat-value" id="db-games">100</span>
+          <span class="stat-label">Games in Database</span>
         </div>
         <div class="stat">
-          <span class="stat-value" id="hit-rate">0%</span>
-          <span class="stat-label">Cache Hit Rate</span>
+          <span class="stat-value" id="matches-count">0</span>
+          <span class="stat-label">Games Matched</span>
         </div>
         <div class="stat">
-          <span class="stat-value" id="requests-saved">0</span>
-          <span class="stat-label">Requests Saved</span>
+          <span class="stat-value" id="match-rate">0%</span>
+          <span class="stat-label">Match Rate</span>
         </div>
+      </div>
+      <div class="contribute-box">
+        <p>Missing a game? Help expand our database!</p>
+        <a href="https://github.com/yourusername/hltb-steam/blob/master/ADDING_GAMES.md" target="_blank" class="btn btn-primary">
+          Suggest a Game
+        </a>
       </div>
     </section>
 
@@ -443,16 +463,24 @@ class PopupController {
   }
 
   async loadStatistics() {
-    // Request statistics from background
-    const response = await chrome.runtime.sendMessage({ action: 'getCacheStats' });
+    // Request database info from background
+    const dbResponse = await chrome.runtime.sendMessage({ action: 'getDatabaseInfo' });
 
-    if (response?.success && response.data) {
-      const stats = response.data;
+    if (dbResponse?.success && dbResponse.data) {
+      const db = dbResponse.data;
 
-      this.updateStat('cache-size', this.formatBytes(stats.totalSize || 0));
-      this.updateStat('cache-items', stats.itemCount || 0);
-      this.updateStat('hit-rate', `${Math.round(stats.hitRate * 100 || 0)}%`);
-      this.updateStat('requests-saved', stats.hits || 0);
+      this.updateStat('db-version', db.version || '1.0.0');
+      this.updateStat('db-games', db.gameCount || 100);
+    }
+
+    // Request match statistics
+    const matchResponse = await chrome.runtime.sendMessage({ action: 'getMatchStats' });
+
+    if (matchResponse?.success && matchResponse.data) {
+      const stats = matchResponse.data;
+
+      this.updateStat('matches-count', stats.totalMatches || 0);
+      this.updateStat('match-rate', `${Math.round(stats.matchRate * 100 || 0)}%`);
     }
   }
 

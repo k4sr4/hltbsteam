@@ -1,0 +1,1938 @@
+{
+  "version": "1.0.0",
+  "lastUpdated": "2025-10-20",
+  "games": [
+    {
+      "title": "Portal",
+      "aliases": ["portal 1"],
+      "data": { "mainStory": 3, "mainExtra": 4, "completionist": 5, "allStyles": 4 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Portal 2",
+      "aliases": ["portal two", "portal ii"],
+      "data": { "mainStory": 8, "mainExtra": 10, "completionist": 14, "allStyles": 9 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Half-Life",
+      "aliases": ["halflife", "half life"],
+      "data": { "mainStory": 12, "mainExtra": 13, "completionist": 15, "allStyles": 12 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Half-Life 2",
+      "aliases": ["halflife 2", "half life 2", "hl2"],
+      "data": { "mainStory": 13, "mainExtra": 15, "completionist": 18, "allStyles": 13 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Half-Life: Alyx",
+      "aliases": ["half life alyx", "hl alyx", "alyx"],
+      "data": { "mainStory": 12, "mainExtra": 13, "completionist": 18, "allStyles": 12 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Team Fortress 2",
+      "aliases": ["tf2", "team fortress two"],
+      "data": { "mainStory": null, "mainExtra": null, "completionist": null, "allStyles": null },
+      "confidence": "high"
+    },
+    {
+      "title": "Counter-Strike 2",
+      "aliases": ["cs2", "cs 2", "counterstrike 2"],
+      "data": { "mainStory": null, "mainExtra": null, "completionist": null, "allStyles": null },
+      "confidence": "high"
+    },
+    {
+      "title": "Counter-Strike: Global Offensive",
+      "aliases": ["csgo", "cs go", "cs:go"],
+      "data": { "mainStory": null, "mainExtra": null, "completionist": null, "allStyles": null },
+      "confidence": "high"
+    },
+    {
+      "title": "Dota 2",
+      "aliases": ["dota two"],
+      "data": { "mainStory": null, "mainExtra": null, "completionist": null, "allStyles": null },
+      "confidence": "high"
+    },
+    {
+      "title": "Hades",
+      "aliases": ["hades 1"],
+      "data": { "mainStory": 22, "mainExtra": 45, "completionist": 95, "allStyles": 55 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Hades II",
+      "aliases": ["hades 2", "hades two"],
+      "data": { "mainStory": 15, "mainExtra": 25, "completionist": 50, "allStyles": 30 },
+      "confidence": "medium",
+      "lastUpdated": "2024-09"
+    },
+    {
+      "title": "Hollow Knight",
+      "aliases": [],
+      "data": { "mainStory": 27, "mainExtra": 41, "completionist": 65, "allStyles": 42 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Celeste",
+      "aliases": [],
+      "data": { "mainStory": 8, "mainExtra": 12, "completionist": 37, "allStyles": 28 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Stardew Valley",
+      "aliases": [],
+      "data": { "mainStory": 53, "mainExtra": 95, "completionist": 156, "allStyles": 96 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Terraria",
+      "aliases": [],
+      "data": { "mainStory": 50, "mainExtra": 104, "completionist": 215, "allStyles": 115 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Elden Ring",
+      "aliases": [],
+      "data": { "mainStory": 60, "mainExtra": 100, "completionist": 130, "allStyles": 96 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "The Witcher 3: Wild Hunt",
+      "aliases": ["witcher 3", "the witcher three"],
+      "data": { "mainStory": 50, "mainExtra": 100, "completionist": 170, "allStyles": 101 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Red Dead Redemption 2",
+      "aliases": ["rdr2", "red dead 2"],
+      "data": { "mainStory": 50, "mainExtra": 80, "completionist": 180, "allStyles": 80 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Grand Theft Auto V",
+      "aliases": ["gta 5", "gta v", "gtav"],
+      "data": { "mainStory": 32, "mainExtra": 48, "completionist": 83, "allStyles": 52 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Cyberpunk 2077",
+      "aliases": ["cyberpunk", "cp2077"],
+      "data": { "mainStory": 25, "mainExtra": 60, "completionist": 105, "allStyles": 61 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Baldur's Gate 3",
+      "aliases": ["bg3", "baldurs gate 3"],
+      "data": { "mainStory": 75, "mainExtra": 100, "completionist": 200, "allStyles": 107 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Dark Souls",
+      "aliases": ["dark souls 1", "ds1"],
+      "data": { "mainStory": 42, "mainExtra": 60, "completionist": 105, "allStyles": 66 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Dark Souls II",
+      "aliases": ["dark souls 2", "ds2"],
+      "data": { "mainStory": 44, "mainExtra": 70, "completionist": 120, "allStyles": 78 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Dark Souls III",
+      "aliases": ["dark souls 3", "ds3"],
+      "data": { "mainStory": 32, "mainExtra": 48, "completionist": 100, "allStyles": 59 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Sekiro: Shadows Die Twice",
+      "aliases": ["sekiro"],
+      "data": { "mainStory": 30, "mainExtra": 40, "completionist": 70, "allStyles": 41 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Civilization VI",
+      "aliases": ["civ 6", "civ vi", "civilization 6"],
+      "data": { "mainStory": 22, "mainExtra": 40, "completionist": 220, "allStyles": 81 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Total War: WARHAMMER III",
+      "aliases": ["total warhammer 3", "tww3"],
+      "data": { "mainStory": 32, "mainExtra": 125, "completionist": 280, "allStyles": 180 },
+      "confidence": "medium",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "The Binding of Isaac: Rebirth",
+      "aliases": ["binding of isaac rebirth", "tboi rebirth"],
+      "data": { "mainStory": 13, "mainExtra": 50, "completionist": 270, "allStyles": 140 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Risk of Rain 2",
+      "aliases": ["ror2"],
+      "data": { "mainStory": 10, "mainExtra": 30, "completionist": 120, "allStyles": 59 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Dead Cells",
+      "aliases": [],
+      "data": { "mainStory": 14, "mainExtra": 30, "completionist": 83, "allStyles": 46 },
+      "confidence": "high",
+      "lastUpdated": "2024-01"
+    },
+    {
+      "title": "Pumpkin Jack",
+      "aliases": [],
+      "data": { "mainStory": 5, "mainExtra": 6, "completionist": 7, "allStyles": 5 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "The Elder Scrolls V: Skyrim",
+      "aliases": ["skyrim", "skyrim special edition"],
+      "data": { "mainStory": 26, "mainExtra": 108, "completionist": 232, "allStyles": 110 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Fallout 4",
+      "aliases": [],
+      "data": { "mainStory": 27, "mainExtra": 77, "completionist": 156, "allStyles": 84 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Minecraft",
+      "aliases": [],
+      "data": { "mainStory": null, "mainExtra": null, "completionist": null, "allStyles": 327 },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Rust",
+      "aliases": [],
+      "data": { "mainStory": null, "mainExtra": null, "completionist": null, "allStyles": null },
+      "confidence": "high"
+    },
+    {
+      "title": "ARK: Survival Evolved",
+      "aliases": ["ark"],
+      "data": { "mainStory": 60, "mainExtra": 145, "completionist": 630, "allStyles": 273 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Rocket League",
+      "aliases": [],
+      "data": { "mainStory": null, "mainExtra": null, "completionist": null, "allStyles": null },
+      "confidence": "high"
+    },
+    {
+      "title": "Apex Legends",
+      "aliases": [],
+      "data": { "mainStory": null, "mainExtra": null, "completionist": null, "allStyles": null },
+      "confidence": "high"
+    },
+    {
+      "title": "PUBG: BATTLEGROUNDS",
+      "aliases": ["pubg", "playerunknown's battlegrounds"],
+      "data": { "mainStory": null, "mainExtra": null, "completionist": null, "allStyles": null },
+      "confidence": "high"
+    },
+    {
+      "title": "Warframe",
+      "aliases": [],
+      "data": { "mainStory": null, "mainExtra": null, "completionist": null, "allStyles": 181 },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Destiny 2",
+      "aliases": [],
+      "data": { "mainStory": 12, "mainExtra": 84, "completionist": 185, "allStyles": 103 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Resident Evil Village",
+      "aliases": ["re village", "resident evil 8"],
+      "data": { "mainStory": 10, "mainExtra": 14, "completionist": 30, "allStyles": 15 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Resident Evil 4",
+      "aliases": ["re4"],
+      "data": { "mainStory": 16, "mainExtra": 18, "completionist": 39, "allStyles": 18 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "God of War",
+      "aliases": [],
+      "data": { "mainStory": 21, "mainExtra": 32, "completionist": 51, "allStyles": 32 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Horizon Zero Dawn",
+      "aliases": [],
+      "data": { "mainStory": 29, "mainExtra": 47, "completionist": 62, "allStyles": 47 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Spider-Man Remastered",
+      "aliases": ["spider-man", "spiderman"],
+      "data": { "mainStory": 17, "mainExtra": 28, "completionist": 35, "allStyles": 28 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Death Stranding",
+      "aliases": [],
+      "data": { "mainStory": 41, "mainExtra": 57, "completionist": 113, "allStyles": 60 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Control",
+      "aliases": [],
+      "data": { "mainStory": 12, "mainExtra": 18, "completionist": 27, "allStyles": 18 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Dishonored",
+      "aliases": [],
+      "data": { "mainStory": 12, "mainExtra": 17, "completionist": 32, "allStyles": 18 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Dishonored 2",
+      "aliases": [],
+      "data": { "mainStory": 12, "mainExtra": 18, "completionist": 35, "allStyles": 18 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Prey",
+      "aliases": ["prey 2017"],
+      "data": { "mainStory": 16, "mainExtra": 24, "completionist": 38, "allStyles": 24 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Metro Exodus",
+      "aliases": [],
+      "data": { "mainStory": 15, "mainExtra": 20, "completionist": 32, "allStyles": 20 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "BioShock",
+      "aliases": ["bioshock 1"],
+      "data": { "mainStory": 12, "mainExtra": 15, "completionist": 24, "allStyles": 14 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "BioShock Infinite",
+      "aliases": [],
+      "data": { "mainStory": 12, "mainExtra": 15, "completionist": 28, "allStyles": 15 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "The Last of Us Part I",
+      "aliases": ["the last of us", "tlou"],
+      "data": { "mainStory": 15, "mainExtra": 18, "completionist": 22, "allStyles": 17 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Uncharted: Legacy of Thieves Collection",
+      "aliases": ["uncharted 4"],
+      "data": { "mainStory": 15, "mainExtra": 21, "completionist": 28, "allStyles": 20 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "It Takes Two",
+      "aliases": [],
+      "data": { "mainStory": 11, "mainExtra": 14, "completionist": 15, "allStyles": 12 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "A Way Out",
+      "aliases": [],
+      "data": { "mainStory": 6, "mainExtra": 7, "completionist": 12, "allStyles": 7 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Hitman 3",
+      "aliases": ["hitman world of assassination"],
+      "data": { "mainStory": 8, "mainExtra": 20, "completionist": 78, "allStyles": 37 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Doom Eternal",
+      "aliases": [],
+      "data": { "mainStory": 14, "mainExtra": 22, "completionist": 42, "allStyles": 23 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Doom (2016)",
+      "aliases": ["doom 2016", "doom 4"],
+      "data": { "mainStory": 11, "mainExtra": 16, "completionist": 27, "allStyles": 16 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Wolfenstein: The New Order",
+      "aliases": [],
+      "data": { "mainStory": 11, "mainExtra": 14, "completionist": 21, "allStyles": 14 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Titanfall 2",
+      "aliases": [],
+      "data": { "mainStory": 6, "mainExtra": 9, "completionist": 15, "allStyles": 9 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Mass Effect Legendary Edition",
+      "aliases": ["mass effect trilogy"],
+      "data": { "mainStory": 63, "mainExtra": 97, "completionist": 139, "allStyles": 97 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Dragon Age: Inquisition",
+      "aliases": ["dai"],
+      "data": { "mainStory": 50, "mainExtra": 91, "completionist": 132, "allStyles": 90 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Divinity: Original Sin 2",
+      "aliases": ["dos2"],
+      "data": { "mainStory": 60, "mainExtra": 93, "completionist": 141, "allStyles": 93 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Pillars of Eternity II: Deadfire",
+      "aliases": ["poe2"],
+      "data": { "mainStory": 42, "mainExtra": 73, "completionist": 131, "allStyles": 80 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Disco Elysium",
+      "aliases": [],
+      "data": { "mainStory": 21, "mainExtra": 27, "completionist": 32, "allStyles": 26 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Undertale",
+      "aliases": [],
+      "data": { "mainStory": 7, "mainExtra": 10, "completionist": 22, "allStyles": 11 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Deltarune",
+      "aliases": [],
+      "data": { "mainStory": 6, "mainExtra": 9, "completionist": 16, "allStyles": 9 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Cuphead",
+      "aliases": [],
+      "data": { "mainStory": 10, "mainExtra": 15, "completionist": 23, "allStyles": 15 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Ori and the Blind Forest",
+      "aliases": [],
+      "data": { "mainStory": 8, "mainExtra": 10, "completionist": 12, "allStyles": 9 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Ori and the Will of the Wisps",
+      "aliases": [],
+      "data": { "mainStory": 12, "mainExtra": 16, "completionist": 25, "allStyles": 16 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Factorio",
+      "aliases": [],
+      "data": { "mainStory": 32, "mainExtra": 91, "completionist": 163, "allStyles": 95 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Rimworld",
+      "aliases": [],
+      "data": { "mainStory": null, "mainExtra": null, "completionist": null, "allStyles": 147 },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Satisfactory",
+      "aliases": [],
+      "data": { "mainStory": 55, "mainExtra": 117, "completionist": 282, "allStyles": 126 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Subnautica",
+      "aliases": [],
+      "data": { "mainStory": 29, "mainExtra": 43, "completionist": 56, "allStyles": 42 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "The Forest",
+      "aliases": [],
+      "data": { "mainStory": 13, "mainExtra": 18, "completionist": 40, "allStyles": 21 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Valheim",
+      "aliases": [],
+      "data": { "mainStory": 75, "mainExtra": 139, "completionist": 177, "allStyles": 138 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "No Man's Sky",
+      "aliases": [],
+      "data": { "mainStory": 31, "mainExtra": 91, "completionist": 139, "allStyles": 100 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Among Us",
+      "aliases": [],
+      "data": { "mainStory": null, "mainExtra": null, "completionist": null, "allStyles": null },
+      "confidence": "high"
+    },
+    {
+      "title": "Fall Guys",
+      "aliases": [],
+      "data": { "mainStory": null, "mainExtra": null, "completionist": null, "allStyles": null },
+      "confidence": "high"
+    },
+    {
+      "title": "Vampire Survivors",
+      "aliases": [],
+      "data": { "mainStory": 4, "mainExtra": 14, "completionist": 54, "allStyles": 33 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Enter the Gungeon",
+      "aliases": [],
+      "data": { "mainStory": 16, "mainExtra": 36, "completionist": 86, "allStyles": 48 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Slay the Spire",
+      "aliases": [],
+      "data": { "mainStory": 12, "mainExtra": 42, "completionist": 113, "allStyles": 64 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Darkest Dungeon",
+      "aliases": [],
+      "data": { "mainStory": 55, "mainExtra": 80, "completionist": 105, "allStyles": 77 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Monster Hunter: World",
+      "aliases": ["mhw"],
+      "data": { "mainStory": 48, "mainExtra": 111, "completionist": 403, "allStyles": 174 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Monster Hunter Rise",
+      "aliases": ["mhr"],
+      "data": { "mainStory": 20, "mainExtra": 48, "completionist": 143, "allStyles": 83 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Persona 5 Royal",
+      "aliases": ["p5r"],
+      "data": { "mainStory": 101, "mainExtra": 123, "completionist": 143, "allStyles": 120 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "NieR: Automata",
+      "aliases": ["nier automata"],
+      "data": { "mainStory": 21, "mainExtra": 39, "completionist": 62, "allStyles": 40 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Yakuza 0",
+      "aliases": [],
+      "data": { "mainStory": 31, "mainExtra": 62, "completionist": 141, "allStyles": 71 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Final Fantasy XIV Online",
+      "aliases": ["ffxiv", "ff14"],
+      "data": { "mainStory": 166, "mainExtra": 367, "completionist": null, "allStyles": 1216 },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "The Talos Principle",
+      "aliases": [],
+      "data": { "mainStory": 12, "mainExtra": 20, "completionist": 29, "allStyles": 19 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "The Witness",
+      "aliases": [],
+      "data": { "mainStory": 10, "mainExtra": 19, "completionist": 30, "allStyles": 20 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Braid",
+      "aliases": [],
+      "data": { "mainStory": 4, "mainExtra": 6, "completionist": 10, "allStyles": 6 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Limbo",
+      "aliases": [],
+      "data": { "mainStory": 3, "mainExtra": 4, "completionist": 9, "allStyles": 5 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Inside",
+      "aliases": [],
+      "data": { "mainStory": 3, "mainExtra": 5, "completionist": 11, "allStyles": 6 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Little Nightmares",
+      "aliases": [],
+      "data": { "mainStory": 4, "mainExtra": 5, "completionist": 12, "allStyles": 6 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Little Nightmares II",
+      "aliases": ["little nightmares 2"],
+      "data": { "mainStory": 5, "mainExtra": 7, "completionist": 12, "allStyles": 7 },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Ghost of Tsushima",
+      "aliases": [],
+      "data": {
+        "mainStory": 25,
+        "mainExtra": 46,
+        "completionist": 63,
+        "allStyles": 51
+      },
+      "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Resident Evil 7: Biohazard",
+      "aliases": [
+        "re7"
+      ],
+      "data": {
+        "mainStory": 10,
+        "mainExtra": 12,
+        "completionist": 28,
+        "allStyles": 17
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Resident Evil 2",
+      "aliases": [
+        "re2",
+        "resident evil 2 remake"
+      ],
+      "data": {
+        "mainStory": 8,
+        "mainExtra": 12,
+        "completionist": 20,
+        "allStyles": 11
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Resident Evil 3",
+      "aliases": [
+        "re3",
+        "resident evil 3 remake"
+      ],
+      "data": {
+        "mainStory": 6,
+        "mainExtra": 8,
+        "completionist": 10,
+        "allStyles": 7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Final Fantasy VII Remake",
+      "aliases": [
+        "ff7 remake",
+        "ffvii remake"
+      ],
+      "data": {
+        "mainStory": 35,
+        "mainExtra": 55,
+        "completionist": 90,
+        "allStyles": 45
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Final Fantasy X/X-2 HD Remaster",
+      "aliases": [
+        "ffx",
+        "ffx-2"
+      ],
+      "data": {
+        "mainStory": 40,
+        "mainExtra": 60,
+        "completionist": 100,
+        "allStyles": 55
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Persona 4 Golden",
+      "aliases": [
+        "p4g"
+      ],
+      "data": {
+        "mainStory": 68,
+        "mainExtra": 84,
+        "completionist": 140,
+        "allStyles": 80
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Yakuza: Like a Dragon",
+      "aliases": [
+        "yakuza 7",
+        "like a dragon"
+      ],
+      "data": {
+        "mainStory": 45,
+        "mainExtra": 64,
+        "completionist": 110,
+        "allStyles": 54
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Dragon Quest XI S: Echoes of an Elusive Age",
+      "aliases": [
+        "dq11",
+        "dragon quest 11"
+      ],
+      "data": {
+        "mainStory": 57,
+        "mainExtra": 87,
+        "completionist": 127,
+        "allStyles": 77
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Nioh: Complete Edition",
+      "aliases": [
+        "nioh"
+      ],
+      "data": {
+        "mainStory": 35,
+        "mainExtra": 65,
+        "completionist": 98,
+        "allStyles": 56
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Nioh 2: Complete Edition",
+      "aliases": [
+        "nioh 2"
+      ],
+      "data": {
+        "mainStory": 35,
+        "mainExtra": 65,
+        "completionist": 98,
+        "allStyles": 56
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Outer Wilds",
+      "aliases": [],
+      "data": {
+        "mainStory": 16,
+        "mainExtra": 25,
+        "completionist": 32,
+        "allStyles": 22
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "The Outer Worlds",
+      "aliases": [],
+      "data": {
+        "mainStory": 14,
+        "mainExtra": 27,
+        "completionist": 43,
+        "allStyles": 22
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Deathloop",
+      "aliases": [],
+      "data": {
+        "mainStory": 14,
+        "mainExtra": 20,
+        "completionist": 30,
+        "allStyles": 20
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bloodstained: Ritual of the Night",
+      "aliases": [
+        "bloodstained"
+      ],
+      "data": {
+        "mainStory": 14,
+        "mainExtra": 25,
+        "completionist": 35,
+        "allStyles": 20
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Starfield",
+      "aliases": [],
+      "data": {
+        "mainStory": 20,
+        "mainExtra": 60,
+        "completionist": 110,
+        "allStyles": 45
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Fallout: New Vegas",
+      "aliases": [
+        "new vegas"
+      ],
+      "data": {
+        "mainStory": 27,
+        "mainExtra": 50,
+        "completionist": 130,
+        "allStyles": 40
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Fallout 3",
+      "aliases": [
+        "fallout 3 goty"
+      ],
+      "data": {
+        "mainStory": 23,
+        "mainExtra": 45,
+        "completionist": 100,
+        "allStyles": 35
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "The Elder Scrolls IV: Oblivion",
+      "aliases": [
+        "oblivion"
+      ],
+      "data": {
+        "mainStory": 27,
+        "mainExtra": 80,
+        "completionist": 160,
+        "allStyles": 60
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "The Witcher 2: Assassins of Kings",
+      "aliases": [
+        "witcher 2"
+      ],
+      "data": {
+        "mainStory": 24,
+        "mainExtra": 32,
+        "completionist": 48,
+        "allStyles": 30
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Pillars of Eternity",
+      "aliases": [],
+      "data": {
+        "mainStory": 30,
+        "mainExtra": 50,
+        "completionist": 110,
+        "allStyles": 45
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Tyranny",
+      "aliases": [],
+      "data": {
+        "mainStory": 22,
+        "mainExtra": 30,
+        "completionist": 40,
+        "allStyles": 28
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Divinity: Original Sin - Enhanced Edition",
+      "aliases": [
+        "dos1"
+      ],
+      "data": {
+        "mainStory": 45,
+        "mainExtra": 60,
+        "completionist": 90,
+        "allStyles": 56
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Final Fantasy XII The Zodiac Age",
+      "aliases": [
+        "ff12",
+        "ffxii"
+      ],
+      "data": {
+        "mainStory": 40,
+        "mainExtra": 75,
+        "completionist": 120,
+        "allStyles": 70
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Kingdom Come: Deliverance",
+      "aliases": [],
+      "data": {
+        "mainStory": 27,
+        "mainExtra": 53,
+        "completionist": 85,
+        "allStyles": 40
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Ghostrunner",
+      "aliases": [],
+      "data": {
+        "mainStory": 7,
+        "mainExtra": 9,
+        "completionist": 12,
+        "allStyles": 8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Returnal",
+      "aliases": [],
+      "data": {
+        "mainStory": 15,
+        "mainExtra": 25,
+        "completionist": 50,
+        "allStyles": 28
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Atomic Heart",
+      "aliases": [],
+      "data": {
+        "mainStory": 15,
+        "mainExtra": 20,
+        "completionist": 30,
+        "allStyles": 20
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Lies of P",
+      "aliases": [],
+      "data": {
+        "mainStory": 16,
+        "mainExtra": 22,
+        "completionist": 40,
+        "allStyles": 22
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Nier Replicant ver.1.22474487139...",
+      "aliases": [
+        "nier replicant"
+      ],
+      "data": {
+        "mainStory": 19,
+        "mainExtra": 35,
+        "completionist": 55,
+        "allStyles": 29
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Hi-Fi RUSH",
+      "aliases": [],
+      "data": {
+        "mainStory": 8,
+        "mainExtra": 10,
+        "completionist": 12,
+        "allStyles": 9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Sifu",
+      "aliases": [],
+      "data": {
+        "mainStory": 6,
+        "mainExtra": 9,
+        "completionist": 15,
+        "allStyles": 8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Tunic",
+      "aliases": [],
+      "data": {
+        "mainStory": 12,
+        "mainExtra": 18,
+        "completionist": 25,
+        "allStyles": 17
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Remnant: From the Ashes",
+      "aliases": [
+        "remnant"
+      ],
+      "data": {
+        "mainStory": 13,
+        "mainExtra": 20,
+        "completionist": 50,
+        "allStyles": 25
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Remnant II",
+      "aliases": [
+        "remnant 2"
+      ],
+      "data": {
+        "mainStory": 13,
+        "mainExtra": 20,
+        "completionist": 50,
+        "allStyles": 25
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "BioShock 2",
+      "aliases": [
+        "bioshock 2"
+      ],
+      "data": {
+        "mainStory": 11,
+        "mainExtra": 12,
+        "completionist": 16,
+        "allStyles": 12
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "XCOM 2",
+      "aliases": [],
+      "data": {
+        "mainStory": 20,
+        "mainExtra": 50,
+        "completionist": 100,
+        "allStyles": 45
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Age of Empires IV",
+      "aliases": [
+        "aoe4"
+      ],
+      "data": {
+        "mainStory": 20,
+        "mainExtra": 40,
+        "completionist": 100,
+        "allStyles": 55
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "System Shock",
+      "aliases": [],
+      "data": {
+        "mainStory": 15,
+        "mainExtra": 20,
+        "completionist": 25,
+        "allStyles": 18
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Baldur's Gate: Enhanced Edition",
+      "aliases": [
+        "bgee"
+      ],
+      "data": {
+        "mainStory": 30,
+        "mainExtra": 40,
+        "completionist": 60,
+        "allStyles": 40
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Overwatch 2",
+      "aliases": [
+        "ow2",
+        "overwatch two"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Path of Exile",
+      "aliases": [
+        "poe"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Tom Clancy's Rainbow Six Siege",
+      "aliases": [
+        "rainbow six siege",
+        "r6s"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Call of Duty: Warzone",
+      "aliases": [
+        "warzone"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Paladins",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "For Honor",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Sea of Thieves",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "EVE Online",
+      "aliases": [
+        "eve"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "RuneScape",
+      "aliases": [
+        "runescape 3"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "War Thunder",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Dota Underlords",
+      "aliases": [
+        "underlords"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Smite",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Palworld",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Helldivers 2",
+      "aliases": [
+        "helldivers ii"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Phasmophobia",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "DayZ",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Dead by Daylight",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "World of Tanks Blitz",
+      "aliases": [
+        "wot blitz"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Warhammer 40,000: Darktide",
+      "aliases": [
+        "darktide"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Payday 2",
+      "aliases": [
+        "pd2"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Payday 3",
+      "aliases": [
+        "pd3"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Deep Rock Galactic",
+      "aliases": [
+        "drg"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Lost Ark",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "V Rising",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Temtem",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "New World",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "ARK: Survival Ascended",
+      "aliases": [
+        "ark ascended"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Sons of the Forest",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Ready or Not",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Monster Hunter Stories 2: Wings of Ruin",
+      "aliases": [
+        "monster hunter stories 2"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Warhammer: Vermintide 2",
+      "aliases": [
+        "vermintide 2",
+        "tide 2"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Warhammer 40,000: Inquisitor \u2013 Martyr",
+      "aliases": [
+        "inquisitor martyr"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Squad",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Hunt: Showdown",
+      "aliases": [
+        "hunt showdown"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Battlefield 2042",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Team Fortress Classic",
+      "aliases": [
+        "tfc"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Counter-Strike: Condition Zero",
+      "aliases": [
+        "cs condition zero",
+        "cs cz"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Counter-Strike: Source",
+      "aliases": [
+        "css"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Halo Infinite",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Warface",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Stumble Guys",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Brawlhalla",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "The Finals",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "SCUM",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Enlisted",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Unturned",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Conqueror's Blade",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "World War 3",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Naraka: Bladepoint",
+      "aliases": [
+        "naraka"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Barotrauma",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Dark and Darker",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "World of Warships",
+      "aliases": [
+        "wows"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Albion Online",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Dread Hunger",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Crab Game",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Golf With Your Friends",
+      "aliases": [
+        "gwyf"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Golf It!",
+      "aliases": [
+        "golf it"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Human: Fall Flat",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "Pummel Party",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    },
+    {
+      "title": "UNO",
+      "aliases": [
+        "uno game"
+      ],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": null
+      },
+      "confidence": "high"
+    }
+  ]
+}

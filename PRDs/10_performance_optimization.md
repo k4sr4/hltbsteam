@@ -22,34 +22,139 @@ Achieve <100ms page load impact, <50MB memory usage, and instant UI responsivene
 - **Battery Life**: Efficient code preserves battery
 - **Scalability**: Optimized code handles growth
 
+## What Changed from Original PRD
+**Original Approach (Abandoned)**:
+- ❌ Network request optimization
+- ❌ API retry and timeout tuning
+- ❌ Rate limiting optimization
+- ❌ Response caching strategies
+
+**New Approach (Current)**:
+- ✅ JSON database loading optimization (<100ms)
+- ✅ Fuzzy matching algorithm optimization (<15ms)
+- ✅ In-memory Map for O(1) lookups
+- ✅ DOM injection batching
+- ✅ Bundle size with 500+ games (<500KB target)
+- ✅ Memory usage with large database (<50MB)
+
 ## What
 Performance optimization covering:
-- Bundle size reduction
-- Lazy loading
-- Code splitting
-- Memory management
+- Bundle size reduction (JSON database compression)
+- Database loading optimization
+- Fuzzy matching algorithm efficiency
+- Memory management (500+ games)
 - DOM operation batching
 - Debouncing/throttling
-- Web Worker usage
-- Caching strategies
-- Network optimization
+- In-memory Map optimization
+- Match result caching
 - Rendering performance
+- Lazy loading of components
 
 ### Success Criteria
-- [ ] Page load impact < 100ms
-- [ ] Memory usage < 50MB
-- [ ] Bundle size < 500KB
-- [ ] First paint < 50ms
+- [ ] Database load time < 100ms
+- [ ] Memory usage < 50MB (with 500+ games)
+- [ ] Bundle size < 500KB (including JSON database)
+- [ ] Fuzzy matching < 15ms per lookup
+- [ ] Direct match lookup < 1ms (Map)
+- [ ] DOM injection < 50ms
 - [ ] No memory leaks
 - [ ] 60 FPS animations
-- [ ] Cache hit rate > 80%
-- [ ] Network requests minimized
 - [ ] CPU usage < 5%
 - [ ] Battery impact minimal
 
 ## Implementation Blueprint
 
-### Task 1: Bundle Optimization
+### Task 1: Database Loading Optimization
+```typescript
+// src/background/services/hltb-fallback.ts
+export class HLTBFallbackService {
+  private localDatabase: Map<string, FallbackGameEntry> = new Map();
+  private aliasMap: Map<string, string> = new Map();
+  private loadStartTime: number = 0;
+
+  async initialize() {
+    this.loadStartTime = performance.now();
+    console.log('[HLTB Fallback] Initializing database...');
+
+    // Import JSON database (webpack bundles this)
+    const fallbackData = await import('./fallback-data.json');
+
+    // Build in-memory Map for O(1) lookups
+    this.initializeLocalDatabase(fallbackData.games);
+
+    const loadTime = performance.now() - this.loadStartTime;
+    console.log(`[HLTB Fallback] Database loaded in ${loadTime.toFixed(2)}ms`);
+    console.log(`[HLTB Fallback] ${this.localDatabase.size} games indexed`);
+    console.log(`[HLTB Fallback] ${this.aliasMap.size} aliases mapped`);
+
+    // Validate load time meets target
+    if (loadTime > 100) {
+      console.warn(`[HLTB Fallback] Database load time exceeded target: ${loadTime.toFixed(2)}ms > 100ms`);
+    }
+  }
+
+  private initializeLocalDatabase(games: any[]) {
+    // Build primary Map
+    for (const game of games) {
+      const normalizedTitle = this.normalizeTitle(game.title);
+      this.localDatabase.set(normalizedTitle, game as FallbackGameEntry);
+
+      // Build alias map for O(1) alias lookups
+      if (game.aliases && Array.isArray(game.aliases)) {
+        for (const alias of game.aliases) {
+          const normalizedAlias = this.normalizeTitle(alias);
+          this.aliasMap.set(normalizedAlias, normalizedTitle);
+        }
+      }
+    }
+  }
+
+  // Fast direct lookup: O(1)
+  private getDirectMatch(title: string): FallbackGameEntry | null {
+    const normalized = this.normalizeTitle(title);
+    return this.localDatabase.get(normalized) || null;
+  }
+
+  // Fast alias lookup: O(1)
+  private getAliasMatch(title: string): FallbackGameEntry | null {
+    const normalized = this.normalizeTitle(title);
+    const mainTitle = this.aliasMap.get(normalized);
+    if (mainTitle) {
+      return this.localDatabase.get(mainTitle) || null;
+    }
+    return null;
+  }
+
+  // Optimized fuzzy matching: only runs if direct/alias fail
+  private getFuzzyMatch(title: string): FallbackGameEntry | null {
+    const startTime = performance.now();
+    const normalized = this.normalizeTitle(title);
+    const words = normalized.split(' ');
+
+    let bestMatch: { entry: FallbackGameEntry; score: number } | null = null;
+
+    // Only iterate if necessary
+    for (const [dbTitle, entry] of this.localDatabase.entries()) {
+      const dbWords = dbTitle.split(' ');
+      const matchingWords = words.filter(word => dbWords.includes(word));
+      const score = (matchingWords.length / Math.max(words.length, dbWords.length)) * 100;
+
+      if (score > 50 && (!bestMatch || score > bestMatch.score)) {
+        bestMatch = { entry, score };
+      }
+    }
+
+    const duration = performance.now() - startTime;
+    if (duration > 15) {
+      console.warn(`[HLTB Fallback] Fuzzy match took ${duration.toFixed(2)}ms (target: <15ms)`);
+    }
+
+    return bestMatch && bestMatch.score > 50 ? bestMatch.entry : null;
+  }
+}
+```
+
+### Task 2: Bundle Optimization
 ```javascript
 // webpack.config.prod.js
 const TerserPlugin = require('terser-webpack-plugin');

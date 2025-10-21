@@ -231,7 +231,7 @@ export class RetryManager {
 
 // Main HLTB API Client
 export class HLTBApiClient {
-  private readonly API_ENDPOINT = 'https://howlongtobeat.com/api/search';
+  private readonly API_ENDPOINT = 'https://howlongtobeat.com/api/locate/5d6cf2e5eb308ba8';
   private readonly retryManager: RetryManager;
   private rateLimitReset: Date | null = null;
 
@@ -287,9 +287,9 @@ export class HLTBApiClient {
   }
 
   /**
-   * Build the search request payload
+   * Build the search request payload for new HLTB API format
    */
-  private buildSearchPayload(searchTerm: string): HLTBSearchRequest {
+  private buildSearchPayload(searchTerm: string): any {
     return {
       searchType: 'games',
       searchTerms: searchTerm.split(' ').filter(term => term.length > 0),
@@ -300,25 +300,19 @@ export class HLTBApiClient {
           userId: 0,
           platform: '',
           sortCategory: 'popular',
-          rangeCategory: 'main',
-          rangeTime: {
-            min: 0,
-            max: 0
-          },
-          gameplay: {
-            perspective: '',
-            flow: '',
-            genre: ''
-          },
-          modifier: ''
+          rangeCategory: 'main'
         },
         users: {
           sortCategory: 'postcount'
         },
+        lists: {
+          sortCategory: 'follows'
+        },
         filter: '',
         sort: 0,
         randomizer: 0
-      }
+      },
+      useCache: true
     };
   }
 
@@ -458,44 +452,27 @@ export class HLTBApiClient {
   }
 
   /**
-   * Parse time values from minutes to hours
-   * Handles various formats including fractions and ranges
+   * Parse time values from seconds to hours
+   * HLTB API returns times in SECONDS
    */
-  private parseTimeValue(minutes: number | string | undefined | null): number | null {
-    if (minutes === undefined || minutes === null || minutes === 0) {
+  private parseTimeValue(seconds: number | string | undefined | null): number | null {
+    if (seconds === undefined || seconds === null || seconds === 0) {
       return null;
     }
 
     let value: number;
 
-    if (typeof minutes === 'string') {
-      // Handle fractional hours (e.g., "1½", "2.5")
-      const cleaned = minutes.toString().replace(/[^\d.½¼¾]/g, '');
-
-      // Convert special fractions
-      const fractionMap: { [key: string]: number } = {
-        '½': 0.5,
-        '¼': 0.25,
-        '¾': 0.75
-      };
-
-      let numericValue = cleaned;
-      Object.keys(fractionMap).forEach(fraction => {
-        numericValue = numericValue.replace(fraction, fractionMap[fraction].toString());
-      });
-
-      value = parseFloat(numericValue);
-
-      // If parsing failed, return null
+    if (typeof seconds === 'string') {
+      value = parseFloat(seconds);
       if (isNaN(value)) {
         return null;
       }
     } else {
-      value = Number(minutes);
+      value = Number(seconds);
     }
 
-    // Convert minutes to hours and round
-    const hours = value / 60;
+    // Convert seconds to hours
+    const hours = value / 3600;
 
     // Round to 1 decimal place for values under 10 hours, otherwise round to nearest integer
     if (hours < 10) {

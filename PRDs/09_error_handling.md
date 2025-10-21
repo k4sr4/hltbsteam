@@ -22,6 +22,21 @@ Create a resilient error handling system that catches all failures, provides cle
 - **Resilience**: Extension continues working despite failures
 - **Support**: Clear errors reduce support burden
 
+## What Changed from Original PRD
+**Original Approach (Abandoned)**:
+- ❌ NetworkError class and retry logic
+- ❌ RateLimitError and exponential backoff
+- ❌ API failure recovery mechanisms
+- ❌ Network timeout handling
+
+**New Approach (Current)**:
+- ✅ DatabaseLoadError (JSON loading/parsing failures)
+- ✅ GameNotFoundError (game not in database)
+- ✅ LowConfidenceMatchError (fuzzy match below threshold)
+- ✅ SteamPageDetectionError (can't find game title)
+- ✅ DOMInjectionError (can't inject UI component)
+- ✅ Simpler error handling (no network concerns)
+
 ## What
 Error handling system providing:
 - Global error boundaries
@@ -64,24 +79,57 @@ export class HLTBError extends Error {
   }
 }
 
-export class NetworkError extends HLTBError {
-  constructor(message: string, public status?: number) {
+export class DatabaseLoadError extends HLTBError {
+  constructor(message: string) {
     super(
       message,
-      'NETWORK_ERROR',
-      true,
-      'Unable to fetch data. Please check your connection.'
+      'DATABASE_LOAD_ERROR',
+      false,
+      'Failed to load HLTB database. Extension may not work properly.'
     );
   }
 }
 
-export class RateLimitError extends HLTBError {
-  constructor(public retryAfter: number) {
+export class GameNotFoundError extends HLTBError {
+  constructor(public gameTitle: string) {
     super(
-      `Rate limited. Retry after ${retryAfter}ms`,
-      'RATE_LIMIT',
+      `Game not found in database: ${gameTitle}`,
+      'GAME_NOT_FOUND',
       true,
-      'Too many requests. Please wait a moment.'
+      `No completion time data available for "${gameTitle}". Help us expand the database!`
+    );
+  }
+}
+
+export class LowConfidenceMatchError extends HLTBError {
+  constructor(public gameTitle: string, public confidence: number) {
+    super(
+      `Low confidence match for ${gameTitle}: ${confidence}%`,
+      'LOW_CONFIDENCE',
+      true,
+      `Fuzzy match found but confidence is low. Results may not be accurate.`
+    );
+  }
+}
+
+export class SteamPageDetectionError extends HLTBError {
+  constructor(message: string) {
+    super(
+      message,
+      'PAGE_DETECTION_ERROR',
+      true,
+      'Unable to detect game information on this Steam page.'
+    );
+  }
+}
+
+export class DOMInjectionError extends HLTBError {
+  constructor(message: string) {
+    super(
+      message,
+      'DOM_INJECTION_ERROR',
+      true,
+      'Unable to display HLTB data on this page.'
     );
   }
 }
@@ -97,24 +145,13 @@ export class StorageError extends HLTBError {
   }
 }
 
-export class ParseError extends HLTBError {
-  constructor(message: string) {
-    super(
-      message,
-      'PARSE_ERROR',
-      false,
-      'Unable to process game data.'
-    );
-  }
-}
-
 export class ValidationError extends HLTBError {
   constructor(message: string) {
     super(
       message,
       'VALIDATION_ERROR',
       false,
-      'Invalid data received.'
+      'Invalid data detected.'
     );
   }
 }
@@ -198,10 +235,12 @@ export class ErrorHandler {
     }
   }
 
-  private handleNetworkError(error: Error) {
-    console.log('[HLTB] Network error, will retry with exponential backoff');
-    // Trigger retry mechanism
-    this.scheduleRetry();
+  private handleDatabaseError(error: Error) {
+    console.error('[HLTB] Database loading error - extension may not function');
+    this.showUserNotification(
+      'Failed to load HLTB database. Please reinstall the extension.',
+      'error'
+    );
   }
 
   private handleUnknownError(error: Error) {
@@ -214,23 +253,44 @@ export class ErrorHandler {
 
   private attemptRecovery(error: HLTBError) {
     switch (error.code) {
-      case 'RATE_LIMIT':
-        // Wait and retry
-        setTimeout(() => {
-          console.log('[HLTB] Retrying after rate limit');
-        }, (error as RateLimitError).retryAfter);
+      case 'GAME_NOT_FOUND':
+        // Log for database expansion
+        this.logMissingGame((error as GameNotFoundError).gameTitle);
+        break;
+
+      case 'PAGE_DETECTION_ERROR':
+        // Try alternative detection strategies
+        console.log('[HLTB] Trying fallback page detection');
+        break;
+
+      case 'DOM_INJECTION_ERROR':
+        // Try alternative injection points
+        console.log('[HLTB] Trying alternative injection point');
         break;
 
       case 'STORAGE_ERROR':
-        // Clear cache and retry
+        // Clear corrupted cache
         this.clearCorruptedCache();
         break;
 
-      case 'NETWORK_ERROR':
-        // Use cached data if available
-        this.fallbackToCache();
+      case 'LOW_CONFIDENCE':
+        // Log for review
+        const lcError = error as LowConfidenceMatchError;
+        console.warn(`[HLTB] Low confidence match: ${lcError.gameTitle} (${lcError.confidence}%)`);
         break;
     }
+  }
+
+  private logMissingGame(gameTitle: string) {
+    // Track missing games for database expansion
+    chrome.storage.local.get('missing_games', (result) => {
+      const missingGames = result.missing_games || [];
+      if (!missingGames.includes(gameTitle)) {
+        missingGames.push(gameTitle);
+        chrome.storage.local.set({ missing_games: missingGames });
+        console.log(`[HLTB] Logged missing game: ${gameTitle}`);
+      }
+    });
   }
 
   private logError(error: Error, context: any) {
@@ -285,37 +345,10 @@ export class ErrorHandler {
     });
   }
 
-  private scheduleRetry() {
-    // Implement exponential backoff
-    let retryCount = 0;
-    const maxRetries = 3;
-
-    const retry = () => {
-      if (retryCount >= maxRetries) {
-        console.error('[HLTB] Max retries reached');
-        return;
-      }
-
-      const delay = Math.pow(2, retryCount) * 1000;
-      setTimeout(() => {
-        retryCount++;
-        console.log(`[HLTB] Retry attempt ${retryCount}`);
-        // Trigger retry logic
-      }, delay);
-    };
-
-    retry();
-  }
-
   private clearCorruptedCache() {
-    chrome.storage.local.remove(['cache'], () => {
+    chrome.storage.local.remove(['match_cache'], () => {
       console.log('[HLTB] Corrupted cache cleared');
     });
-  }
-
-  private fallbackToCache() {
-    console.log('[HLTB] Falling back to cached data');
-    // Implement cache fallback logic
   }
 
   getErrorLog(): ErrorLogEntry[] {

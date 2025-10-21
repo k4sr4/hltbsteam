@@ -22,6 +22,14 @@ Create a beautiful, non-intrusive UI component that displays HLTB data on Steam 
 - **Accessibility**: Support screen readers and keyboard navigation
 - **Performance**: Minimal impact on page rendering
 
+## What Changed from Original PRD
+**No Major Changes** - UI injection is independent of data source:
+- ✅ Same UI component design
+- ✅ Same injection strategy
+- ✅ Same Steam page detection
+- ℹ️ Data now comes from local JSON database instead of API
+- ℹ️ "No data available" message for games not in database
+
 ## What
 UI injection system providing:
 - Responsive component design

@@ -29,6 +29,9 @@ export class MessageHandler {
       case 'healthCheck':
         return this.handleHealthCheck();
 
+      case 'getDatabaseInfo':
+        return this.handleGetDatabaseInfo();
+
       default:
         throw new Error(`Unknown action: ${request.action}`);
     }
@@ -123,6 +126,25 @@ export class MessageHandler {
       return { success: true, data: health };
     } catch (error) {
       console.error('[HLTB] Error checking health:', error);
+      return { success: false, error: (error as Error).message };
+    }
+  }
+
+  private async handleGetDatabaseInfo() {
+    try {
+      // Import fallback data to get database info
+      const fallbackData = await import('./services/fallback-data.json');
+
+      return {
+        success: true,
+        data: {
+          version: fallbackData.version || '1.0.0',
+          gameCount: fallbackData.games?.length || 0,
+          lastUpdated: fallbackData.lastUpdated || new Date().toISOString()
+        }
+      };
+    } catch (error) {
+      console.error('[HLTB] Error getting database info:', error);
       return { success: false, error: (error as Error).message };
     }
   }

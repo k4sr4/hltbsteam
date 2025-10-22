@@ -8,7 +8,7 @@ module.exports = (env, argv) => {
     entry: {
       background: './src/background/service-worker.ts',
       content: './src/content/content-script-hybrid.ts',  // Hybrid: TypeScript + simple DOM
-      popup: './popup.js'
+      popup: './popup.ts'  // TypeScript popup controller
     },
     output: {
       path: path.resolve(__dirname, 'dist'),

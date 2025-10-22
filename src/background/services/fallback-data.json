@@ -11334,10 +11334,82 @@
       "title": "Black Mesa",
       "aliases": [],
       "data": {
-        "mainStory": 12,
-        "mainExtra": 21,
-        "completionist": 41,
-        "allStyles": 25
+        "mainStory": 15.2,
+        "mainExtra": 18.4,
+        "completionist": 26.5,
+        "allStyles": 16.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Black Mirror II",
+      "aliases": [],
+      "data": {
+        "mainStory": 14.7,
+        "mainExtra": 14.9,
+        "completionist": 17.3,
+        "allStyles": 15.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Black Mirror III: The Final Fear",
+      "aliases": [],
+      "data": {
+        "mainStory": 13.2,
+        "mainExtra": 15.1,
+        "completionist": 15.3,
+        "allStyles": 14.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Black Rock Shooter: The Game",
+      "aliases": [],
+      "data": {
+        "mainStory": 10.1,
+        "mainExtra": 14.6,
+        "completionist": 23.0,
+        "allStyles": 11.6
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Black Sigil: Blade of the Exiled",
+      "aliases": [],
+      "data": {
+        "mainStory": 27.5,
+        "mainExtra": 29.7,
+        "completionist": 51.4,
+        "allStyles": 41.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blacklight: Retribution",
+      "aliases": [],
+      "data": {
+        "mainStory": 15.9,
+        "mainExtra": 22.5,
+        "completionist": 60.0,
+        "allStyles": 27.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blacklight: Tango Down",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.4,
+        "mainExtra": 2.5,
+        "completionist": null,
+        "allStyles": 2.5
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
@@ -11355,6 +11427,66 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "BlackSite: Area 51",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.6,
+        "mainExtra": 5.9,
+        "completionist": 6.7,
+        "allStyles": 5.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "BlackStone: Magic & Steel",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.6,
+        "mainExtra": 9.9,
+        "completionist": null,
+        "allStyles": 7.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blackthorne",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.6,
+        "mainExtra": 7.8,
+        "completionist": 9.8,
+        "allStyles": 7.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blackwater",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.0,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 2.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blackwell Unbound",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.5,
+        "mainExtra": 2.8,
+        "completionist": 4.7,
+        "allStyles": 2.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
       "title": "Blade and Sorcery",
       "aliases": [],
       "data": {
@@ -11367,6 +11499,54 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Blade Dancer: Lineage of Light",
+      "aliases": [],
+      "data": {
+        "mainStory": 28.2,
+        "mainExtra": 28.4,
+        "completionist": 28.5,
+        "allStyles": 28.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blade Kitten",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.0,
+        "mainExtra": 8.1,
+        "completionist": 11.7,
+        "allStyles": 6.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blade Runner",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.3,
+        "mainExtra": 10.7,
+        "completionist": 22.2,
+        "allStyles": 9.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blade: The Edge of Darkness",
+      "aliases": [],
+      "data": {
+        "mainStory": 16.5,
+        "mainExtra": 21.2,
+        "completionist": 23.6,
+        "allStyles": 20.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
       "title": "Bladed Fury",
       "aliases": [],
       "data": {
@@ -11374,6 +11554,102 @@
         "mainExtra": 26,
         "completionist": 48,
         "allStyles": 26
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blades of Steel",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.5,
+        "mainExtra": null,
+        "completionist": 1.8,
+        "allStyles": 1.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blades of Time",
+      "aliases": [],
+      "data": {
+        "mainStory": 9.1,
+        "mainExtra": 10.3,
+        "completionist": 15.3,
+        "allStyles": 10.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bladestorm: The Hundred Years' War",
+      "aliases": [],
+      "data": {
+        "mainStory": 30.5,
+        "mainExtra": 51.2,
+        "completionist": 94.8,
+        "allStyles": 55.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blair Witch Volume 1: Rustin Parr",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.7,
+        "mainExtra": null,
+        "completionist": 7.0,
+        "allStyles": 6.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blair Witch Volume 2: The Legend of Coffin Rock",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.2,
+        "mainExtra": null,
+        "completionist": 3.4,
+        "allStyles": 3.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blair Witch Volume 3: The Elly Kedward Tale",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.2,
+        "mainExtra": null,
+        "completionist": 3.5,
+        "allStyles": 2.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blake Stone: Aliens of Gold",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.5,
+        "mainExtra": 9.8,
+        "completionist": 11.9,
+        "allStyles": 8.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blake Stone: Planet Strike",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.0,
+        "mainExtra": 6.3,
+        "completionist": 8.9,
+        "allStyles": 6.2
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
@@ -11403,6 +11679,90 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Blast Chamber",
+      "aliases": [],
+      "data": {
+        "mainStory": 9.2,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 9.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blast Corps",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.6,
+        "mainExtra": 9.9,
+        "completionist": 18.2,
+        "allStyles": 10.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blaster Master",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.1,
+        "mainExtra": 5.3,
+        "completionist": 6.1,
+        "allStyles": 4.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blaster Master 2",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.9,
+        "mainExtra": null,
+        "completionist": 7.2,
+        "allStyles": 3.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blaster Master: Blasting Again",
+      "aliases": [],
+      "data": {
+        "mainStory": 10.3,
+        "mainExtra": null,
+        "completionist": 12.5,
+        "allStyles": 11.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blaster Master: Enemy Below",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.8,
+        "mainExtra": 8.0,
+        "completionist": 8.1,
+        "allStyles": 6.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blasto",
+      "aliases": [],
+      "data": {
+        "mainStory": 9.0,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 9.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
       "title": "BlazBlue Cross Tag Battle",
       "aliases": [],
       "data": {
@@ -11415,6 +11775,258 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "BlazBlue: Calamity Trigger",
+      "aliases": [],
+      "data": {
+        "mainStory": 10.2,
+        "mainExtra": 19.9,
+        "completionist": 35.5,
+        "allStyles": 13.6
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "BlazBlue: Continuum Shift",
+      "aliases": [],
+      "data": {
+        "mainStory": 17.0,
+        "mainExtra": 23.7,
+        "completionist": 42.9,
+        "allStyles": 23.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "BlazBlue: Continuum Shift Extend",
+      "aliases": [],
+      "data": {
+        "mainStory": 9.5,
+        "mainExtra": 26.6,
+        "completionist": 38.2,
+        "allStyles": 16.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blaze & Blade: Eternal Quest",
+      "aliases": [],
+      "data": {
+        "mainStory": 25.8,
+        "mainExtra": 31.7,
+        "completionist": null,
+        "allStyles": 29.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blazing Angels 2: Secret Missions of WWII",
+      "aliases": [],
+      "data": {
+        "mainStory": 9.8,
+        "mainExtra": 16.0,
+        "completionist": null,
+        "allStyles": 10.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blazing Angels: Squadrons of WWII",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.6,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 7.6
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blazing Dragons",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.7,
+        "mainExtra": 5.8,
+        "completionist": 5.1,
+        "allStyles": 5.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blazing Heroes",
+      "aliases": [],
+      "data": {
+        "mainStory": 20.2,
+        "mainExtra": 20.9,
+        "completionist": 24.5,
+        "allStyles": 20.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blazing Lazers",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.7,
+        "mainExtra": 3.5,
+        "completionist": 6.3,
+        "allStyles": 2.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blazing Star",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.8,
+        "mainExtra": 0.8,
+        "completionist": 1.0,
+        "allStyles": 0.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bleach: Dark Souls",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.4,
+        "mainExtra": 10.1,
+        "completionist": 11.0,
+        "allStyles": 10.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bleach: Heat the Soul",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.0,
+        "mainExtra": 3.6,
+        "completionist": 7.2,
+        "allStyles": 3.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bleach: Heat the Soul 5",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.0,
+        "mainExtra": 4.0,
+        "completionist": null,
+        "allStyles": 3.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bleach: Shattered Blade",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.2,
+        "mainExtra": 3.5,
+        "completionist": 7.2,
+        "allStyles": 4.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bleach: Soul Carnival",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.3,
+        "mainExtra": 9.9,
+        "completionist": null,
+        "allStyles": 8.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bleach: Soul Resurrección",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.2,
+        "mainExtra": 20.1,
+        "completionist": 137.0,
+        "allStyles": 12.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bleach: The 3rd Phantom",
+      "aliases": [],
+      "data": {
+        "mainStory": 48.3,
+        "mainExtra": 49.2,
+        "completionist": 57.3,
+        "allStyles": 50.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bleach: The Blade of Fate",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.1,
+        "mainExtra": 12.1,
+        "completionist": 28.7,
+        "allStyles": 8.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bleach: Versus Crusade",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.0,
+        "mainExtra": null,
+        "completionist": 6.0,
+        "allStyles": 2.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bleed",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.4,
+        "mainExtra": 3.6,
+        "completionist": 12.1,
+        "allStyles": 1.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blender Bros.",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.8,
+        "mainExtra": 2.9,
+        "completionist": 4.1,
+        "allStyles": 2.6
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
       "title": "Blind Fate: Edo no Yami",
       "aliases": [],
       "data": {
@@ -11422,6 +12034,270 @@
         "mainExtra": 31,
         "completionist": 77,
         "allStyles": 43
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blinx: The Time Sweeper",
+      "aliases": [],
+      "data": {
+        "mainStory": 8.0,
+        "mainExtra": 10.3,
+        "completionist": 13.0,
+        "allStyles": 10.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blitz Meet",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": 0.3,
+        "allStyles": 0.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blitz: The League",
+      "aliases": [],
+      "data": {
+        "mainStory": 12.2,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 12.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blitz: The League II",
+      "aliases": [],
+      "data": {
+        "mainStory": 14.0,
+        "mainExtra": 20.2,
+        "completionist": null,
+        "allStyles": 14.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blitzkrieg",
+      "aliases": [],
+      "data": {
+        "mainStory": 23.8,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 23.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Block Buster",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.9,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 0.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blockout",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.8,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 0.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blocks That Matter",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.8,
+        "mainExtra": 9.0,
+        "completionist": 22.4,
+        "allStyles": 11.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blood",
+      "aliases": [],
+      "data": {
+        "mainStory": 9.7,
+        "mainExtra": 11.9,
+        "completionist": 20.5,
+        "allStyles": 11.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blood Bowl",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.1,
+        "mainExtra": 154.9,
+        "completionist": 2642.0,
+        "allStyles": 69.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blood Bowl: Chaos Edition",
+      "aliases": [],
+      "data": {
+        "mainStory": 34.6,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 34.6
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blood II: The Chosen",
+      "aliases": [],
+      "data": {
+        "mainStory": 8.6,
+        "mainExtra": 9.1,
+        "completionist": 11.9,
+        "allStyles": 9.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blood II: The Chosen - The Nightmare Levels",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.0,
+        "mainExtra": 2.0,
+        "completionist": 3.6,
+        "allStyles": 2.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blood Omen 2: Legacy of Kain",
+      "aliases": [],
+      "data": {
+        "mainStory": 13.0,
+        "mainExtra": 14.2,
+        "completionist": 14.4,
+        "allStyles": 14.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blood Omen: Legacy of Kain",
+      "aliases": [],
+      "data": {
+        "mainStory": 12.3,
+        "mainExtra": 15.0,
+        "completionist": 15.7,
+        "allStyles": 13.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blood Wake",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.9,
+        "mainExtra": 8.0,
+        "completionist": 30.0,
+        "allStyles": 9.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blood Will Tell",
+      "aliases": [],
+      "data": {
+        "mainStory": 15.1,
+        "mainExtra": 15.7,
+        "completionist": 18.9,
+        "allStyles": 16.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blood: Plasma Pak",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.6,
+        "mainExtra": 2.7,
+        "completionist": 4.1,
+        "allStyles": 2.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bloodforge",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.5,
+        "mainExtra": null,
+        "completionist": 12.0,
+        "allStyles": 6.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "BloodRayne",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.1,
+        "mainExtra": 8.1,
+        "completionist": 10.3,
+        "allStyles": 7.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "BloodRayne 2",
+      "aliases": [],
+      "data": {
+        "mainStory": 9.0,
+        "mainExtra": 9.9,
+        "completionist": 10.5,
+        "allStyles": 9.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "BloodRayne: Betrayal",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.6,
+        "mainExtra": 7.1,
+        "completionist": 10.4,
+        "allStyles": 5.3
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
@@ -11465,6 +12341,162 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Bloody Good Time",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.4,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 2.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bloody Roar",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.9,
+        "mainExtra": 2.0,
+        "completionist": 3.8,
+        "allStyles": 1.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bloody Roar 2",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.1,
+        "mainExtra": 6.2,
+        "completionist": 23.3,
+        "allStyles": 4.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bloody Roar 3",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.6,
+        "mainExtra": 2.8,
+        "completionist": 12.7,
+        "allStyles": 2.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bloody Roar 4",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.6,
+        "mainExtra": 0.8,
+        "completionist": 5.9,
+        "allStyles": 1.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bloody Roar: Primal Fury",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.8,
+        "mainExtra": 6.7,
+        "completionist": 44.6,
+        "allStyles": 1.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bloody Vampire",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.0,
+        "mainExtra": null,
+        "completionist": 5.1,
+        "allStyles": 4.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "BlowOut",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.3,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 4.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blue Dragon",
+      "aliases": [],
+      "data": {
+        "mainStory": 45.6,
+        "mainExtra": 56.7,
+        "completionist": 98.1,
+        "allStyles": 54.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blue Dragon Plus",
+      "aliases": [],
+      "data": {
+        "mainStory": 14.6,
+        "mainExtra": 17.2,
+        "completionist": null,
+        "allStyles": 15.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blue Dragon: Awakened Shadow",
+      "aliases": [],
+      "data": {
+        "mainStory": 25.3,
+        "mainExtra": 29.4,
+        "completionist": null,
+        "allStyles": 27.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blue Force",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.7,
+        "mainExtra": null,
+        "completionist": 7.8,
+        "allStyles": 5.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blue Lightning",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.5,
+        "mainExtra": null,
+        "completionist": 6.5,
+        "allStyles": 3.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
       "title": "Blue Reflection",
       "aliases": [],
       "data": {
@@ -11472,6 +12504,210 @@
         "mainExtra": 28,
         "completionist": 71,
         "allStyles": 35
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blue Stinger",
+      "aliases": [],
+      "data": {
+        "mainStory": 9.1,
+        "mainExtra": 9.3,
+        "completionist": 10.8,
+        "allStyles": 9.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blue Toad Murder Files: The Mysteries of Little Riddle",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.3,
+        "mainExtra": 7.8,
+        "completionist": 9.4,
+        "allStyles": 7.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blueberry Garden",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.3,
+        "mainExtra": 1.2,
+        "completionist": 1.3,
+        "allStyles": 1.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blues Brothers 2000",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.4,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 3.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Blur",
+      "aliases": [],
+      "data": {
+        "mainStory": 9.8,
+        "mainExtra": 15.0,
+        "completionist": 20.4,
+        "allStyles": 11.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bob Came in Pieces",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.2,
+        "mainExtra": 5.3,
+        "completionist": 8.2,
+        "allStyles": 5.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bode Miller Alpine Skiing",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": 11.0,
+        "completionist": null,
+        "allStyles": 11.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Body Count",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.8,
+        "mainExtra": null,
+        "completionist": 0.8,
+        "allStyles": 0.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Body Harvest",
+      "aliases": [],
+      "data": {
+        "mainStory": 13.9,
+        "mainExtra": null,
+        "completionist": 14.0,
+        "allStyles": 14.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bodycount",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.4,
+        "mainExtra": 6.2,
+        "completionist": 7.1,
+        "allStyles": 5.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Boiling Point: Road to Hell",
+      "aliases": [],
+      "data": {
+        "mainStory": 15.1,
+        "mainExtra": 33.6,
+        "completionist": 50.0,
+        "allStyles": 33.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Boing!",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.8,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 0.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Boktai 2: Solar Boy Django",
+      "aliases": [],
+      "data": {
+        "mainStory": 13.7,
+        "mainExtra": 19.3,
+        "completionist": null,
+        "allStyles": 17.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Boktai 3: Sabata's Counterattack",
+      "aliases": [],
+      "data": {
+        "mainStory": 10.1,
+        "mainExtra": 17.5,
+        "completionist": null,
+        "allStyles": 11.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Boktai: The Sun Is in Your Hand",
+      "aliases": [],
+      "data": {
+        "mainStory": 10.2,
+        "mainExtra": 13.2,
+        "completionist": 17.2,
+        "allStyles": 11.6
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bolt",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.1,
+        "mainExtra": 5.6,
+        "completionist": 8.5,
+        "allStyles": 6.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bombastic",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.6,
+        "mainExtra": 4.4,
+        "completionist": null,
+        "allStyles": 3.0
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
@@ -11489,6 +12725,306 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Bomber Raid",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.8,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 0.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bomberman",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.4,
+        "mainExtra": 2.8,
+        "completionist": 2.9,
+        "allStyles": 2.6
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bomberman '93",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.7,
+        "mainExtra": 3.0,
+        "completionist": 6.0,
+        "allStyles": 2.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bomberman 64",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.7,
+        "mainExtra": 9.1,
+        "completionist": 23.5,
+        "allStyles": 5.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bomberman 64: The Second Attack",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.0,
+        "mainExtra": 10.5,
+        "completionist": null,
+        "allStyles": 10.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bomberman Blast",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.0,
+        "mainExtra": null,
+        "completionist": 1.0,
+        "allStyles": 1.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bomberman Blitz",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.5,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 7.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bomberman DS",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.0,
+        "mainExtra": 5.2,
+        "completionist": 5.8,
+        "allStyles": 4.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bomberman Fantasy Race",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.9,
+        "mainExtra": 6.4,
+        "completionist": 13.9,
+        "allStyles": 4.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bomberman GB",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.7,
+        "mainExtra": 6.0,
+        "completionist": null,
+        "allStyles": 4.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bomberman GB 3",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.9,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 1.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bomberman Generation",
+      "aliases": [],
+      "data": {
+        "mainStory": 9.7,
+        "mainExtra": 9.8,
+        "completionist": 10.6,
+        "allStyles": 10.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bomberman Hero",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.3,
+        "mainExtra": 9.1,
+        "completionist": 13.0,
+        "allStyles": 8.6
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bomberman II",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.0,
+        "mainExtra": 2.2,
+        "completionist": 2.3,
+        "allStyles": 2.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bomberman Land Touch!",
+      "aliases": [],
+      "data": {
+        "mainStory": 8.0,
+        "mainExtra": 11.3,
+        "completionist": 14.0,
+        "allStyles": 12.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bomberman Land Touch! 2",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.4,
+        "mainExtra": 10.0,
+        "completionist": 10.4,
+        "allStyles": 8.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bomberman Live",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": 2.0,
+        "completionist": null,
+        "allStyles": 2.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bomberman Max",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.5,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 3.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bomberman Max 2",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.5,
+        "mainExtra": null,
+        "completionist": 7.1,
+        "allStyles": 6.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bomberman Quest",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.2,
+        "mainExtra": 5.1,
+        "completionist": 5.8,
+        "allStyles": 4.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bomberman Tournament",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.5,
+        "mainExtra": 7.8,
+        "completionist": 10.0,
+        "allStyles": 7.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bomberman Ultra",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.1,
+        "mainExtra": 5.4,
+        "completionist": 5.5,
+        "allStyles": 4.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bonanza Bros.",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.8,
+        "mainExtra": 1.8,
+        "completionist": 2.3,
+        "allStyles": 0.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bone: Out from Boneville",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.8,
+        "mainExtra": 1.9,
+        "completionist": 2.0,
+        "allStyles": 1.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bone: The Great Cow Race",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.0,
+        "mainExtra": 3.1,
+        "completionist": 3.0,
+        "allStyles": 3.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
       "title": "Bonelab",
       "aliases": [],
       "data": {
@@ -11496,6 +13032,18 @@
         "mainExtra": 30,
         "completionist": 63,
         "allStyles": 38
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "BoneStagE",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.4,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 0.4
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
@@ -11513,6 +13061,54 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Bonk 3: Bonk's Big Adventure",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.2,
+        "mainExtra": 2.3,
+        "completionist": null,
+        "allStyles": 2.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bonk's Adventure",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.8,
+        "mainExtra": 2.0,
+        "completionist": 2.1,
+        "allStyles": 1.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bonk's Revenge",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.0,
+        "mainExtra": 2.7,
+        "completionist": null,
+        "allStyles": 2.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Boogerman: A Pick and Flick Adventure",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.1,
+        "mainExtra": 3.0,
+        "completionist": 4.1,
+        "allStyles": 2.6
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
       "title": "Book of Demons",
       "aliases": [],
       "data": {
@@ -11525,13 +13121,85 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Bookworm Adventures",
+      "aliases": [],
+      "data": {
+        "mainStory": 10.4,
+        "mainExtra": 11.1,
+        "completionist": 11.2,
+        "allStyles": 10.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bookworm Adventures: Volume 2",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.7,
+        "mainExtra": 8.2,
+        "completionist": 9.0,
+        "allStyles": 8.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bookworm Deluxe",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.5,
+        "mainExtra": 7.0,
+        "completionist": null,
+        "allStyles": 2.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Boom Blox",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.4,
+        "mainExtra": 12.5,
+        "completionist": 35.8,
+        "allStyles": 8.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Boom Blox Bash Party",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.0,
+        "mainExtra": 18.4,
+        "completionist": null,
+        "allStyles": 13.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Boom Boom Rocket",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.4,
+        "mainExtra": 2.3,
+        "completionist": 4.3,
+        "allStyles": 1.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
       "title": "Borderlands",
       "aliases": [],
       "data": {
-        "mainStory": 6,
-        "mainExtra": 18,
-        "completionist": 35,
-        "allStyles": 20
+        "mainStory": 22.2,
+        "mainExtra": 35.1,
+        "completionist": 63.2,
+        "allStyles": 32.7
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
@@ -11540,10 +13208,46 @@
       "title": "Borderlands 2",
       "aliases": [],
       "data": {
-        "mainStory": 7,
-        "mainExtra": 27,
-        "completionist": 72,
-        "allStyles": 35
+        "mainStory": 30.1,
+        "mainExtra": 54.8,
+        "completionist": 130.4,
+        "allStyles": 52.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Borderlands 2: Captain Scarlett and Her Pirate's Booty",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.0,
+        "mainExtra": 6.7,
+        "completionist": 10.5,
+        "allStyles": 6.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Borderlands 2: Mr. Torgue's Campaign of Carnage",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.0,
+        "mainExtra": 5.7,
+        "completionist": 7.6,
+        "allStyles": 4.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Borderlands 2: Sir Hammerlock's Big Game Hunt",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.0,
+        "mainExtra": 6.6,
+        "completionist": 7.7,
+        "allStyles": 5.3
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
@@ -11561,6 +13265,30 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Borderlands: Game of the Year",
+      "aliases": [],
+      "data": {
+        "mainStory": 20.6,
+        "mainExtra": 36.1,
+        "completionist": 75.8,
+        "allStyles": 34.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Borderlands: Mad Moxxi's Underdome Riot DLC",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.0,
+        "mainExtra": 4.7,
+        "completionist": 7.7,
+        "allStyles": 4.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
       "title": "Borderlands: The Pre-Sequel",
       "aliases": [],
       "data": {
@@ -11568,6 +13296,54 @@
         "mainExtra": 54,
         "completionist": 78,
         "allStyles": 54
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Borderlands: The Secret Armory of General Knoxx DLC",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.1,
+        "mainExtra": 8.9,
+        "completionist": 12.8,
+        "allStyles": 8.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Borderlands: The Zombie Island of Dr. Ned DLC",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.5,
+        "mainExtra": 4.6,
+        "completionist": 5.6,
+        "allStyles": 4.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Botanicula",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.4,
+        "mainExtra": 3.8,
+        "completionist": 5.0,
+        "allStyles": 3.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Boulder Dash",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.5,
+        "mainExtra": 10.0,
+        "completionist": 10.0,
+        "allStyles": 4.8
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
@@ -11585,15 +13361,207 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Bounty Bob Strikes Back!",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.9,
+        "mainExtra": 2.5,
+        "completionist": null,
+        "allStyles": 2.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Boxxle",
+      "aliases": [],
+      "data": {
+        "mainStory": 23.2,
+        "mainExtra": null,
+        "completionist": 24.2,
+        "allStyles": 23.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
       "title": "Braid",
       "aliases": [],
       "data": {
-        "mainStory": 4,
-        "mainExtra": 6,
-        "completionist": 10,
-        "allStyles": 6
+        "mainStory": 5.1,
+        "mainExtra": 6.0,
+        "completionist": 7.8,
+        "allStyles": 5.7
       },
       "confidence": "high",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brain Age 2: More Training in Minutes a Day!",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.6,
+        "mainExtra": 13.8,
+        "completionist": 31.8,
+        "allStyles": 7.6
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brain Age: Concentration Training",
+      "aliases": [],
+      "data": {
+        "mainStory": 16.6,
+        "mainExtra": 29.2,
+        "completionist": 150.0,
+        "allStyles": 31.6
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brain Age: Train Your Brain in Minutes a Day!",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.1,
+        "mainExtra": 10.5,
+        "completionist": 13.7,
+        "allStyles": 4.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brain Challenge",
+      "aliases": [],
+      "data": {
+        "mainStory": 12.0,
+        "mainExtra": 13.6,
+        "completionist": 18.5,
+        "allStyles": 15.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brain Lord",
+      "aliases": [],
+      "data": {
+        "mainStory": 12.5,
+        "mainExtra": 13.0,
+        "completionist": 14.3,
+        "allStyles": 13.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brainpipe : A Plunge To Unhumanity",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.7,
+        "mainExtra": 1.3,
+        "completionist": null,
+        "allStyles": 0.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bram Stoker's Dracula",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.9,
+        "mainExtra": 2.4,
+        "completionist": 3.1,
+        "allStyles": 2.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brandish",
+      "aliases": [],
+      "data": {
+        "mainStory": 18.2,
+        "mainExtra": 20.4,
+        "completionist": 22.4,
+        "allStyles": 20.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brave Fencer Musashi",
+      "aliases": [],
+      "data": {
+        "mainStory": 15.0,
+        "mainExtra": 17.2,
+        "completionist": 17.8,
+        "allStyles": 16.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brave Prove",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": 23.2,
+        "completionist": null,
+        "allStyles": 23.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brave Story: New Traveler",
+      "aliases": [],
+      "data": {
+        "mainStory": 23.5,
+        "mainExtra": 27.5,
+        "completionist": 42.0,
+        "allStyles": 27.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brave: A Warrior's Tale",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.5,
+        "mainExtra": null,
+        "completionist": 10.0,
+        "allStyles": 7.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brave: The Search for Spirit Dancer",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.4,
+        "mainExtra": 8.0,
+        "completionist": 8.7,
+        "allStyles": 6.6
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brave: The Video Game",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.4,
+        "mainExtra": 6.2,
+        "completionist": 11.7,
+        "allStyles": 6.9
+      },
+      "confidence": "medium",
       "lastUpdated": "2025-10"
     },
     {
@@ -11604,6 +13572,18 @@
         "mainExtra": 49,
         "completionist": 72,
         "allStyles": 50
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bravo Air Race",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.6,
+        "mainExtra": 1.3,
+        "completionist": null,
+        "allStyles": 0.7
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
@@ -11621,6 +13601,162 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "BRAZEN Prototype",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.2,
+        "mainExtra": null,
+        "completionist": 0.2,
+        "allStyles": 0.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Breakdown",
+      "aliases": [],
+      "data": {
+        "mainStory": 10.0,
+        "mainExtra": 10.8,
+        "completionist": 13.0,
+        "allStyles": 10.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Breakout",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.4,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 2.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "BreakQuest",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.1,
+        "mainExtra": 14.2,
+        "completionist": 18.2,
+        "allStyles": 13.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "BreakThru",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.5,
+        "mainExtra": 0.8,
+        "completionist": null,
+        "allStyles": 0.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Breath of Death VII: The Beginning",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.2,
+        "mainExtra": 6.0,
+        "completionist": 7.1,
+        "allStyles": 5.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Breath of Fire",
+      "aliases": [],
+      "data": {
+        "mainStory": 28.3,
+        "mainExtra": 30.0,
+        "completionist": 30.9,
+        "allStyles": 29.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Breath of Fire II",
+      "aliases": [],
+      "data": {
+        "mainStory": 34.8,
+        "mainExtra": 43.3,
+        "completionist": 43.8,
+        "allStyles": 40.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Breath of Fire III",
+      "aliases": [],
+      "data": {
+        "mainStory": 41.9,
+        "mainExtra": 48.6,
+        "completionist": 87.1,
+        "allStyles": 49.6
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Breath of Fire IV",
+      "aliases": [],
+      "data": {
+        "mainStory": 36.2,
+        "mainExtra": 43.8,
+        "completionist": 57.8,
+        "allStyles": 40.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Breath of Fire: Dragon Quarter",
+      "aliases": [],
+      "data": {
+        "mainStory": 24.1,
+        "mainExtra": 34.2,
+        "completionist": 48.7,
+        "allStyles": 31.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brett Hull Hockey 95",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.9,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 0.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brigandine: The Legend of Forsena",
+      "aliases": [],
+      "data": {
+        "mainStory": 18.0,
+        "mainExtra": 47.4,
+        "completionist": null,
+        "allStyles": 22.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
       "title": "Bright Memory: Infinite",
       "aliases": [],
       "data": {
@@ -11628,6 +13764,174 @@
         "mainExtra": 41,
         "completionist": 80,
         "allStyles": 50
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brink",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.4,
+        "mainExtra": 13.0,
+        "completionist": 21.6,
+        "allStyles": 9.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Britney's Dance Beat",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.4,
+        "mainExtra": null,
+        "completionist": 3.6,
+        "allStyles": 1.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Broken Age: Act 1",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.7,
+        "mainExtra": 4.0,
+        "completionist": 4.6,
+        "allStyles": 3.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Broken Sword 2.5: The Return of the Templars",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.2,
+        "mainExtra": 4.2,
+        "completionist": 4.5,
+        "allStyles": 4.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Broken Sword II: The Smoking Mirror",
+      "aliases": [],
+      "data": {
+        "mainStory": 8.9,
+        "mainExtra": 9.4,
+        "completionist": 9.9,
+        "allStyles": 9.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Broken Sword II: The Smoking Mirror - Remastered",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.1,
+        "mainExtra": 7.8,
+        "completionist": 7.9,
+        "allStyles": 7.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Broken Sword: The Angel of Death",
+      "aliases": [],
+      "data": {
+        "mainStory": 11.3,
+        "mainExtra": 12.2,
+        "completionist": 13.2,
+        "allStyles": 11.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Broken Sword: The Shadow of the Templars",
+      "aliases": [],
+      "data": {
+        "mainStory": 10.0,
+        "mainExtra": 10.6,
+        "completionist": 11.1,
+        "allStyles": 10.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Broken Sword: The Sleeping Dragon",
+      "aliases": [],
+      "data": {
+        "mainStory": 10.2,
+        "mainExtra": 10.2,
+        "completionist": 10.5,
+        "allStyles": 10.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brothers in Arms DS",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.9,
+        "mainExtra": 9.0,
+        "completionist": 12.0,
+        "allStyles": 5.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brothers in Arms: Earned in Blood",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.0,
+        "mainExtra": 9.1,
+        "completionist": 14.3,
+        "allStyles": 7.6
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brothers in Arms: Hell's Highway",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.8,
+        "mainExtra": 8.9,
+        "completionist": 13.9,
+        "allStyles": 8.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brothers in Arms: Road to Hill 30",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.9,
+        "mainExtra": 9.4,
+        "completionist": 13.4,
+        "allStyles": 8.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brunswick Pro Bowling",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.4,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 6.4
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
@@ -11645,6 +13949,378 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Brutal: Paws of Fury",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.9,
+        "mainExtra": 2.2,
+        "completionist": 4.0,
+        "allStyles": 2.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brute Force",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.8,
+        "mainExtra": 10.1,
+        "completionist": 17.6,
+        "allStyles": 10.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Brütal Legend",
+      "aliases": [],
+      "data": {
+        "mainStory": 9.2,
+        "mainExtra": 13.9,
+        "completionist": 25.0,
+        "allStyles": 12.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bubble and Squeak",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.3,
+        "mainExtra": null,
+        "completionist": 2.5,
+        "allStyles": 2.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bubble Bobble",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.8,
+        "mainExtra": 3.0,
+        "completionist": 4.9,
+        "allStyles": 3.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bubble Bobble Neo!",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.5,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 1.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bubble Bobble Part 2",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.8,
+        "mainExtra": null,
+        "completionist": 3.4,
+        "allStyles": 2.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bubble Ghost",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.5,
+        "mainExtra": 1.0,
+        "completionist": 1.2,
+        "allStyles": 0.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bubble Symphony",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.8,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 0.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bubsy 3D",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.1,
+        "mainExtra": 39.2,
+        "completionist": 45.0,
+        "allStyles": 12.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bubsy II",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.1,
+        "mainExtra": 2.8,
+        "completionist": 6.0,
+        "allStyles": 2.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bubsy in: Claws Encounters of the Furred Kind",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.2,
+        "mainExtra": 4.2,
+        "completionist": 4.4,
+        "allStyles": 4.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Buck Bumble",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.4,
+        "mainExtra": null,
+        "completionist": 6.3,
+        "allStyles": 5.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Buck Rogers: Countdown to Doomsday",
+      "aliases": [],
+      "data": {
+        "mainStory": 12.0,
+        "mainExtra": 12.6,
+        "completionist": null,
+        "allStyles": 12.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bucky O'Hare (NES)",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.0,
+        "mainExtra": 3.9,
+        "completionist": 10.0,
+        "allStyles": 3.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Buffy the Vampire Slayer",
+      "aliases": [],
+      "data": {
+        "mainStory": 9.1,
+        "mainExtra": 9.7,
+        "completionist": 10.0,
+        "allStyles": 9.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Buffy the Vampire Slayer: Chaos Bleeds",
+      "aliases": [],
+      "data": {
+        "mainStory": 8.9,
+        "mainExtra": 11.3,
+        "completionist": 14.2,
+        "allStyles": 9.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bug!",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.4,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 6.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bugdom",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.3,
+        "mainExtra": 10.8,
+        "completionist": null,
+        "allStyles": 3.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bugs Bunny & Taz: Time Busters",
+      "aliases": [],
+      "data": {
+        "mainStory": 10.7,
+        "mainExtra": 11.4,
+        "completionist": 11.5,
+        "allStyles": 11.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bugs Bunny in Double Trouble",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.8,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 2.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bugs Bunny Rabbit Rampage",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.5,
+        "mainExtra": 7.0,
+        "completionist": 9.0,
+        "allStyles": 4.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bugs Bunny: Lost in Time",
+      "aliases": [],
+      "data": {
+        "mainStory": 10.2,
+        "mainExtra": 10.2,
+        "completionist": 11.6,
+        "allStyles": 10.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Build-A-Lot",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.0,
+        "mainExtra": 8.0,
+        "completionist": 9.3,
+        "allStyles": 7.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Build-A-Lot 2: Town of the Year",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.1,
+        "mainExtra": null,
+        "completionist": 7.2,
+        "allStyles": 6.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bujingai: The Forsaken City",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.2,
+        "mainExtra": 7.3,
+        "completionist": 7.4,
+        "allStyles": 7.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bulk Slash",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.2,
+        "mainExtra": 3.7,
+        "completionist": 20.0,
+        "allStyles": 1.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bullet Candy",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": 4.5,
+        "completionist": null,
+        "allStyles": 4.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bullet Candy Perfect",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.9,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 0.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bullet Witch",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.2,
+        "mainExtra": 8.0,
+        "completionist": 17.7,
+        "allStyles": 6.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bulletstorm",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.5,
+        "mainExtra": 9.2,
+        "completionist": 18.1,
+        "allStyles": 8.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
       "title": "Bulletstorm: Full Clip Edition",
       "aliases": [],
       "data": {
@@ -11657,13 +14333,769 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Bully",
+      "aliases": [],
+      "data": {
+        "mainStory": 15.0,
+        "mainExtra": 19.5,
+        "completionist": 29.4,
+        "allStyles": 19.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bully: Scholarship Edition",
+      "aliases": [],
+      "data": {
+        "mainStory": 14.6,
+        "mainExtra": 19.3,
+        "completionist": 27.6,
+        "allStyles": 18.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bumbledore",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.6,
+        "mainExtra": 0.8,
+        "completionist": 15.1,
+        "allStyles": 2.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bump 'n' Jump",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.2,
+        "mainExtra": null,
+        "completionist": 2.0,
+        "allStyles": 1.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bunch of Heroes",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.7,
+        "mainExtra": 8.7,
+        "completionist": null,
+        "allStyles": 6.6
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bunny Must Die!",
+      "aliases": [],
+      "data": {
+        "mainStory": 12.5,
+        "mainExtra": null,
+        "completionist": 14.5,
+        "allStyles": 13.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Burai Fighter",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.0,
+        "mainExtra": 1.6,
+        "completionist": 2.8,
+        "allStyles": 1.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Burger",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": 57.3,
+        "allStyles": 57.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "BurgerTime",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.5,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 0.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "BurgerTime Deluxe",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.9,
+        "mainExtra": null,
+        "completionist": 3.5,
+        "allStyles": 2.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Burn Zombie Burn",
+      "aliases": [],
+      "data": {
+        "mainStory": 9.5,
+        "mainExtra": 25.0,
+        "completionist": null,
+        "allStyles": 11.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Burn:Cycle",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.5,
+        "mainExtra": null,
+        "completionist": 5.0,
+        "allStyles": 4.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Burning Rangers",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.6,
+        "mainExtra": 3.0,
+        "completionist": 3.5,
+        "allStyles": 2.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Burnout",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.4,
+        "mainExtra": 7.6,
+        "completionist": 9.2,
+        "allStyles": 7.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Burnout 2: Point of Impact",
+      "aliases": [],
+      "data": {
+        "mainStory": 10.3,
+        "mainExtra": 14.6,
+        "completionist": 17.5,
+        "allStyles": 13.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Burnout 3: Takedown",
+      "aliases": [],
+      "data": {
+        "mainStory": 13.3,
+        "mainExtra": 23.1,
+        "completionist": 32.7,
+        "allStyles": 21.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Burnout Crash!",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.0,
+        "mainExtra": 7.5,
+        "completionist": 8.5,
+        "allStyles": 6.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Burnout Dominator",
+      "aliases": [],
+      "data": {
+        "mainStory": 12.0,
+        "mainExtra": 15.3,
+        "completionist": 21.2,
+        "allStyles": 15.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Burnout Legends",
+      "aliases": [],
+      "data": {
+        "mainStory": 8.0,
+        "mainExtra": 12.3,
+        "completionist": 17.4,
+        "allStyles": 11.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Burnout Paradise",
+      "aliases": [],
+      "data": {
+        "mainStory": 13.1,
+        "mainExtra": 26.1,
+        "completionist": 56.4,
+        "allStyles": 22.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
       "title": "Burnout Paradise Remastered",
       "aliases": [],
       "data": {
-        "mainStory": 18,
-        "mainExtra": 36,
-        "completionist": 69,
-        "allStyles": 41
+        "mainStory": 11.0,
+        "mainExtra": 19.5,
+        "completionist": 36.9,
+        "allStyles": 15.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Burnout Revenge",
+      "aliases": [],
+      "data": {
+        "mainStory": 16.4,
+        "mainExtra": 19.9,
+        "completionist": 33.2,
+        "allStyles": 20.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bushido Blade",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.2,
+        "mainExtra": 2.3,
+        "completionist": 3.4,
+        "allStyles": 1.6
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bushido Blade 2",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.2,
+        "mainExtra": 3.3,
+        "completionist": 7.2,
+        "allStyles": 2.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bust a Groove",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.1,
+        "mainExtra": 3.5,
+        "completionist": 19.8,
+        "allStyles": 3.6
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bust a Groove 2",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.6,
+        "mainExtra": 7.5,
+        "completionist": 36.1,
+        "allStyles": 14.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bust a Move '99",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.8,
+        "mainExtra": 1.7,
+        "completionist": 10.0,
+        "allStyles": 1.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bust-A-Move 2: Arcade Edition",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.4,
+        "mainExtra": 1.5,
+        "completionist": 3.8,
+        "allStyles": 1.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bust-a-Move 4",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.0,
+        "mainExtra": null,
+        "completionist": 2.5,
+        "allStyles": 2.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bust-a-Move DS",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.0,
+        "mainExtra": 6.0,
+        "completionist": null,
+        "allStyles": 4.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bust-a-Move Universe",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.5,
+        "mainExtra": 7.8,
+        "completionist": 9.3,
+        "allStyles": 3.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Buster Bros.",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.2,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 1.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Buzz! Junior: Robo Jam",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.5,
+        "mainExtra": 2.0,
+        "completionist": 19.8,
+        "allStyles": 5.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Buzz!: Brain of the World",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.5,
+        "mainExtra": null,
+        "completionist": 40.0,
+        "allStyles": 20.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Buzz!: Quiz TV",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.5,
+        "mainExtra": null,
+        "completionist": 15.0,
+        "allStyles": 4.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Buzz!: Quiz World",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.8,
+        "mainExtra": null,
+        "completionist": 30.0,
+        "allStyles": 16.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "C-12: Final Resistance",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.7,
+        "mainExtra": null,
+        "completionist": 6.3,
+        "allStyles": 6.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "C.O.R.E.",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": 5.3,
+        "allStyles": 5.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "C2: Judgement Clay",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.7,
+        "mainExtra": 2.0,
+        "completionist": null,
+        "allStyles": 0.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "C: The Contra Adventure",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.5,
+        "mainExtra": null,
+        "completionist": 3.2,
+        "allStyles": 2.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Cabal",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.6,
+        "mainExtra": null,
+        "completionist": 1.8,
+        "allStyles": 0.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Cabela's Adventure Camp",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": 1.9,
+        "allStyles": 1.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Cabela's African Safari",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.0,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 4.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Cabela's Big Game Hunter",
+      "aliases": [],
+      "data": {
+        "mainStory": 10.0,
+        "mainExtra": 13.5,
+        "completionist": null,
+        "allStyles": 12.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Cabela's Big Game Hunter 2010",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.0,
+        "mainExtra": null,
+        "completionist": 12.0,
+        "allStyles": 9.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Cabela's Dangerous Adventures",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.5,
+        "mainExtra": null,
+        "completionist": 5.0,
+        "allStyles": 3.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Cabela's Dangerous Hunts 2011",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.1,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 4.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Cabela's Dangerous Hunts 2013",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.6,
+        "mainExtra": 3.4,
+        "completionist": null,
+        "allStyles": 3.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Cabela's Survival: Shadows of Katmai",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.9,
+        "mainExtra": 3.0,
+        "completionist": 5.9,
+        "allStyles": 3.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Cacoma Knight in Bizyland",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.5,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 0.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Cadillacs and Dinosaurs",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.1,
+        "mainExtra": 1.3,
+        "completionist": 1.7,
+        "allStyles": 1.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Caesar II",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.0,
+        "mainExtra": 9.0,
+        "completionist": 15.5,
+        "allStyles": 11.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Caesar III",
+      "aliases": [],
+      "data": {
+        "mainStory": 35.1,
+        "mainExtra": 55.1,
+        "completionist": 82.5,
+        "allStyles": 44.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Caesar IV",
+      "aliases": [],
+      "data": {
+        "mainStory": 17.4,
+        "mainExtra": 28.0,
+        "completionist": 68.8,
+        "allStyles": 30.6
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Cake Mania",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.6,
+        "mainExtra": null,
+        "completionist": 7.2,
+        "allStyles": 5.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Cake Mania 2",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.8,
+        "mainExtra": null,
+        "completionist": 11.0,
+        "allStyles": 10.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Cake Mania 3",
+      "aliases": [],
+      "data": {
+        "mainStory": 10.0,
+        "mainExtra": 12.4,
+        "completionist": 15.1,
+        "allStyles": 13.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Cal Ripken Jr. Baseball",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.2,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 1.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "California Games",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.2,
+        "mainExtra": 2.8,
+        "completionist": 4.4,
+        "allStyles": 3.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Call of Cthulhu: Dark Corners of the Earth",
+      "aliases": [],
+      "data": {
+        "mainStory": 11.7,
+        "mainExtra": 13.3,
+        "completionist": 16.7,
+        "allStyles": 12.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Call of Duty",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.9,
+        "mainExtra": 8.8,
+        "completionist": 9.9,
+        "allStyles": 7.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Call of Duty 2",
+      "aliases": [],
+      "data": {
+        "mainStory": 8.0,
+        "mainExtra": 9.6,
+        "completionist": 11.2,
+        "allStyles": 8.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Call of Duty 2: Big Red One",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.9,
+        "mainExtra": 8.3,
+        "completionist": 11.2,
+        "allStyles": 7.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Call of Duty 3",
+      "aliases": [],
+      "data": {
+        "mainStory": 8.0,
+        "mainExtra": 10.2,
+        "completionist": 10.8,
+        "allStyles": 8.3
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
@@ -11672,10 +15104,10 @@
       "title": "Call of Duty 4: Modern Warfare",
       "aliases": [],
       "data": {
-        "mainStory": 22,
-        "mainExtra": 35,
-        "completionist": 52,
-        "allStyles": 36
+        "mainStory": 6.9,
+        "mainExtra": 9.4,
+        "completionist": 16.4,
+        "allStyles": 7.5
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
@@ -11684,10 +15116,22 @@
       "title": "Call of Duty: Black Ops",
       "aliases": [],
       "data": {
-        "mainStory": 17,
-        "mainExtra": 30,
-        "completionist": 43,
-        "allStyles": 30
+        "mainStory": 7.1,
+        "mainExtra": 12.8,
+        "completionist": 18.1,
+        "allStyles": 8.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Call of Duty: Black Ops - Declassified",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.1,
+        "mainExtra": 4.3,
+        "completionist": 10.1,
+        "allStyles": 2.7
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
@@ -11696,10 +15140,10 @@
       "title": "Call of Duty: Black Ops II",
       "aliases": [],
       "data": {
-        "mainStory": 6,
-        "mainExtra": 16,
-        "completionist": 47,
-        "allStyles": 23
+        "mainStory": 7.1,
+        "mainExtra": 10.6,
+        "completionist": 30.9,
+        "allStyles": 8.4
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
@@ -11717,6 +15161,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Call of Duty: Finest Hour",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.8,
+        "mainExtra": 7.1,
+        "completionist": 7.1,
+        "allStyles": 7.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
       "title": "Call of Duty: Ghosts",
       "aliases": [],
       "data": {
@@ -11724,6 +15180,42 @@
         "mainExtra": 39,
         "completionist": 73,
         "allStyles": 45
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Call of Duty: Modern Warfare - Mobilized",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.3,
+        "mainExtra": 14.4,
+        "completionist": 14.6,
+        "allStyles": 6.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Call of Duty: Modern Warfare - Reflex Edition",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.2,
+        "mainExtra": 15.7,
+        "completionist": null,
+        "allStyles": 8.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Call of Duty: Modern Warfare 2",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.6,
+        "mainExtra": 10.6,
+        "completionist": 31.1,
+        "allStyles": 8.9
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
@@ -11744,10 +15236,22 @@
       "title": "Call of Duty: Modern Warfare 3",
       "aliases": [],
       "data": {
-        "mainStory": 21,
-        "mainExtra": 33,
-        "completionist": 49,
-        "allStyles": 34
+        "mainStory": 6.1,
+        "mainExtra": 10.0,
+        "completionist": 39.2,
+        "allStyles": 7.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Call of Duty: Modern Warfare 3 - Defiance",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.0,
+        "mainExtra": 10.0,
+        "completionist": 12.0,
+        "allStyles": 5.7
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
@@ -11760,6 +15264,30 @@
         "mainExtra": 30,
         "completionist": 78,
         "allStyles": 39
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Call of Duty: Roads to Victory",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.3,
+        "mainExtra": 5.1,
+        "completionist": 7.7,
+        "allStyles": 4.6
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Call of Duty: United Offensive",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.7,
+        "mainExtra": 6.3,
+        "completionist": 8.2,
+        "allStyles": 6.0
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
@@ -11781,10 +15309,22 @@
       "title": "Call of Duty: World at War",
       "aliases": [],
       "data": {
-        "mainStory": 27,
-        "mainExtra": 47,
-        "completionist": 71,
-        "allStyles": 48
+        "mainStory": 7.0,
+        "mainExtra": 11.1,
+        "completionist": 25.5,
+        "allStyles": 8.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Call of Duty: World at War - Final Fronts",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.6,
+        "mainExtra": 7.0,
+        "completionist": 9.6,
+        "allStyles": 4.7
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
@@ -11802,13 +15342,157 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Call of Juarez",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.8,
+        "mainExtra": 9.3,
+        "completionist": 10.9,
+        "allStyles": 8.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Call of Juarez: Bound in Blood",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.5,
+        "mainExtra": 8.3,
+        "completionist": 12.7,
+        "allStyles": 8.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
       "title": "Call of Juarez: Gunslinger",
       "aliases": [],
       "data": {
-        "mainStory": 27,
-        "mainExtra": 42,
-        "completionist": 79,
-        "allStyles": 49
+        "mainStory": 5.1,
+        "mainExtra": 7.0,
+        "completionist": 14.2,
+        "allStyles": 6.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Call of Juarez: The Cartel",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.0,
+        "mainExtra": 9.2,
+        "completionist": 19.4,
+        "allStyles": 8.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Call to Power II",
+      "aliases": [],
+      "data": {
+        "mainStory": 26.8,
+        "mainExtra": null,
+        "completionist": 48.3,
+        "allStyles": 30.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Calling",
+      "aliases": [],
+      "data": {
+        "mainStory": 10.0,
+        "mainExtra": 13.1,
+        "completionist": 19.4,
+        "allStyles": 11.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Calling All Cars!",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.0,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 3.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Cameltry",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.9,
+        "mainExtra": null,
+        "completionist": 2.6,
+        "allStyles": 1.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Canabalt",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.6,
+        "mainExtra": 2.4,
+        "completionist": 8.4,
+        "allStyles": 1.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Candles",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.2,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 0.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Candy Box!",
+      "aliases": [],
+      "data": {
+        "mainStory": 9.6,
+        "mainExtra": 12.5,
+        "completionist": 14.7,
+        "allStyles": 11.6
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Cannon Fodder",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.5,
+        "mainExtra": null,
+        "completionist": 28.0,
+        "allStyles": 11.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Capcom Classics Collection Reloaded",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.0,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 7.0
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
@@ -22280,6 +25964,42 @@
         "mainExtra": 32,
         "completionist": 62,
         "allStyles": 35
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "The Blackwell Convergence",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.0,
+        "mainExtra": 3.5,
+        "completionist": 4.2,
+        "allStyles": 3.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "The Blackwell Deception",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.5,
+        "mainExtra": 5.1,
+        "completionist": 6.1,
+        "allStyles": 5.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-10"
+    },
+    {
+      "title": "The Blackwell Legacy",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.9,
+        "mainExtra": 3.3,
+        "completionist": 4.6,
+        "allStyles": 3.2
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"

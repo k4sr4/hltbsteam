@@ -25,11 +25,19 @@
 - **Security Hardened**: Prototype pollution protection in JSON parsing
 - **Status**: Architecture complete, compilation issues need resolution
 
-### Popup Interface (popup.html/js)
-- **Real-time Settings**: Immediate storage updates
-- **User Feedback**: Status messages for actions
-- **Compact Design**: 350px width optimized for extension popup
-- **Accessibility**: Proper labels and focus management
+### Popup Interface (popup.ts/html/css - PRD 08)
+- **Architecture**: Single PopupController class with TypeScript type safety
+- **Bundle Size**: 6.96 KB minified (target: < 100ms load time)
+- **Initialization**: Parallel data loading (Promise.all) for settings + statistics
+- **Element Caching**: Map-based caching of 15+ DOM elements for performance
+- **Real-time Settings**: Immediate chrome.storage.local updates
+- **Statistics Display**: Database info and match stats from background service
+- **User Feedback**: Toast messages with success/error/info states and animations
+- **Compact Design**: 350px width standard for Chrome extension popups
+- **Accessibility**: WCAG 2.1 AA compliant with ARIA labels, keyboard navigation, screen reader support
+- **Styling**: Steam-themed with CSS custom properties (design tokens)
+- **Actions**: Clear cache (with button states), refresh page (with Steam validation)
+- **Links**: GitHub, report issue, suggest game (contribution workflow)
 
 ## Development Patterns
 
@@ -41,6 +49,11 @@ const response = await chrome.runtime.sendMessage({
   gameTitle: gameInfo.title,
   appId: gameInfo.appId
 });
+
+// Popup → Background (multiple message types)
+const dbInfo = await chrome.runtime.sendMessage({ action: 'getDatabaseInfo' });
+const stats = await chrome.runtime.sendMessage({ action: 'getStats' });
+const clearResult = await chrome.runtime.sendMessage({ action: 'clearCache' });
 ```
 
 ### Safe DOM Manipulation
@@ -130,3 +143,167 @@ try {
 - No global variables in content script
 - Event listeners properly cleaned up
 - MutationObserver with specific target scope
+- Popup controller uses element caching (Map) to avoid repeated DOM queries
+
+## Popup Interface Implementation Details
+
+### Architecture Pattern
+```typescript
+class PopupController {
+  private elements: Map<string, HTMLElement>  // Cached DOM elements
+
+  async initialize() {
+    // Parallel initialization for speed
+    await Promise.all([
+      this.initializeUI(),      // Set version, theme
+      this.loadSettings(),       // From chrome.storage.local
+      this.loadStatistics()      // From background messages
+    ]);
+    this.attachEventListeners();
+  }
+}
+```
+
+### Performance Optimizations
+1. **Element Caching**: Cache all 15+ DOM elements in Map during initialization
+2. **Parallel Loading**: Use Promise.all for independent async operations
+3. **Minimal Bundle**: 6.96 KB minified (TypeScript → Webpack → Terser)
+4. **No Blocking**: All storage/message operations are async
+5. **Efficient Updates**: Only update changed elements, not entire UI
+
+### Button State Management
+```typescript
+// Clear cache button has 4 states: idle → processing → success/error → idle
+setButtonState(button, 'processing');  // Shows spinner, disables button
+setButtonState(button, 'success');     // Green background, "Cache Cleared!"
+setButtonState(button, 'error');       // Red background, "Failed"
+// Auto-resets to idle after 2 seconds
+```
+
+### Feedback System
+```typescript
+showFeedback(message: string, type: 'success' | 'error' | 'info', duration = 3000)
+// Creates toast message with:
+// - Appropriate color/styling
+// - ARIA live region for screen readers
+// - Slide-in animation
+// - Auto-dismiss after duration
+// - Smooth slide-out removal
+```
+
+### Settings Persistence Pattern
+```typescript
+// All settings stored in chrome.storage.local with defaults
+const DEFAULT_SETTINGS = {
+  enabled: true,
+  cacheEnabled: true,
+  cacheDuration: 7,
+  displayPosition: 'above-purchase',
+  theme: 'auto'
+};
+
+// Load with fallback to defaults
+const settings = await chrome.storage.local.get(['enabled', ...]);
+const enabled = settings.enabled !== false;  // Default to true if missing
+```
+
+### Statistics Calculation
+```typescript
+// Match rate calculation from background stats
+const total = stats.totalRequests || 0;
+const successes = (stats.apiSuccesses || 0) +
+                  (stats.scraperSuccesses || 0) +
+                  (stats.fallbackSuccesses || 0);
+const matchRate = total > 0 ? successes / total : 0;
+// Display as percentage: Math.round(matchRate * 100) + '%'
+```
+
+### Background Message Handlers (message-handler.ts)
+```typescript
+case 'getDatabaseInfo':
+  // Import fallback-data.json to get database metadata
+  const fallbackData = await import('./services/fallback-data.json');
+  return {
+    success: true,
+    data: {
+      version: fallbackData.version,
+      gameCount: fallbackData.games.length,
+      lastUpdated: fallbackData.lastUpdated
+    }
+  };
+
+case 'getStats':
+  // Return statistics from integrated service
+  return { success: true, data: this.hltbService.getStats() };
+
+case 'clearCache':
+  // Clear cache and return count
+  const cleared = await this.hltbService.clearCache();
+  return { success: true, cleared };
+```
+
+### Accessibility Implementation
+- **ARIA Labels**: All interactive elements have `aria-label` or `aria-labelledby`
+- **ARIA Descriptions**: Settings have `aria-describedby` linking to description text
+- **Live Regions**: Feedback messages use `role="status"` and `aria-live="polite"`
+- **Screen Reader Text**: `.sr-only` class for headings that provide structure
+- **Keyboard Navigation**: All controls reachable with Tab, focus-visible styles
+- **Semantic HTML**: Proper use of button, label, select, section, nav elements
+
+### CSS Design System
+```css
+:root {
+  /* Steam-inspired color palette */
+  --color-bg-primary: #1b2838;
+  --color-accent-primary: #66c0f4;
+  --color-success: #5cbf60;
+  --color-error: #f47b66;
+
+  /* Spacing system (4px base) */
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 12px;
+  --space-lg: 16px;
+
+  /* Typography scale */
+  --font-size-sm: 11px;
+  --font-size-base: 13px;
+  --font-size-lg: 16px;
+
+  /* Transitions */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+}
+```
+
+### Testing Strategy (Designed, Not Implemented)
+- **70+ Test Scenarios**: Unit, integration, UI, accessibility
+- **Test Distribution**: 65% unit, 25% integration, 8% UI, 2% accessibility
+- **Coverage Target**: 95% code coverage, 100% critical path
+- **Mock Strategy**: Complete Chrome API mocks (storage, runtime, tabs, action)
+- **CI/CD Integration**: Automated testing with quality gates
+- **Performance Benchmarks**: < 100ms initialization, < 50ms setting changes
+
+### Common Pitfalls & Solutions
+1. **Pitfall**: Forgetting to cache DOM elements leads to repeated queries
+   **Solution**: Cache all elements in Map during initialization
+
+2. **Pitfall**: Sequential async operations slow down initialization
+   **Solution**: Use Promise.all for independent operations
+
+3. **Pitfall**: Button clicks during processing cause race conditions
+   **Solution**: Disable button during processing, manage state explicitly
+
+4. **Pitfall**: Background service worker may be inactive
+   **Solution**: Always handle message timeouts and errors gracefully
+
+5. **Pitfall**: Settings changes not persisting
+   **Solution**: Always await chrome.storage.local.set() and verify success
+
+### File Locations
+- **Controller**: `C:\hltbsteam\popup.ts` (498 lines)
+- **HTML**: `C:\hltbsteam\popup.html` (199 lines)
+- **CSS**: `C:\hltbsteam\popup.css` (543 lines)
+- **Background Handler**: `C:\hltbsteam\src\background\message-handler.ts` (getDatabaseInfo added)
+- **Webpack Config**: Entry point changed to `./popup.ts`
+- **Built Output**: `dist/popup.js` (6.96 KB), `dist/popup.html`, `dist/popup.css`

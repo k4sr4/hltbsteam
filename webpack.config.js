@@ -7,7 +7,7 @@ module.exports = (env, argv) => {
   return {
     entry: {
       background: './src/background/service-worker.ts',
-      content: './content.js',
+      content: './src/content/content-script-hybrid.ts',  // Hybrid: TypeScript + simple DOM
       popup: './popup.js'
     },
     output: {

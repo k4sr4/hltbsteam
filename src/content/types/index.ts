@@ -286,3 +286,6 @@ export interface DetectionResult {
   /** Performance metrics */
   metrics: PerformanceMetrics;
 }
+
+// Export HLTB UI component types
+export * from './HLTB';

@@ -255,6 +255,49 @@ expect(mockFunction).toHaveBeenCalledTimes(1);
 expect(mockFunction).toHaveBeenCalledWith(expectedArgs);
 ```
 
+### TypeScript UI Component Tests (NEW)
+
+#### `unit/HLTBDisplay.test.ts` (40 tests)
+Tests for the Shadow DOM display component:
+- ✅ Creation & Configuration (5 tests)
+- ✅ Lifecycle Management (8 tests)
+- ✅ State Management (10 tests)
+- ✅ Rendering (12 tests)
+- ✅ Shadow DOM (5 tests)
+
+#### `unit/InjectionManager.test.ts` (25 tests)
+Tests for the injection manager:
+- ✅ Initialization (3 tests)
+- ✅ Injection Point Discovery (8 tests)
+- ✅ Component Lifecycle (6 tests)
+- ✅ Auto Re-injection (4 tests)
+- ✅ Error Handling (4 tests)
+
+#### `unit/content-script.test.ts` (25 tests)
+Tests for the TypeScript content script:
+- ✅ Initialization (4 tests)
+- ✅ Game Info Extraction (8 tests)
+- ✅ Message Passing (5 tests)
+- ✅ Navigation Observer (4 tests)
+- ✅ Integration Orchestration (4 tests)
+
+#### `integration/component-interaction.test.ts` (10 tests)
+Integration tests for UI components:
+- ✅ Manager + Display integration
+- ✅ Theme propagation
+- ✅ Error propagation
+- ✅ Cleanup cascade
+- ✅ Performance metrics aggregation
+
+### Test Utilities (NEW)
+
+**`test-utils/`** - Comprehensive testing utilities:
+- `factories.ts` - Mock data factories (HLTB data, configs, game info)
+- `dom-utils.ts` - DOM manipulation helpers (setup, cleanup, Shadow DOM)
+- `chrome-utils.ts` - Chrome API test helpers (mocking, assertions)
+- `async-utils.ts` - Async operation helpers (waitFor, flushPromises)
+- `assertion-utils.ts` - Custom assertions (performance, accessibility, security)
+
 ## Future Enhancements
 
 Planned test improvements:

@@ -40,7 +40,8 @@
       "WebSearch",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
-      "WebFetch(domain:www.npmjs.com)"
+      "WebFetch(domain:www.npmjs.com)",
+      "Bash(test -f \"C:\\hltbsteam\\tests\\README.md\")"
     ],
     "deny": [],
     "ask": []

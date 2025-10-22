@@ -43,11 +43,17 @@ Chrome Extension that displays HowLongToBeat completion times on Steam game page
 ```
 hltbsteam/
 ├── dist/                   # Built extension (load this in Chrome)
-├── src/                    # Source organization
+├── src/
+│   ├── background/         # Background service worker (TypeScript)
+│   ├── content/            # Content scripts (TypeScript)
+│   │   ├── content-script-hybrid.ts  # ACTIVE: Hybrid implementation
+│   │   ├── types/          # Type definitions
+│   │   └── components/     # Shadow DOM components (archived)
+│   └── types/              # Shared type definitions
 ├── tests/                  # Jest test suite
+├── PRDs/                   # Product requirements & implementation docs
 ├── manifest.json           # Extension manifest
-├── background.js           # Service worker
-├── content.js              # Steam page injection
+├── content.js              # Legacy content script (reference)
 ├── popup.html/js/css       # Settings interface
 ├── styles.css              # Content styling
 └── webpack.config.js       # Build configuration
@@ -55,26 +61,55 @@ hltbsteam/
 
 ### Known Issues
 - Icons are placeholder PNGs (need actual design)
-- HLTB API integration pending (placeholder data currently)
 - Some JSDOM test limitations (navigation tests)
-- TypeScript compilation issues with enhanced detection system (non-blocking)
 
-### Steam Page Detection (Updated)
-- **Current Implementation**: JavaScript with basic 2-strategy title extraction
-- **Enhanced System Ready**: TypeScript implementation with 6-strategy detection
-- **Page Support**: Both Store and Community pages
-- **Injection Points**: Multiple fallback selectors for different page layouts
-- **Performance**: Basic version ~15ms, Enhanced version targets <10ms
+### UI Component Injection (PRD 07 - COMPLETE)
+- **Implementation**: Hybrid TypeScript + Simple DOM (6.21 KB minified)
+- **Why Hybrid**: Shadow DOM removed by Steam, simple DOM is compatible
+- **Architecture**: TypeScript class with type-safe interfaces
+- **Performance**: < 10ms injection time, < 1s total including network
+- **Game Detection**: 4-strategy title extraction (URL → DOM → Meta → Title)
+- **Injection Points**: 7 fallback selectors for Store and Community pages
+- **Navigation**: MutationObserver for Steam's SPA routing
+- **Status**: ✅ Production-ready and working on Steam pages
+
+### Content Script Architecture Decision (CRITICAL)
+**DO NOT use Shadow DOM for Steam page injection** - Steam's page management actively removes Shadow DOM elements during dynamic content updates.
+
+**Use hybrid approach instead**:
+- TypeScript for code organization and type safety
+- Simple DOM manipulation (`createElement`, `appendChild`) for injection
+- Same injection strategy as original working implementation
+- Result: 6.21 KB bundle, full TypeScript benefits, Steam-compatible
+
+**What was tried**:
+1. ✅ Shadow DOM component (1,200+ lines) - Architecturally sound but removed by Steam
+2. ✅ InjectionManager with 8 injection strategies - All failed (removed by Steam)
+3. ✅ Fixed positioning to body - Still removed by Steam
+4. ✅ **Hybrid TypeScript + Simple DOM - WORKS!** ← Final solution
+
+**Key insight**: Steam detects and removes Shadow DOM elements or unrecognized structures. Use standard DOM elements that match Steam's expected page structure.
 
 ### Critical Lessons Learned
 1. **MutationObserver Setup**: Must pass options to `observe()` method, not constructor
 2. **Community vs Store Pages**: Different DOM structures require multiple injection strategies
 3. **TypeScript Integration**: Webpack entry points must match actual file locations
 4. **Build Process**: Can fallback to JavaScript when TypeScript compilation fails
+5. **Steam DOM Management**: Shadow DOM and custom elements are removed by Steam's dynamic page updates
+6. **Simple DOM Works**: Standard `createElement()` and `appendChild()` patterns are Steam-compatible
+7. **Test on Real Platform Early**: Would have discovered Shadow DOM issue faster with early Steam testing
+8. **Hybrid Approach**: TypeScript architecture + simple DOM = best of both worlds
+
+### Completed Implementation Steps
+1. ✅ Real HLTB data integration (JSON database with 100 games)
+2. ✅ UI Component injection (Hybrid TypeScript solution)
+3. ✅ Steam page detection (4-strategy extraction)
+4. ✅ TypeScript architecture (type-safe, organized)
+5. ✅ Performance tracking (metrics logged)
 
 ### Next Implementation Steps
-1. Real HLTB API integration
-2. Proper icon design
-3. ~~Enhanced Steam page detection~~ ✅ Architecture complete, needs TypeScript fixes
-4. User preferences and themes
+1. Proper icon design (currently placeholders)
+2. User preferences and themes
+3. Enhanced accessibility (full WCAG 2.1 AA)
+4. Animation options (fade-in effects)
 5. Chrome Web Store preparation

@@ -41,7 +41,12 @@
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebFetch(domain:www.npmjs.com)",
-      "Bash(test -f \"C:\\hltbsteam\\tests\\README.md\")"
+      "Bash(test -f \"C:\\hltbsteam\\tests\\README.md\")",
+      "Bash(pip install -r requirements.txt)",
+      "Bash(pip install requests)",
+      "Bash(python quick_scrape.py)",
+      "Bash(python standalone_scraper.py)",
+      "Bash(python transform_to_extension_format.py)"
     ],
     "deny": [],
     "ask": []

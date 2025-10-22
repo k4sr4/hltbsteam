@@ -1,0 +1,3 @@
+[submodule "howlongtobeat-scraper"]
+	path = howlongtobeat-scraper
+	url = https://github.com/zaireali649/howlongtobeat-scraper.git

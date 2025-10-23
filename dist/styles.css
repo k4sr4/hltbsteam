@@ -3,6 +3,47 @@
 /* Font import for Steam consistency */
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
 
+/* HLTB Notification Styles */
+.hltb-notification {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  max-width: 400px;
+  padding: 16px 20px;
+  background: #1b2838;
+  border-left: 4px solid #66c0f4;
+  border-radius: 4px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  color: #c7d5e0;
+  font-family: "Motiva Sans", Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  z-index: 10000;
+  opacity: 0;
+  transform: translateX(400px);
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.hltb-notification-visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.hltb-notification-error {
+  border-left-color: #d32f2f;
+  background: #2b1f1f;
+}
+
+.hltb-notification-warning {
+  border-left-color: #f57c00;
+  background: #2b2519;
+}
+
+.hltb-notification-info {
+  border-left-color: #66c0f4;
+  background: #1b2838;
+}
+
 /* HLTB Container - Main wrapper for game completion times */
 .hltb-container {
   font-family: "Motiva Sans", "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;

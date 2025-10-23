@@ -1,5 +1,13 @@
 import { MessageHandler } from './message-handler';
 import { hltbIntegratedService } from './services/hltb-integrated-service';
+import { ErrorHandler } from '../shared';
+
+// Initialize global error handler for background service
+const errorHandler = ErrorHandler.getInstance({
+  enableConsoleLogging: true,
+  enableStoragePersistence: true,
+  enableErrorReporting: false // Set to true in production
+});
 
 const messageHandler = new MessageHandler(hltbIntegratedService);
 

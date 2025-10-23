@@ -6,6 +6,13 @@
  */
 
 import { HLTBData } from './types/HLTB';
+import {
+  ErrorHandler,
+  SteamPageDetectionError,
+  DOMInjectionError,
+  safeExecute,
+  withTimeout
+} from '../shared';
 
 /**
  * Game information extracted from Steam pages
@@ -44,9 +51,15 @@ class HLTBContentScriptHybrid {
   private mutationObserver: MutationObserver | null = null;
   private containerElement: HTMLElement | null = null;
   private metrics: PerformanceMetrics | null = null;
+  private errorHandler: ErrorHandler;
 
   constructor() {
     this.lastUrl = window.location.href;
+    this.errorHandler = ErrorHandler.getInstance({
+      enableConsoleLogging: true,
+      enableStoragePersistence: true
+    });
+    this.setupMessageListener();
     this.log('Content script loaded on:', this.lastUrl);
   }
 
@@ -54,6 +67,20 @@ class HLTBContentScriptHybrid {
    * Initialize the extension
    */
   async initialize(): Promise<void> {
+    const result = await safeExecute(
+      async () => this.initializeInternal(),
+      undefined,
+      (error) => {
+        this.errorHandler.handleError(error);
+        this.injectError(error.message);
+      }
+    );
+  }
+
+  /**
+   * Internal initialization with error handling
+   */
+  private async initializeInternal(): Promise<void> {
     const startTime = performance.now();
 
     // Check if we're on a game page
@@ -62,57 +89,62 @@ class HLTBContentScriptHybrid {
       return;
     }
 
-    try {
-      // Check if extension is enabled
-      const settingsResponse = await this.sendMessage({ action: 'getSettings' });
+    // Check if extension is enabled with timeout
+    const settingsResponse = await withTimeout(
+      async () => this.sendMessage({ action: 'getSettings' }),
+      5000,
+      'Settings check timed out'
+    );
 
-      if (!settingsResponse.success || !settingsResponse.settings?.enabled) {
-        this.log('Extension is disabled');
-        return;
-      }
+    if (!settingsResponse.success || !settingsResponse.settings?.enabled) {
+      this.log('Extension is disabled');
+      return;
+    }
 
-      // Wait for Steam's page to stabilize
-      await this.waitForPageStability();
+    // Wait for Steam's page to stabilize
+    await this.waitForPageStability();
 
-      // Extract game info
-      const gameInfo = this.extractGameInfo();
-      if (!gameInfo) {
-        console.warn('[HLTB] Could not extract game info');
-        return;
-      }
+    // Extract game info with error handling
+    const gameInfo = this.extractGameInfo();
+    if (!gameInfo) {
+      throw new SteamPageDetectionError(
+        'Could not extract game info from Steam page',
+        4 // Number of detection strategies tried
+      );
+    }
 
-      this.log('Game detected:', gameInfo);
+    this.log('Game detected:', gameInfo);
 
-      // Fetch HLTB data
-      const hltbResponse = await this.sendMessage({
+    // Fetch HLTB data with timeout
+    const hltbResponse = await withTimeout(
+      async () => this.sendMessage({
         action: 'fetchHLTB',
         gameTitle: gameInfo.title,
         appId: gameInfo.appId
-      });
+      }),
+      10000,
+      'HLTB data fetch timed out'
+    );
 
-      // Inject UI with data or error
-      if (hltbResponse.success && hltbResponse.data) {
-        this.log('Data received:', hltbResponse.data);
-        const injectionTime = performance.now();
+    // Inject UI with data or error
+    if (hltbResponse.success && hltbResponse.data) {
+      this.log('Data received:', hltbResponse.data);
+      const injectionTime = performance.now();
 
-        this.injectHLTBData(hltbResponse.data);
+      this.injectHLTBData(hltbResponse.data);
 
-        const totalTime = performance.now();
-        this.metrics = {
-          startTime,
-          injectionTime: injectionTime - startTime,
-          totalTime: totalTime - startTime
-        };
+      const totalTime = performance.now();
+      this.metrics = {
+        startTime,
+        injectionTime: injectionTime - startTime,
+        totalTime: totalTime - startTime
+      };
 
-        this.log('Performance metrics:', this.metrics);
-      } else {
-        console.error('[HLTB] Failed to fetch data:', hltbResponse.error || 'No data returned');
-        this.injectError(hltbResponse.error || 'Failed to load completion times');
-      }
-
-    } catch (error) {
-      console.error('[HLTB] Extension error:', error);
-      this.injectError(error instanceof Error ? error.message : 'Unknown error occurred');
+      this.log('Performance metrics:', this.metrics);
+    } else {
+      const errorMsg = hltbResponse.error || 'Failed to load completion times';
+      this.errorHandler.handleError(new Error(errorMsg));
+      this.injectError(errorMsg);
     }
   }
 
@@ -404,8 +436,47 @@ class HLTBContentScriptHybrid {
     }
 
     if (!injected) {
-      console.warn('[HLTB] Could not find injection point');
+      const error = new DOMInjectionError(
+        'Could not find suitable injection point on page',
+        injectionSelectors
+      );
+      this.errorHandler.handleError(error);
+      throw error;
     }
+  }
+
+  /**
+   * Setup message listener for background notifications
+   */
+  private setupMessageListener(): void {
+    chrome.runtime.onMessage.addListener((message, sender, sendResponse) => {
+      if (message.action === 'showNotification') {
+        this.showNotification(message.message, message.type);
+        sendResponse({ success: true });
+      }
+      return true;
+    });
+  }
+
+  /**
+   * Show user notification on page
+   */
+  private showNotification(message: string, type: 'error' | 'warning' | 'info' = 'info'): void {
+    const notification = document.createElement('div');
+    notification.className = `hltb-notification hltb-notification-${type}`;
+    notification.textContent = message;
+
+    // Add to page
+    document.body.appendChild(notification);
+
+    // Fade in
+    setTimeout(() => notification.classList.add('hltb-notification-visible'), 10);
+
+    // Auto-remove after 5 seconds
+    setTimeout(() => {
+      notification.classList.remove('hltb-notification-visible');
+      setTimeout(() => notification.remove(), 300);
+    }, 5000);
   }
 
   /**

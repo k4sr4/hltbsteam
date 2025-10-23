@@ -46,7 +46,8 @@
       "Bash(pip install requests)",
       "Bash(python quick_scrape.py)",
       "Bash(python standalone_scraper.py)",
-      "Bash(python transform_to_extension_format.py)"
+      "Bash(python transform_to_extension_format.py)",
+      "Bash(python:*)"
     ],
     "deny": [],
     "ask": []

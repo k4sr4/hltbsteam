@@ -1,64 +1,90 @@
 import { HLTBIntegratedService } from './services/hltb-integrated-service';
+import {
+  ErrorHandler,
+  ValidationError,
+  safeExecute
+} from '../shared';
 
 export class MessageHandler {
-  constructor(private hltbService: HLTBIntegratedService) {}
+  private errorHandler: ErrorHandler;
+
+  constructor(private hltbService: HLTBIntegratedService) {
+    this.errorHandler = ErrorHandler.getInstance({
+      enableConsoleLogging: true,
+      enableStoragePersistence: true,
+      enableErrorReporting: process.env.NODE_ENV === 'production'
+    });
+  }
 
   async handle(request: any, sender: chrome.runtime.MessageSender) {
-    switch (request.action) {
-      case 'fetchHLTB':
-        return this.handleFetchHLTB(request);
+    return safeExecute(
+      async () => {
+        switch (request.action) {
+          case 'fetchHLTB':
+            return this.handleFetchHLTB(request);
 
-      case 'clearCache':
-        return this.handleClearCache();
+          case 'clearCache':
+            return this.handleClearCache();
 
-      case 'getCacheStats':
-        return this.handleGetCacheStats();
+          case 'getCacheStats':
+            return this.handleGetCacheStats();
 
-      case 'batchFetch':
-        return this.handleBatchFetch(request);
+          case 'batchFetch':
+            return this.handleBatchFetch(request);
 
-      case 'getSettings':
-        return this.handleGetSettings();
+          case 'getSettings':
+            return this.handleGetSettings();
 
-      case 'getDiagnostics':
-        return this.handleGetDiagnostics();
+          case 'getDiagnostics':
+            return this.handleGetDiagnostics();
 
-      case 'getStats':
-        return this.handleGetStats();
+          case 'getStats':
+            return this.handleGetStats();
 
-      case 'healthCheck':
-        return this.handleHealthCheck();
+          case 'healthCheck':
+            return this.handleHealthCheck();
 
-      case 'getDatabaseInfo':
-        return this.handleGetDatabaseInfo();
+          case 'getDatabaseInfo':
+            return this.handleGetDatabaseInfo();
 
-      default:
-        throw new Error(`Unknown action: ${request.action}`);
-    }
+          case 'getErrorLog':
+            return this.handleGetErrorLog();
+
+          case 'clearErrorLog':
+            return this.handleClearErrorLog();
+
+          default:
+            throw new ValidationError(`Unknown action: ${request.action}`);
+        }
+      },
+      { success: false, error: 'Internal error occurred' },
+      (error) => this.errorHandler.handleError(error)
+    );
   }
 
   private async handleFetchHLTB(request: any) {
     const { gameTitle, appId } = request;
 
-    if (!gameTitle) {
-      return { success: false, error: 'Game title is required' };
+    // Validation with generic error messages (security best practice)
+    if (!gameTitle || typeof gameTitle !== 'string') {
+      throw new ValidationError('Invalid request parameters', 'gameTitle');
+    }
+
+    if (gameTitle.length === 0 || gameTitle.length > 200) {
+      throw new ValidationError('Invalid request parameters', 'gameTitle');
     }
 
     if (appId && (typeof appId !== 'string' || !/^\d+$/.test(appId))) {
-      return { success: false, error: 'Invalid app ID' };
+      throw new ValidationError('Invalid request parameters', 'appId');
     }
 
-    if (typeof gameTitle !== 'string' || gameTitle.length > 200) {
-      return { success: false, error: 'Invalid game title' };
+    // Log validation details only in development
+    if (process.env.NODE_ENV === 'development') {
+      console.debug('[HLTB] Validated request:', { gameTitle: gameTitle.substring(0, 50), appId });
     }
 
-    try {
-      const data = await this.hltbService.getGameData(gameTitle, appId);
-      return { success: true, data };
-    } catch (error) {
-      console.error('[HLTB] Fetch error:', error);
-      return { success: false, error: (error as Error).message };
-    }
+    const data = await this.hltbService.getGameData(gameTitle, appId);
+    return { success: true, data };
   }
 
   private async handleClearCache() {
@@ -131,21 +157,32 @@ export class MessageHandler {
   }
 
   private async handleGetDatabaseInfo() {
-    try {
-      // Import fallback data to get database info
-      const fallbackData = await import('./services/fallback-data.json');
+    // Import fallback data to get database info
+    const fallbackData = await import('./services/fallback-data.json');
 
-      return {
-        success: true,
-        data: {
-          version: fallbackData.version || '1.0.0',
-          gameCount: fallbackData.games?.length || 0,
-          lastUpdated: fallbackData.lastUpdated || new Date().toISOString()
-        }
-      };
-    } catch (error) {
-      console.error('[HLTB] Error getting database info:', error);
-      return { success: false, error: (error as Error).message };
-    }
+    return {
+      success: true,
+      data: {
+        version: fallbackData.version || '1.0.0',
+        gameCount: fallbackData.games?.length || 0,
+        lastUpdated: fallbackData.lastUpdated || new Date().toISOString()
+      }
+    };
+  }
+
+  private async handleGetErrorLog() {
+    const errorLog = this.errorHandler.getErrorLog();
+    return {
+      success: true,
+      data: errorLog
+    };
+  }
+
+  private async handleClearErrorLog() {
+    this.errorHandler.clearErrorLog();
+    return {
+      success: true,
+      message: 'Error log cleared'
+    };
   }
 }

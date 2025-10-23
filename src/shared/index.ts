@@ -38,3 +38,24 @@ export {
   debounce,
   memoize
 } from './safe-execute';
+
+// Export performance monitoring
+export {
+  PerformanceMonitor,
+  performanceMonitor,
+  type PerformanceMetrics,
+  type MemorySnapshot,
+  type FPSMetrics,
+  type PerformanceReport
+} from './performance-monitor';
+
+// Export optimization utilities
+export {
+  throttle,
+  RAFQueue,
+  LazyImageLoader,
+  DOMBatcher,
+  memoizeWithLRU,
+  ObjectPool,
+  EventDelegator
+} from './optimization-utils';

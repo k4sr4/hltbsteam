@@ -47,7 +47,8 @@
       "Bash(python quick_scrape.py)",
       "Bash(python standalone_scraper.py)",
       "Bash(python transform_to_extension_format.py)",
-      "Bash(python:*)"
+      "Bash(python:*)",
+      "Bash(awk:*)"
     ],
     "deny": [],
     "ask": []

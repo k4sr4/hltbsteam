@@ -1,5 +1,6 @@
 const path = require('path');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
+const TerserPlugin = require('terser-webpack-plugin');
 
 module.exports = (env, argv) => {
   const isProduction = argv.mode === 'production';
@@ -13,7 +14,16 @@ module.exports = (env, argv) => {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].js',
-      clean: true
+      clean: true,
+      // Optimize for browser environment
+      environment: {
+        arrowFunction: true,
+        const: true,
+        destructuring: true,
+        forOf: true,
+        dynamicImport: false, // Chrome extensions don't support dynamic imports
+        module: false
+      }
     },
     module: {
       rules: [
@@ -81,7 +91,66 @@ module.exports = (env, argv) => {
       }
     },
     optimization: {
-      splitChunks: false // Chrome extensions don't support code splitting
+      splitChunks: false, // Chrome extensions don't support code splitting
+      minimize: isProduction,
+      minimizer: [
+        new TerserPlugin({
+          terserOptions: {
+            compress: {
+              // Drop console.log in production
+              drop_console: isProduction,
+              drop_debugger: true,
+              pure_funcs: isProduction ? ['console.log', 'console.debug'] : [],
+              passes: 2, // Multiple passes for better compression
+              unsafe: false, // Don't use unsafe optimizations
+              unsafe_comps: false,
+              unsafe_math: false,
+              unsafe_proto: false,
+              warnings: false
+            },
+            mangle: {
+              // Mangle names but keep class names for debugging
+              keep_classnames: !isProduction,
+              keep_fnames: !isProduction,
+              safari10: true
+            },
+            format: {
+              comments: false, // Remove all comments
+              ascii_only: true, // Ensure compatibility
+              ecma: 2020
+            },
+            ecma: 2020,
+            module: false,
+            toplevel: false, // Don't mangle top-level names (Chrome extension compatibility)
+            keep_classnames: !isProduction,
+            keep_fnames: !isProduction
+          },
+          extractComments: false, // Don't extract comments to separate file
+          parallel: true // Use multiple cores
+        })
+      ],
+      // Tree shaking
+      usedExports: true,
+      sideEffects: false,
+      // Module concatenation for smaller bundles
+      concatenateModules: true,
+      // Optimize module IDs
+      moduleIds: 'deterministic',
+      chunkIds: 'deterministic'
+    },
+    performance: {
+      hints: isProduction ? 'warning' : false,
+      maxEntrypointSize: 500000, // 500KB target
+      maxAssetSize: 500000
+    },
+    stats: {
+      colors: true,
+      modules: false,
+      children: false,
+      chunks: false,
+      chunkModules: false,
+      assets: true,
+      assetsSort: 'size'
     }
   };
 };

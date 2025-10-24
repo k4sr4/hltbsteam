@@ -1,1 +1,0 @@
-Add the details of all the changes we made in the last commit including the commit hash as a change log in the CHANGELOG>md file in the root of this project.

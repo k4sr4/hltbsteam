@@ -1,1 +1,0 @@
-Append the context you learned doing this task to CLAUDE.md in the corresponding subfolder (depending on what the subfolder is taking care of and what this context is about) of the project, for future reference. Also, update the CLAUDE.md in the root with proper context if needed.

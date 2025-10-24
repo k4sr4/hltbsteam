@@ -48,7 +48,14 @@
       "Bash(python standalone_scraper.py)",
       "Bash(python transform_to_extension_format.py)",
       "Bash(python:*)",
-      "Bash(awk:*)"
+      "Bash(awk:*)",
+      "Bash(test:*)",
+      "Bash(powershell -command:*)",
+      "Bash(for icon in icon16.png icon32.png icon48.png icon128.png)",
+      "Bash(do if [ -f \"dist/icons/$icon\" ])",
+      "Bash(else echo \"✗ $icon MISSING\")",
+      "Bash(fi)",
+      "Bash(done)"
     ],
     "deny": [],
     "ask": []

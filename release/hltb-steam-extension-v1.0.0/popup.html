@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=350">
+  <title>HLTB for Steam</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="popup-container">
+    <!-- Header -->
+    <header class="popup-header">
+      <img src="icons/icon48.png" alt="HLTB Logo" class="logo">
+      <h1>HLTB for Steam</h1>
+      <span id="version" class="version">v1.0.0</span>
+    </header>
+
+    <!-- Main Content -->
+    <main class="popup-content">
+      <!-- Main Toggle Section -->
+      <section class="section-toggle" aria-labelledby="toggle-heading">
+        <h2 id="toggle-heading" class="sr-only">Extension Status</h2>
+        <div class="toggle-container">
+          <label class="toggle-switch">
+            <input
+              type="checkbox"
+              id="enabled"
+              aria-label="Enable extension"
+              checked
+            >
+            <span class="toggle-slider"></span>
+          </label>
+          <span class="toggle-label">Extension Enabled</span>
+        </div>
+      </section>
+
+      <!-- Settings Section -->
+      <section class="section-settings" aria-labelledby="settings-heading">
+        <h2 id="settings-heading" class="section-heading">Settings</h2>
+
+        <div class="setting-group">
+          <label class="setting-label">
+            <input
+              type="checkbox"
+              id="cache-enabled"
+              aria-describedby="cache-enabled-desc"
+              checked
+            >
+            <span>Enable Caching</span>
+          </label>
+          <p id="cache-enabled-desc" class="setting-description">
+            Store game data locally for faster loading
+          </p>
+        </div>
+
+        <div class="setting-group">
+          <label for="cache-duration" class="setting-label">
+            Cache Duration
+          </label>
+          <select
+            id="cache-duration"
+            class="setting-select"
+            aria-describedby="cache-duration-desc"
+          >
+            <option value="1">1 Day</option>
+            <option value="3">3 Days</option>
+            <option value="7" selected>7 Days</option>
+            <option value="14">14 Days</option>
+            <option value="30">30 Days</option>
+          </select>
+          <p id="cache-duration-desc" class="setting-description">
+            How long to keep cached data
+          </p>
+        </div>
+
+        <div class="setting-group">
+          <label for="display-position" class="setting-label">
+            Display Position
+          </label>
+          <select
+            id="display-position"
+            class="setting-select"
+            aria-describedby="display-position-desc"
+          >
+            <option value="above-purchase" selected>Above Purchase Area</option>
+            <option value="game-details">In Game Details</option>
+            <option value="sidebar">In Sidebar</option>
+          </select>
+          <p id="display-position-desc" class="setting-description">
+            Where to show completion times on Steam pages
+          </p>
+        </div>
+
+        <div class="setting-group">
+          <label for="theme" class="setting-label">
+            Theme
+          </label>
+          <select
+            id="theme"
+            class="setting-select"
+            aria-describedby="theme-desc"
+          >
+            <option value="auto" selected>Auto (Match Steam)</option>
+            <option value="dark">Dark</option>
+            <option value="light">Light</option>
+          </select>
+          <p id="theme-desc" class="setting-description">
+            Color scheme for the extension UI
+          </p>
+        </div>
+      </section>
+
+      <!-- Database Information Section -->
+      <section class="section-database" aria-labelledby="database-heading">
+        <h2 id="database-heading" class="section-heading">Database</h2>
+
+        <div class="stats-grid">
+          <div class="stat-item">
+            <span id="db-version" class="stat-value">1.0.0</span>
+            <span class="stat-label">Database Version</span>
+          </div>
+          <div class="stat-item">
+            <span id="db-games" class="stat-value">100</span>
+            <span class="stat-label">Games in Database</span>
+          </div>
+          <div class="stat-item">
+            <span id="matches-count" class="stat-value">0</span>
+            <span class="stat-label">Games Matched</span>
+          </div>
+          <div class="stat-item">
+            <span id="match-rate" class="stat-value">0%</span>
+            <span class="stat-label">Match Rate</span>
+          </div>
+        </div>
+
+        <div class="contribute-box">
+          <p class="contribute-text">
+            Missing a game? Help expand our database!
+          </p>
+          <a
+            href="#"
+            id="suggest-game"
+            class="btn btn-primary"
+            role="button"
+          >
+            Suggest a Game
+          </a>
+        </div>
+      </section>
+
+      <!-- Actions Section -->
+      <section class="section-actions" aria-labelledby="actions-heading">
+        <h2 id="actions-heading" class="sr-only">Quick Actions</h2>
+
+        <div class="actions-grid">
+          <button
+            id="clear-cache"
+            class="btn btn-secondary"
+            aria-label="Clear cached game data"
+          >
+            Clear Cache
+          </button>
+          <button
+            id="refresh-current"
+            class="btn btn-secondary"
+            aria-label="Refresh current Steam page"
+          >
+            Refresh Page
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="popup-footer">
+      <nav class="footer-links" aria-label="Extension links">
+        <a
+          href="#"
+          id="github-link"
+          aria-label="View on GitHub"
+        >
+          GitHub
+        </a>
+        <span class="separator" aria-hidden="true">•</span>
+        <a
+          href="#"
+          id="report-issue"
+          aria-label="Report an issue"
+        >
+          Report Issue
+        </a>
+      </nav>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>

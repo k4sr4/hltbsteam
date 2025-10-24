@@ -3,20 +3,20 @@
 ## Pre-Submission Checklist
 
 ### ☐ 1. Developer Account
-- [ ] Created Chrome Web Store developer account
-- [ ] Paid $5 registration fee
-- [ ] Completed identity verification (may take 1-3 days)
+- [ x] Created Chrome Web Store developer account
+- [ x] Paid $5 registration fee
+- [ x] Completed identity verification (may take 1-3 days)
 
 ### ☐ 2. Icons Created
-- [ ] icon16.png (16x16)
-- [ ] icon32.png (32x32)
-- [ ] icon48.png (48x48)
-- [ ] icon128.png (128x128)
-- [ ] All icons placed in `icons/` folder
-- [ ] Updated `manifest.json` to reference new icons
+- [ x] icon16.png (16x16)
+- [ x] icon32.png (32x32)
+- [ x] icon48.png (48x48)
+- [ x] icon128.png (128x128)
+- [ x] All icons placed in `icons/` folder
+- [ x] Updated `manifest.json` to reference new icons
 
 ### ☐ 3. Screenshots Prepared
-- [ ] Screenshot 1: Extension in action on Steam page (1280x800)
+- [ x] Screenshot 1: Extension in action on Steam page (1280x800)
 - [ ] Screenshot 2: Settings popup (1280x800)
 - [ ] Screenshot 3: Another game example (1280x800)
 - [ ] Screenshots saved in `screenshots/` folder

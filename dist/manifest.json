@@ -54,6 +54,6 @@
     "extension_pages": "script-src 'self'; object-src 'self';"
   },
 
-  "author": "HLTB Steam Extension",
-  "homepage_url": "https://github.com/yourusername/hltb-steam"
+  "author": "Kasra Rahimi",
+  "homepage_url": "https://github.com/k4sr4/hltbsteam"
 }

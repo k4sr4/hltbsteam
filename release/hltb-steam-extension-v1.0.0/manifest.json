@@ -1,0 +1,59 @@
+{
+  "manifest_version": 3,
+  "name": "HLTB for Steam",
+  "version": "1.0.0",
+  "description": "Display HowLongToBeat completion times on Steam pages",
+
+  "permissions": [
+    "storage",
+    "alarms"
+  ],
+
+  "host_permissions": [
+    "https://store.steampowered.com/*",
+    "https://steamcommunity.com/*",
+    "https://howlongtobeat.com/*"
+  ],
+
+  "content_scripts": [
+    {
+      "matches": [
+        "https://store.steampowered.com/app/*",
+        "https://steamcommunity.com/app/*"
+      ],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_end"
+    }
+  ],
+
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "HLTB for Steam",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self';"
+  },
+
+  "author": "Kasra Rahimi",
+  "homepage_url": "https://github.com/k4sr4/hltbsteam"
+}

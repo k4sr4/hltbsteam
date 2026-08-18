@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastUpdated": "2025-10-23",
+  "lastUpdated": "2025-11-26",
   "games": [
     {
       "title": "!4RC4N01D!",
@@ -4549,6 +4549,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "2:22AM",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": 0.3,
+        "allStyles": 0.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "2D Dawg 2",
@@ -21389,6 +21401,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Al Unser Jr.'s Road to the Top",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.9,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 0.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Al-Qadim: The Genie's Curse",
       "aliases": [],
       "data": {
@@ -32429,6 +32453,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Ant Attack",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.5,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 0.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Ant Colony: Wild Forest",
       "aliases": [],
       "data": {
@@ -34815,6 +34851,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Araiguma Rascal: Raccoon Rascal",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.2,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 3.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Aralon: Sword and Shadow",
@@ -39691,6 +39739,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Ascension to the Throne: Valkyrie",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": 24.1,
+        "completionist": null,
+        "allStyles": 24.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Ascension: Chronicle of the Godslayer",
@@ -45859,6 +45919,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Automation: The Car Company Tycoon Game",
+      "aliases": [],
+      "data": {
+        "mainStory": 22.3,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 22.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Automaton Lung",
@@ -53294,6 +53366,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Baseball Riot",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.4,
+        "mainExtra": null,
+        "completionist": 6.2,
+        "allStyles": 5.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Baseball Simulator 1.000",
       "aliases": [],
       "data": {
@@ -56040,6 +56124,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Battle Stations",
+      "aliases": [],
+      "data": {
+        "mainStory": 10.0,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 10.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Battle Suit Aces",
@@ -71396,6 +71492,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Blues and Bullets - Episode 2: Shaking the Hive",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.1,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 2.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Blues Brothers 2000",
       "aliases": [],
       "data": {
@@ -73362,6 +73470,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Bonkers Wax Up!",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.4,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 0.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Bonnie's Bakery",
@@ -106202,6 +106322,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Colorless Life",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": 0.6,
+        "allStyles": 0.6
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Colors!",
       "aliases": [],
       "data": {
@@ -107868,6 +108000,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Company of Heroes: Tales of Valor",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.5,
+        "mainExtra": 5.8,
+        "completionist": 24.2,
+        "allStyles": 8.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Compass of Destiny: Istanbul",
@@ -111932,7 +112076,8 @@
         "mainStory": null,
         "mainExtra": null,
         "completionist": null,
-        "allStyles": null
+        "allStyles": null,
+        "isMultiplayerOnly": true
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
@@ -112003,7 +112148,8 @@
         "mainStory": null,
         "mainExtra": null,
         "completionist": null,
-        "allStyles": null
+        "allStyles": null,
+        "isMultiplayerOnly": true
       },
       "confidence": "high"
     },
@@ -113160,6 +113306,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Crash Bandicoot: Warped",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.4,
+        "mainExtra": 8.1,
+        "completionist": 14.6,
+        "allStyles": 7.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Crash Bash",
@@ -118718,6 +118876,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Cube & Star: An Arbitrary Love",
+      "aliases": [],
+      "data": {
+        "mainStory": 4.9,
+        "mainExtra": 5.2,
+        "completionist": null,
+        "allStyles": 5.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Cube - The Jumper",
       "aliases": [],
       "data": {
@@ -123413,6 +123583,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Dance Central 2",
+      "aliases": [],
+      "data": {
+        "mainStory": 9.4,
+        "mainExtra": 15.4,
+        "completionist": null,
+        "allStyles": 10.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Dance Central 3",
       "aliases": [],
       "data": {
@@ -123423,6 +123605,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Dance Central Spotlight",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": 15.0,
+        "completionist": null,
+        "allStyles": 15.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Dance Collider",
@@ -129084,6 +129278,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Dead Ball Zone",
+      "aliases": [],
+      "data": {
+        "mainStory": 6.0,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 6.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Dead Beacon",
@@ -142456,6 +142662,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Digital Monsters - Taichis Story",
+      "aliases": [],
+      "data": {
+        "mainStory": 3.4,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 3.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Digital Monsters: Yamatos Story",
       "aliases": [],
       "data": {
@@ -145766,6 +145984,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Disney's Brother Bear",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.2,
+        "mainExtra": 2.4,
+        "completionist": 5.0,
+        "allStyles": 2.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Disney's Chicken Little: Ace in Action",
@@ -180190,6 +180420,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Extra Bright",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.7,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 0.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Extra Case: My Girlfriend's Secrets",
       "aliases": [],
       "data": {
@@ -180284,6 +180526,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Extreme Forklifting 2",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.2,
+        "mainExtra": 1.4,
+        "completionist": null,
+        "allStyles": 1.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Extreme Formula Championship",
@@ -191877,6 +192131,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Final Fantasy XII: Revenant Wings",
+      "aliases": [],
+      "data": {
+        "mainStory": 24.2,
+        "mainExtra": 33.4,
+        "completionist": 49.3,
+        "allStyles": 32.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Final Fantasy XII: The Zodiac Age",
@@ -215498,6 +215764,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "GhostSlayer",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": 1.8,
+        "allStyles": 1.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "GHOSTWARE: Arena of the Dead",
       "aliases": [],
       "data": {
@@ -218592,6 +218870,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Goat Simulator: Goat MMO Simulator",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.5,
+        "mainExtra": 1.8,
+        "completionist": 2.6,
+        "allStyles": 2.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Goat Simulator: GoatZ",
@@ -237084,6 +237374,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Haunted Hotel",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": 4.1,
+        "allStyles": 4.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Haunted Hotel: Personal Nightmare",
@@ -265976,6 +266278,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Intellivision Classic Games",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.1,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 2.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Intellivision Lives!",
       "aliases": [],
       "data": {
@@ -270786,6 +271100,42 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Jagged Alliance Online",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.0,
+        "mainExtra": 7.0,
+        "completionist": 9.0,
+        "allStyles": 7.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
+      "title": "Jagged Alliance Online - Campaign Pack: Shadow Edition",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.0,
+        "mainExtra": 7.0,
+        "completionist": 9.0,
+        "allStyles": 7.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
+      "title": "Jagged Alliance Online: Reloaded",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.0,
+        "mainExtra": 7.0,
+        "completionist": 9.0,
+        "allStyles": 7.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Jagged Alliance: Back in Action",
@@ -280026,6 +280376,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Kawasaki Superbike Challenge",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.9,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 1.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Kayak VR: Mirage",
@@ -315298,6 +315660,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Magic Jewelry",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.5,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 0.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Magic Johnson's Fast Break",
       "aliases": [],
       "data": {
@@ -318716,6 +319090,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Mandagon",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.7,
+        "mainExtra": 0.7,
+        "completionist": 0.8,
+        "allStyles": 0.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Mandemon",
@@ -328968,6 +329354,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Memories Off: Yubikiri no Kioku",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": 48.4,
+        "allStyles": 48.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Memories with my Kitten",
       "aliases": [],
       "data": {
@@ -338338,6 +338736,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Mirt. Tales of the Cold Land",
+      "aliases": [],
+      "data": {
+        "mainStory": 0.3,
+        "mainExtra": 1.0,
+        "completionist": 3.9,
+        "allStyles": 2.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Mirth Melody",
@@ -358712,6 +359122,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "NCIS: The Video Game",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.0,
+        "mainExtra": null,
+        "completionist": 6.0,
+        "allStyles": 5.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Ne no Kami: The Two Princess Knights of Kyoto",
       "aliases": [],
       "data": {
@@ -375136,6 +375558,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Omega Labyrinth",
+      "aliases": [],
+      "data": {
+        "mainStory": 40.0,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 40.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Omega Labyrinth Life",
       "aliases": [],
       "data": {
@@ -379576,6 +380010,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Order Up!",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.8,
+        "mainExtra": 8.8,
+        "completionist": 10.0,
+        "allStyles": 7.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Ordia",
       "aliases": [],
       "data": {
@@ -381484,6 +381930,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Outland",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.1,
+        "mainExtra": 9.8,
+        "completionist": 12.4,
+        "allStyles": 8.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Outlanders",
       "aliases": [],
       "data": {
@@ -381760,6 +382218,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Outpost: Haven",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": 3.0,
+        "completionist": null,
+        "allStyles": 3.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Outrage",
       "aliases": [],
       "data": {
@@ -381842,6 +382312,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "OutRun 2006: Coast 2 Coast",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.7,
+        "mainExtra": 15.7,
+        "completionist": 33.4,
+        "allStyles": 8.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "OutRun 2019",
@@ -392453,6 +392935,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "PGA Tour Golf",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.0,
+        "mainExtra": 10.0,
+        "completionist": null,
+        "allStyles": 4.1
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Phalanx",
       "aliases": [],
       "data": {
@@ -399761,6 +400255,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Planet Puzzle League",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.4,
+        "mainExtra": 6.1,
+        "completionist": null,
+        "allStyles": 2.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Planet R-12",
@@ -432613,6 +433119,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Restaurant Empire",
+      "aliases": [],
+      "data": {
+        "mainStory": 38.4,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 38.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Restaurant Empire II",
       "aliases": [],
       "data": {
@@ -435817,6 +436335,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Rijn the Specpyre in... Manor of the Damned!",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": 4.5,
+        "completionist": null,
+        "allStyles": 4.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "RIKI 8Bit GAME Collection",
       "aliases": [],
       "data": {
@@ -436883,6 +437413,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Rise to Honor",
+      "aliases": [],
+      "data": {
+        "mainStory": 5.9,
+        "mainExtra": 9.6,
+        "completionist": 15.4,
+        "allStyles": 7.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Rise to Ruins",
@@ -438887,6 +439429,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Robo Pit",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.0,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 2.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Robo Recall",
@@ -464609,6 +465163,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Shining Plume",
+      "aliases": [],
+      "data": {
+        "mainStory": 7.0,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 7.0
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Shining Resonance",
       "aliases": [],
       "data": {
@@ -468999,6 +469565,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Silverfall: Earth Awakening",
+      "aliases": [],
+      "data": {
+        "mainStory": 8.8,
+        "mainExtra": 11.3,
+        "completionist": null,
+        "allStyles": 9.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "SIM - Sara Is Missing",
@@ -493076,6 +493654,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Star Trek Timelines",
+      "aliases": [],
+      "data": {
+        "mainStory": 300.0,
+        "mainExtra": 400.0,
+        "completionist": 600.0,
+        "allStyles": 416.7
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Star Trek Voyager",
       "aliases": [],
       "data": {
@@ -493590,6 +494180,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Star Wars Chess",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": 0.8,
+        "allStyles": 0.8
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Star Wars Episode I: Jedi Power Battles",
@@ -507584,6 +508186,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "Super Gussun Oyoyo",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.9,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 2.9
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "Super Hang-On",
       "aliases": [],
       "data": {
@@ -509706,6 +510320,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Super Night Riders",
+      "aliases": [],
+      "data": {
+        "mainStory": 2.1,
+        "mainExtra": 2.2,
+        "completionist": 4.1,
+        "allStyles": 3.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Super Ninja Boy",
@@ -519114,6 +519740,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Tales of Fandom Vol. 1",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": 15.4,
+        "completionist": null,
+        "allStyles": 15.4
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Tales of fire",
@@ -536299,6 +536937,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "The Filmmaker - A Text Adventure",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": 11.3,
+        "allStyles": 11.3
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "The Final Boss",
@@ -556296,6 +556946,18 @@
       "lastUpdated": "2025-10"
     },
     {
+      "title": "The Tin Star",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": 0.5,
+        "allStyles": 0.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
+    },
+    {
       "title": "The Tiny Bang Story",
       "aliases": [],
       "data": {
@@ -565383,6 +566045,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Tiny Dice Dungeon",
+      "aliases": [],
+      "data": {
+        "mainStory": null,
+        "mainExtra": null,
+        "completionist": 1.5,
+        "allStyles": 1.5
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Tiny Echo",
@@ -585525,6 +586199,18 @@
       },
       "confidence": "medium",
       "lastUpdated": "2025-10"
+    },
+    {
+      "title": "Ultra Baseball Jitsumeiban 2",
+      "aliases": [],
+      "data": {
+        "mainStory": 1.2,
+        "mainExtra": null,
+        "completionist": null,
+        "allStyles": 1.2
+      },
+      "confidence": "medium",
+      "lastUpdated": "2025-11"
     },
     {
       "title": "Ultra Bust-a-Move",
@@ -615944,7 +616630,8 @@
         "mainStory": null,
         "mainExtra": null,
         "completionist": null,
-        "allStyles": null
+        "allStyles": null,
+        "isMultiplayerOnly": true
       },
       "confidence": "high"
     },

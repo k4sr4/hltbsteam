@@ -1,6 +1,6 @@
 {
   "name": "hltb-steam-extension",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Chrome extension that integrates HowLongToBeat data into Steam store pages",
   "main": "dist/background.js",
   "scripts": {

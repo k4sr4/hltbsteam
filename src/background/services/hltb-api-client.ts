@@ -1,7 +1,22 @@
 /**
  * Enhanced HLTB API Client
  * Implements robust error handling, rate limiting, and retry logic
+ *
+ * Live API flow (verified against howlongtobeat.com, July 2026):
+ *   1. GET  /api/{endpoint}/init -> { token, hpKey, hpVal }   (hltb-auth-service)
+ *   2. POST /api/{endpoint} with x-auth-token / x-hp-key / x-hp-val headers,
+ *      the hpKey/hpVal pair echoed inside the JSON body, and a Referer header
+ *      supplied via declarativeNetRequest (hltb-header-rules).
+ * A 403 means the token expired (refresh + retry once); a 404 means HLTB
+ * rotated the endpoint name (rediscover + retry once).
  */
+
+import { hltbAuthService, HLTBAuth, HLTBAuthError } from './hltb-auth-service';
+import { ensureHltbHeaderRules } from './hltb-header-rules';
+// Static import (title-matcher has no dependency back on this module, so no
+// cycle). A dynamic import() would emit an async webpack chunk that an MV3
+// module service worker cannot load, silently breaking every live match.
+import { titleMatcher } from './title-matcher';
 
 // Custom Error Classes
 export class RateLimitError extends Error {
@@ -41,23 +56,34 @@ export interface HLTBSearchRequest {
       sortCategory: 'popular' | 'rating' | 'name' | 'releaseDate';
       rangeCategory: 'main' | 'mainExtra' | 'completionist';
       rangeTime: {
-        min: number;
-        max: number;
+        min: number | null;
+        max: number | null;
       };
       gameplay: {
         perspective: string;
         flow: string;
         genre: string;
+        difficulty: string;
+      };
+      rangeYear: {
+        min: string;
+        max: string;
       };
       modifier: string;
     };
     users: {
       sortCategory: 'postcount';
     };
+    lists: {
+      sortCategory: 'follows';
+    };
     filter: string;
     sort: number;
     randomizer: number;
   };
+  useCache: boolean;
+  // The honeypot pair from init is echoed as an extra dynamic body field
+  [hpKey: string]: unknown;
 }
 
 export interface HLTBGameData {
@@ -91,6 +117,7 @@ export interface HLTBGameData {
   review_score: number;
   count_playing: number;
   count_retired: number;
+  release_world?: number;
 }
 
 export interface HLTBSearchResponse {
@@ -111,6 +138,10 @@ export interface ParsedHLTBData {
   gameId: number;
   gameName: string;
   imageUrl?: string;
+  /** True when HLTB marks the game as having no single-player mode */
+  isMultiplayerOnly: boolean;
+  /** Release year (release_world); 0 = announced/TBA, null = unknown */
+  releaseYear: number | null;
   playerCounts: {
     main: number;
     extra: number;
@@ -205,9 +236,17 @@ export class RetryManager {
       return !statusCode || statusCode >= 500 || statusCode === 429 || statusCode === 0;
     }
 
-    // Rate limit errors
+    // Rate limit errors: never retry — honor the server's window instead of
+    // re-POSTing on exponential backoff (which ignores Retry-After). The
+    // searchGames entry gate blocks further calls until the window passes.
     if (error instanceof RateLimitError) {
-      return true;
+      return false;
+    }
+
+    // Auth/init failures (bad status, no token, discovery failed): non-retriable,
+    // so a blocked IP or transient init error can't multiply the discovery scan.
+    if (error instanceof HLTBAuthError) {
+      return false;
     }
 
     // Generic network failures
@@ -231,9 +270,11 @@ export class RetryManager {
 
 // Main HLTB API Client
 export class HLTBApiClient {
-  private readonly API_ENDPOINT = 'https://howlongtobeat.com/api/locate/5d6cf2e5eb308ba8';
+  private readonly BASE_URL = 'https://howlongtobeat.com';
+  private readonly RATE_LIMIT_KEY = 'hltb_rate_limit_until';
   private readonly retryManager: RetryManager;
   private rateLimitReset: Date | null = null;
+  private rateLimitLoaded = false;
 
   constructor(
     private readonly options: {
@@ -254,7 +295,8 @@ export class HLTBApiClient {
    * Search for games on HLTB
    */
   async searchGames(gameTitle: string): Promise<ParsedHLTBData[]> {
-    // Check rate limit
+    // Check rate limit (loading any window persisted before an SW restart)
+    await this.loadRateLimit();
     if (this.rateLimitReset && this.rateLimitReset > new Date()) {
       const waitTime = Math.ceil((this.rateLimitReset.getTime() - Date.now()) / 1000);
       throw new RateLimitError(waitTime);
@@ -287,12 +329,12 @@ export class HLTBApiClient {
   }
 
   /**
-   * Build the search request payload for new HLTB API format
+   * Build the search request payload matching HLTB's current client format
    */
-  private buildSearchPayload(searchTerm: string): any {
+  private buildSearchPayload(searchTerm: string): HLTBSearchRequest {
     return {
       searchType: 'games',
-      searchTerms: searchTerm.split(' ').filter(term => term.length > 0),
+      searchTerms: searchTerm.trim().split(/\s+/).filter(term => term.length > 0),
       searchPage: 1,
       size: 20,
       searchOptions: {
@@ -300,7 +342,11 @@ export class HLTBApiClient {
           userId: 0,
           platform: '',
           sortCategory: 'popular',
-          rangeCategory: 'main'
+          rangeCategory: 'main',
+          rangeTime: { min: null, max: null },
+          gameplay: { perspective: '', flow: '', genre: '', difficulty: '' },
+          rangeYear: { min: '', max: '' },
+          modifier: ''
         },
         users: {
           sortCategory: 'postcount'
@@ -317,30 +363,28 @@ export class HLTBApiClient {
   }
 
   /**
-   * Make the actual HTTP request with proper headers
+   * Make the authenticated two-step request, refreshing credentials once on
+   * 403 (expired token) or 404 (rotated endpoint name)
    */
   private async makeRequest(payload: HLTBSearchRequest): Promise<HLTBSearchResponse> {
     const controller = new AbortController();
     const timeout = this.options.timeout || 30000;
 
-    const timeoutId = setTimeout(() => controller.abort(), timeout);
+    // Abort covers the search POSTs; the race also bounds the auth/init phase,
+    // whose fetches do not share this signal.
+    let timeoutId: ReturnType<typeof setTimeout> | undefined;
+    const timeoutPromise = new Promise<never>((_, reject) => {
+      timeoutId = setTimeout(() => {
+        controller.abort();
+        reject(new NetworkError('Request timeout'));
+      }, timeout);
+    });
 
     try {
-      const response = await fetch(this.API_ENDPOINT, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-          'Accept-Language': 'en-US,en;q=0.9',
-          'Referer': 'https://howlongtobeat.com',
-          'Origin': 'https://howlongtobeat.com',
-          'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36',
-          'Cache-Control': 'no-cache',
-          'Pragma': 'no-cache'
-        },
-        body: JSON.stringify(payload),
-        signal: controller.signal
-      });
+      const response = await Promise.race([
+        this.performAuthenticatedRequest(payload, controller.signal),
+        timeoutPromise
+      ]);
 
       clearTimeout(timeoutId);
 
@@ -348,6 +392,7 @@ export class HLTBApiClient {
       if (response.status === 429) {
         const retryAfter = this.parseRetryAfter(response.headers);
         this.rateLimitReset = new Date(Date.now() + retryAfter * 1000);
+        await this.saveRateLimit(this.rateLimitReset);
         throw new RateLimitError(retryAfter);
       }
 
@@ -379,18 +424,76 @@ export class HLTBApiClient {
         throw new NetworkError('Request timeout', undefined, error);
       }
 
-      // Re-throw our custom errors
-      if (error instanceof RateLimitError || error instanceof NetworkError) {
+      // Re-throw our custom errors (HLTBAuthError stays non-retriable)
+      if (
+        error instanceof RateLimitError ||
+        error instanceof NetworkError ||
+        error instanceof HLTBAuthError
+      ) {
         throw error;
       }
 
-      // Wrap other errors
+      // Wrap unknown errors
       throw new NetworkError(
         'Network request failed',
         undefined,
         error as Error
       );
     }
+  }
+
+  /**
+   * Acquire credentials and POST the search, refreshing once on 403/404
+   */
+  private async performAuthenticatedRequest(
+    payload: HLTBSearchRequest,
+    signal: AbortSignal
+  ): Promise<Response> {
+    await ensureHltbHeaderRules();
+
+    let auth = await hltbAuthService.getAuth();
+    let response = await this.postSearch(auth, payload, signal);
+
+    if (response.status === 403) {
+      console.warn('[HLTBApiClient] Search token expired, refreshing and retrying');
+      auth = await hltbAuthService.getAuth(true);
+      response = await this.postSearch(auth, payload, signal);
+    } else if (response.status === 404) {
+      console.warn('[HLTBApiClient] Search endpoint rotated, rediscovering and retrying');
+      auth = await hltbAuthService.getAuth(true, true);
+      response = await this.postSearch(auth, payload, signal);
+    }
+
+    return response;
+  }
+
+  /**
+   * POST the search payload with auth headers and the honeypot body field
+   */
+  private postSearch(
+    auth: HLTBAuth,
+    payload: HLTBSearchRequest,
+    signal: AbortSignal
+  ): Promise<Response> {
+    const body: HLTBSearchRequest = { ...payload };
+    const headers: Record<string, string> = {
+      'Content-Type': 'application/json',
+      'Accept': 'application/json',
+      'x-auth-token': auth.token
+    };
+
+    if (auth.hpKey && auth.hpVal) {
+      headers['x-hp-key'] = auth.hpKey;
+      headers['x-hp-val'] = auth.hpVal;
+      body[auth.hpKey] = auth.hpVal;
+    }
+
+    return fetch(`${this.BASE_URL}/api/${auth.endpoint}`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify(body),
+      signal
+    });
   }
 
   /**
@@ -434,6 +537,15 @@ export class HLTBApiClient {
    * Parse individual game data
    */
   private parseGameData(game: HLTBGameData): ParsedHLTBData {
+    // Flag competitive/versus games that have no single-player mode — these
+    // have no meaningful completion time (HLTB's comp_main for them is average
+    // investment time, e.g. Dota 2 ~747h), so the UI shows a notice instead.
+    // NB: co-op-only campaign games (comp_lvl_co === 1, comp_lvl_mp === 0, e.g.
+    // It Takes Two / A Way Out) are deliberately NOT flagged — their comp_main
+    // IS a real completion time and should be shown.
+    const isMultiplayerOnly =
+      game.comp_lvl_sp === 0 && game.comp_lvl_mp === 1;
+
     return {
       mainStory: this.parseTimeValue(game.comp_main),
       mainExtra: this.parseTimeValue(game.comp_plus),
@@ -442,6 +554,8 @@ export class HLTBApiClient {
       gameId: game.game_id,
       gameName: game.game_name,
       imageUrl: game.game_image ? `https://howlongtobeat.com/games/${game.game_image}` : undefined,
+      isMultiplayerOnly,
+      releaseYear: typeof game.release_world === 'number' ? game.release_world : null,
       playerCounts: {
         main: game.comp_main_count || 0,
         extra: game.comp_plus_count || 0,
@@ -489,9 +603,6 @@ export class HLTBApiClient {
     if (results.length === 0) {
       return null;
     }
-
-    // Import TitleMatcher dynamically to avoid circular dependency
-    const { titleMatcher } = await import('./title-matcher');
 
     // Convert ParsedHLTBData to HLTBSearchResult format
     const searchResults = results.map(game => ({
@@ -591,6 +702,53 @@ export class HLTBApiClient {
    */
   clearRateLimit(): void {
     this.rateLimitReset = null;
+    this.rateLimitLoaded = true;
+    this.persistRateLimit(null);
+  }
+
+  /**
+   * Load a rate-limit window persisted before a service-worker restart.
+   * The MV3 worker is killed after ~30s idle, so an in-memory-only gate would
+   * evaporate long before a typical Retry-After window expires.
+   */
+  private async loadRateLimit(): Promise<void> {
+    if (this.rateLimitLoaded) return;
+    this.rateLimitLoaded = true;
+    try {
+      const area = this.rateLimitStorage();
+      if (!area) return;
+      const stored = await area.get(this.RATE_LIMIT_KEY);
+      const until = stored?.[this.RATE_LIMIT_KEY];
+      if (typeof until === 'number' && until > Date.now()) {
+        this.rateLimitReset = new Date(until);
+      }
+    } catch {
+      // Storage unavailable — fall back to in-memory only
+    }
+  }
+
+  private async saveRateLimit(reset: Date): Promise<void> {
+    this.rateLimitLoaded = true;
+    await this.persistRateLimit(reset.getTime());
+  }
+
+  private async persistRateLimit(until: number | null): Promise<void> {
+    try {
+      const area = this.rateLimitStorage();
+      if (!area) return;
+      if (until === null) {
+        await area.remove(this.RATE_LIMIT_KEY);
+      } else {
+        await area.set({ [this.RATE_LIMIT_KEY]: until });
+      }
+    } catch {
+      // Non-fatal
+    }
+  }
+
+  private rateLimitStorage(): chrome.storage.StorageArea | null {
+    if (typeof chrome === 'undefined' || !chrome.storage) return null;
+    return (chrome.storage as any).session || chrome.storage.local || null;
   }
 
   /**

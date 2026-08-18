@@ -71,7 +71,12 @@ module.exports = (env, argv) => {
           },
           {
             from: 'icons',
-            to: 'icons'
+            to: 'icons',
+            // Only ship the actual icon PNGs; skip the icon-generator scaffolding
+            // (icon*.html, README.txt) so dist/ stays a clean store package.
+            globOptions: {
+              ignore: ['**/*.html', '**/README.txt']
+            }
           }
         ]
       })

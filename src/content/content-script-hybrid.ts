@@ -6,6 +6,7 @@
  */
 
 import { HLTBData } from './types/HLTB';
+import { getHLTBNoticeMessage } from './hltb-notice';
 import {
   ErrorHandler,
   SteamPageDetectionError,
@@ -333,17 +334,16 @@ class HLTBContentScriptHybrid {
       { label: 'Completionist', value: formatHours(data.completionist) }
     ];
 
-    // Check if this is a multiplayer-only game
-    const isMultiplayerOnly =
-      data.mainStory === null &&
-      data.mainExtra === null &&
-      data.completionist === null;
+    // Decide whether to show completion times or an explanatory notice, using
+    // HLTB's own signals rather than blanket-labeling all null-time games
+    // "Multiplayer Game" (which mislabeled unreleased single-player titles).
+    const noticeMessage = getHLTBNoticeMessage(data, new Date().getFullYear());
 
-    if (isMultiplayerOnly) {
-      const multiplayerBox = document.createElement('div');
-      multiplayerBox.className = 'hltb-multiplayer-notice';
-      multiplayerBox.textContent = 'Multiplayer Game - No completion times';
-      timesContainer.appendChild(multiplayerBox);
+    if (noticeMessage) {
+      const noticeBox = document.createElement('div');
+      noticeBox.className = 'hltb-multiplayer-notice';
+      noticeBox.textContent = noticeMessage;
+      timesContainer.appendChild(noticeBox);
     } else {
       timeBoxes.forEach(({ label, value }) => {
         const timeBox = document.createElement('div');

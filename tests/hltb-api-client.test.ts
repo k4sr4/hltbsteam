@@ -1,12 +1,64 @@
 /**
  * HLTB API Client Tests
- * Tests for API request construction, rate limiting, retry logic, and response parsing
+ * Tests the authenticated two-step search flow: init token fetch, search POST,
+ * token refresh on 403, endpoint rediscovery on 404, rate limiting, parsing.
  */
 
-import { HLTBApiClient, RateLimitError, NetworkError, HLTBSearchRequest, HLTBGameData } from '../src/background/services/hltb-api-client';
+import { HLTBApiClient, RateLimitError, NetworkError } from '../src/background/services/hltb-api-client';
+import { hltbAuthService, HLTBAuthError } from '../src/background/services/hltb-auth-service';
+import { resetHltbHeaderRules } from '../src/background/services/hltb-header-rules';
 
 // Mock fetch globally
 global.fetch = jest.fn();
+
+const AUTH_BODY = {
+  token: 'test-token-abc',
+  hpKey: 'ign_12345678',
+  hpVal: 'deadbeef00112233'
+};
+
+function jsonResponse(status: number, body: unknown, headers: Record<string, string> = {}): Response {
+  return {
+    ok: status >= 200 && status < 300,
+    status,
+    statusText: String(status),
+    headers: new Headers(headers),
+    json: async () => body,
+    text: async () => JSON.stringify(body)
+  } as unknown as Response;
+}
+
+function textResponse(status: number, body: string): Response {
+  return {
+    ok: status >= 200 && status < 300,
+    status,
+    statusText: String(status),
+    headers: new Headers(),
+    json: async () => JSON.parse(body),
+    text: async () => body
+  } as unknown as Response;
+}
+
+function makeGame(overrides: Record<string, unknown> = {}) {
+  return {
+    game_id: 68151,
+    game_name: 'Elden Ring',
+    game_name_date: 0,
+    game_alias: '',
+    game_type: 'game',
+    game_image: '68151_Elden_Ring.jpg',
+    comp_main: 216000,   // 60 hours in seconds
+    comp_plus: 364272,
+    comp_100: 488947,
+    comp_all: 379633,
+    comp_main_count: 1723,
+    comp_plus_count: 4930,
+    comp_100_count: 3855,
+    comp_all_count: 10508,
+    review_score: 93,
+    ...overrides
+  };
+}
 
 describe('HLTBApiClient', () => {
   let client: HLTBApiClient;
@@ -15,754 +67,289 @@ describe('HLTBApiClient', () => {
   beforeEach(() => {
     jest.clearAllMocks();
     mockFetch = global.fetch as jest.MockedFunction<typeof fetch>;
+    hltbAuthService.reset();
+    resetHltbHeaderRules();
     client = new HLTBApiClient({
-      maxRetries: 3,
-      baseDelay: 100,
+      maxRetries: 0,
+      baseDelay: 10,
       timeout: 5000
     });
   });
 
-  afterEach(() => {
-    jest.clearAllTimers();
-  });
+  /** Route fetches: init GET -> auth body, search POST -> provided responses in order */
+  function routeFetch(searchResponses: Response[], initResponse?: Response) {
+    let searchCall = 0;
+    mockFetch.mockImplementation(async (input: RequestInfo | URL) => {
+      const url = String(input);
+      if (url.includes('/init?t=')) {
+        return initResponse || jsonResponse(200, AUTH_BODY);
+      }
+      const response = searchResponses[Math.min(searchCall, searchResponses.length - 1)];
+      searchCall++;
+      return response;
+    });
+  }
 
-  describe('Request Construction', () => {
-    test('should construct correct search request payload', async () => {
-      const mockResponse: HLTBGameData = {
-        game_id: 1234,
-        game_name: 'Portal',
-        game_name_date: 2007,
-        game_alias: '',
-        game_type: 'game',
-        game_image: 'portal.jpg',
-        comp_lvl_combine: 0,
-        comp_lvl_sp: 1,
-        comp_lvl_co: 0,
-        comp_lvl_mp: 0,
-        comp_lvl_spd: 0,
-        comp_main: 10800, // 3 hours in seconds
-        comp_plus: 14400, // 4 hours
-        comp_100: 18000,  // 5 hours
-        comp_all: 14400,
-        comp_main_count: 100,
-        comp_plus_count: 80,
-        comp_100_count: 60,
-        comp_all_count: 240,
-        review_score: 95,
-        profile_platform: 'PC'
-      };
+  describe('Authenticated request flow', () => {
+    test('fetches an init token then POSTs the search with auth headers', async () => {
+      routeFetch([jsonResponse(200, { data: [makeGame()] })]);
 
-      mockFetch.mockResolvedValueOnce({
-        ok: true,
-        status: 200,
-        json: async () => ({ data: [mockResponse] }),
-        headers: new Headers()
-      } as Response);
+      const results = await client.searchGames('Elden Ring');
 
-      await client.searchGame('Portal');
+      expect(results).toHaveLength(1);
 
-      expect(mockFetch).toHaveBeenCalledWith(
-        'https://howlongtobeat.com/api/search',
-        expect.objectContaining({
-          method: 'POST',
-          headers: expect.objectContaining({
-            'Content-Type': 'application/json',
-            'User-Agent': expect.stringContaining('Mozilla')
-          }),
-          body: expect.stringContaining('Portal')
-        })
-      );
+      const initCall = mockFetch.mock.calls.find(c => String(c[0]).includes('/init?t='));
+      expect(initCall).toBeDefined();
+      expect(String(initCall![0])).toMatch(/^https:\/\/howlongtobeat\.com\/api\/bleed\/init\?t=\d+$/);
 
-      const callArgs = mockFetch.mock.calls[0];
-      const body = JSON.parse(callArgs[1]?.body as string);
+      const searchCall = mockFetch.mock.calls.find(c => String(c[0]) === 'https://howlongtobeat.com/api/bleed');
+      expect(searchCall).toBeDefined();
+      const init = searchCall![1] as RequestInit;
+      expect(init.method).toBe('POST');
+      expect((init.headers as Record<string, string>)['x-auth-token']).toBe(AUTH_BODY.token);
+      expect((init.headers as Record<string, string>)['x-hp-key']).toBe(AUTH_BODY.hpKey);
+      expect((init.headers as Record<string, string>)['x-hp-val']).toBe(AUTH_BODY.hpVal);
+    });
+
+    test('echoes the honeypot pair inside the request body', async () => {
+      routeFetch([jsonResponse(200, { data: [makeGame()] })]);
+
+      await client.searchGames('Elden Ring');
+
+      const searchCall = mockFetch.mock.calls.find(c => String(c[0]) === 'https://howlongtobeat.com/api/bleed');
+      const body = JSON.parse((searchCall![1] as RequestInit).body as string);
+      expect(body[AUTH_BODY.hpKey]).toBe(AUTH_BODY.hpVal);
+    });
+
+    test('reuses the cached token across searches', async () => {
+      routeFetch([jsonResponse(200, { data: [makeGame()] })]);
+
+      await client.searchGames('Elden Ring');
+      await client.searchGames('Hades');
+
+      const initCalls = mockFetch.mock.calls.filter(c => String(c[0]).includes('/init?t='));
+      expect(initCalls).toHaveLength(1);
+    });
+
+    test('builds the current HLTB payload shape', async () => {
+      routeFetch([jsonResponse(200, { data: [makeGame()] })]);
+
+      await client.searchGames('  Elden   Ring  ');
+
+      const searchCall = mockFetch.mock.calls.find(c => String(c[0]) === 'https://howlongtobeat.com/api/bleed');
+      const body = JSON.parse((searchCall![1] as RequestInit).body as string);
 
       expect(body.searchType).toBe('games');
-      expect(body.searchTerms).toContain('Portal');
+      expect(body.searchTerms).toEqual(['Elden', 'Ring']);
       expect(body.searchPage).toBe(1);
       expect(body.size).toBe(20);
+      expect(body.useCache).toBe(true);
+      expect(body.searchOptions.games).toMatchObject({
+        userId: 0,
+        platform: '',
+        sortCategory: 'popular',
+        rangeCategory: 'main',
+        rangeTime: { min: null, max: null },
+        gameplay: { perspective: '', flow: '', genre: '', difficulty: '' },
+        rangeYear: { min: '', max: '' },
+        modifier: ''
+      });
+      expect(body.searchOptions.users).toEqual({ sortCategory: 'postcount' });
+      expect(body.searchOptions.lists).toEqual({ sortCategory: 'follows' });
     });
 
-    test('should sanitize game title before searching', async () => {
-      mockFetch.mockResolvedValueOnce({
-        ok: true,
-        status: 200,
-        json: async () => ({ data: [] }),
-        headers: new Headers()
-      } as Response);
+    test('refreshes the token and retries once on 403', async () => {
+      routeFetch([
+        jsonResponse(403, { message: 'Forbidden' }),
+        jsonResponse(200, { data: [makeGame()] })
+      ]);
 
-      await client.searchGame('Tom Clancy\'s Rainbow Six® Siege™: Year 7');
+      const results = await client.searchGames('Elden Ring');
 
-      const callArgs = mockFetch.mock.calls[0];
-      const body = JSON.parse(callArgs[1]?.body as string);
-
-      // Should remove special characters
-      expect(body.searchTerms[0]).not.toContain('®');
-      expect(body.searchTerms[0]).not.toContain('™');
-      expect(body.searchTerms[0]).toContain('Tom Clancy');
-      expect(body.searchTerms[0]).toContain('Rainbow Six');
+      expect(results).toHaveLength(1);
+      const initCalls = mockFetch.mock.calls.filter(c => String(c[0]).includes('/init?t='));
+      const searchCalls = mockFetch.mock.calls.filter(c => String(c[0]) === 'https://howlongtobeat.com/api/bleed');
+      expect(initCalls).toHaveLength(2);
+      expect(searchCalls).toHaveLength(2);
     });
 
-    test('should include platform in search when provided', async () => {
-      mockFetch.mockResolvedValueOnce({
-        ok: true,
-        status: 200,
-        json: async () => ({ data: [] }),
-        headers: new Headers()
-      } as Response);
+    test('rediscovers the endpoint and retries once on 404', async () => {
+      const homepage = '<script src="/_next/static/chunks/abc123.js" defer></script>';
+      const chunk = 'let x=await fetch(`/api/seek/init?t=${Date.now()}`);';
 
-      await client.searchGame('Portal', undefined, 'PC');
+      let bleedSearches = 0;
+      mockFetch.mockImplementation(async (input: RequestInfo | URL) => {
+        const url = String(input);
+        if (url === 'https://howlongtobeat.com/') return textResponse(200, homepage);
+        if (url.endsWith('/abc123.js')) return textResponse(200, chunk);
+        if (url.includes('/api/bleed/init')) return jsonResponse(200, AUTH_BODY);
+        if (url.includes('/api/seek/init')) return jsonResponse(200, AUTH_BODY);
+        if (url === 'https://howlongtobeat.com/api/bleed') {
+          bleedSearches++;
+          return jsonResponse(404, { message: 'Not found' });
+        }
+        if (url === 'https://howlongtobeat.com/api/seek') {
+          return jsonResponse(200, { data: [makeGame()] });
+        }
+        throw new Error(`Unexpected fetch: ${url}`);
+      });
 
-      const callArgs = mockFetch.mock.calls[0];
-      const body = JSON.parse(callArgs[1]?.body as string);
+      const results = await client.searchGames('Elden Ring');
 
-      expect(body.searchOptions.games.platform).toBe('PC');
-    });
-
-    test('should handle app ID parameter', async () => {
-      mockFetch.mockResolvedValueOnce({
-        ok: true,
-        status: 200,
-        json: async () => ({ data: [] }),
-        headers: new Headers()
-      } as Response);
-
-      await client.searchGame('Portal', '400');
-
-      // App ID should be stored but not affect search
-      expect(mockFetch).toHaveBeenCalled();
-      const callArgs = mockFetch.mock.calls[0];
-      const body = JSON.parse(callArgs[1]?.body as string);
-      expect(body.searchTerms).toContain('Portal');
-    });
-
-    test('should set appropriate timeout on requests', async () => {
-      // Create an AbortController spy
-      const abortSpy = jest.spyOn(global, 'AbortController');
-
-      mockFetch.mockImplementationOnce(() =>
-        new Promise((resolve) => {
-          setTimeout(() => {
-            resolve({
-              ok: true,
-              status: 200,
-              json: async () => ({ data: [] }),
-              headers: new Headers()
-            } as Response);
-          }, 100);
-        })
-      );
-
-      await client.searchGame('Portal');
-
-      expect(abortSpy).toHaveBeenCalled();
-      expect(mockFetch).toHaveBeenCalledWith(
-        expect.any(String),
-        expect.objectContaining({
-          signal: expect.any(AbortSignal)
-        })
-      );
-
-      abortSpy.mockRestore();
+      expect(results).toHaveLength(1);
+      expect(bleedSearches).toBe(1);
+      expect(mockFetch.mock.calls.some(c => String(c[0]) === 'https://howlongtobeat.com/api/seek')).toBe(true);
     });
   });
 
-  describe('Rate Limit Handling', () => {
-    test('should detect rate limit from 429 status', async () => {
-      mockFetch.mockResolvedValueOnce({
-        ok: false,
-        status: 429,
-        headers: new Headers({ 'Retry-After': '60' })
-      } as Response);
+  describe('Response parsing', () => {
+    test('converts completion times from seconds to hours', async () => {
+      routeFetch([jsonResponse(200, {
+        data: [makeGame({ comp_main: 216000, comp_plus: 36000, comp_100: 5400, comp_all: 0 })]
+      })]);
 
-      await expect(client.searchGame('Portal')).rejects.toThrow(RateLimitError);
+      const results = await client.searchGames('Elden Ring');
+
+      expect(results[0].mainStory).toBe(60);
+      expect(results[0].mainExtra).toBe(10);
+      expect(results[0].completionist).toBe(1.5);
+      expect(results[0].allStyles).toBeNull();
     });
 
-    test('should parse Retry-After header', async () => {
-      mockFetch.mockResolvedValueOnce({
-        ok: false,
-        status: 429,
-        headers: new Headers({ 'Retry-After': '120' })
-      } as Response);
+    test('returns empty array when the API reports no results', async () => {
+      routeFetch([jsonResponse(200, { data: [] })]);
+
+      const results = await client.searchGames('Nonexistent Game XYZ');
+      expect(results).toEqual([]);
+    });
+
+    test('getGameData returns null when nothing matches', async () => {
+      routeFetch([jsonResponse(200, { data: [] })]);
+
+      const data = await client.getGameData('Nonexistent Game XYZ');
+      expect(data).toBeNull();
+    });
+
+    test('getGameData returns the best title match', async () => {
+      routeFetch([jsonResponse(200, {
+        data: [
+          makeGame({ game_id: 1, game_name: 'Elden Ring: Nightreign' }),
+          makeGame({ game_id: 2, game_name: 'Elden Ring' })
+        ]
+      })]);
+
+      const data = await client.getGameData('Elden Ring');
+
+      expect(data).not.toBeNull();
+      expect(data!.gameName).toBe('Elden Ring');
+    });
+  });
+
+  describe('Game classification', () => {
+    test('flags multiplayer-only games (no single-player level, has versus)', async () => {
+      routeFetch([jsonResponse(200, {
+        data: [makeGame({ comp_lvl_sp: 0, comp_lvl_mp: 1, comp_lvl_co: 0 })]
+      })]);
+      const [g] = await client.searchGames('Counter-Strike 2');
+      expect(g.isMultiplayerOnly).toBe(true);
+    });
+
+    test('does NOT flag co-op-only campaign games (their comp_main is a real completion time)', async () => {
+      // It Takes Two / A Way Out style: no solo, co-op campaign with a real ~14h time
+      routeFetch([jsonResponse(200, {
+        data: [makeGame({ comp_lvl_sp: 0, comp_lvl_co: 1, comp_lvl_mp: 0, comp_main: 50400 })]
+      })]);
+      const [g] = await client.searchGames('It Takes Two');
+      expect(g.isMultiplayerOnly).toBe(false);
+      expect(g.mainStory).toBe(14);
+    });
+
+    test('flags versus games that also have co-op (no solo) as multiplayer-only', async () => {
+      // Dota 2 style: comp_lvl_sp=0, co=1, mp=1 -> versus present -> notice
+      routeFetch([jsonResponse(200, {
+        data: [makeGame({ comp_lvl_sp: 0, comp_lvl_co: 1, comp_lvl_mp: 1 })]
+      })]);
+      const [g] = await client.searchGames('Dota 2');
+      expect(g.isMultiplayerOnly).toBe(true);
+    });
+
+    test('does not flag single-player games', async () => {
+      routeFetch([jsonResponse(200, {
+        data: [makeGame({ comp_lvl_sp: 1, comp_lvl_mp: 0, comp_lvl_co: 0 })]
+      })]);
+      const [g] = await client.searchGames('Hades');
+      expect(g.isMultiplayerOnly).toBe(false);
+    });
+
+    test('does not flag an unreleased single-player game (zero times, sp level present)', async () => {
+      routeFetch([jsonResponse(200, {
+        data: [makeGame({
+          comp_lvl_sp: 1, comp_lvl_mp: 0, comp_lvl_co: 0,
+          comp_main: 0, comp_plus: 0, comp_100: 0, release_world: 2999
+        })]
+      })]);
+      const [g] = await client.searchGames('The Elder Scrolls VI');
+      expect(g.isMultiplayerOnly).toBe(false);
+      expect(g.mainStory).toBeNull();
+      expect(g.releaseYear).toBe(2999);
+    });
+
+    test('carries the release year through parsing', async () => {
+      routeFetch([jsonResponse(200, { data: [makeGame({ release_world: 2020 })] })]);
+      const [g] = await client.searchGames('Hades');
+      expect(g.releaseYear).toBe(2020);
+    });
+
+    test('release year is null when HLTB omits it', async () => {
+      routeFetch([jsonResponse(200, { data: [makeGame()] })]);
+      const [g] = await client.searchGames('Portal 2');
+      expect(g.releaseYear).toBeNull();
+    });
+  });
+
+  describe('Error handling', () => {
+    test('throws RateLimitError with Retry-After on 429', async () => {
+      routeFetch([jsonResponse(429, { message: 'Too many requests' }, { 'Retry-After': '120' })]);
 
       try {
-        await client.searchGame('Portal');
+        await client.searchGames('Elden Ring');
+        fail('expected RateLimitError');
       } catch (error) {
         expect(error).toBeInstanceOf(RateLimitError);
         expect((error as RateLimitError).retryAfter).toBe(120);
       }
     });
 
-    test('should use default retry time when header missing', async () => {
-      mockFetch.mockResolvedValueOnce({
-        ok: false,
-        status: 429,
-        headers: new Headers()
-      } as Response);
+    test('short-circuits requests while rate limited', async () => {
+      routeFetch([jsonResponse(429, { message: 'Too many requests' }, { 'Retry-After': '120' })]);
 
-      try {
-        await client.searchGame('Portal');
-      } catch (error) {
-        expect(error).toBeInstanceOf(RateLimitError);
-        expect((error as RateLimitError).retryAfter).toBe(60); // Default
-      }
+      await expect(client.searchGames('Elden Ring')).rejects.toThrow(RateLimitError);
+      mockFetch.mockClear();
+
+      await expect(client.searchGames('Elden Ring')).rejects.toThrow(RateLimitError);
+      expect(mockFetch).not.toHaveBeenCalled();
     });
 
-    test('should track rate limit state', async () => {
-      mockFetch.mockResolvedValueOnce({
-        ok: false,
-        status: 429,
-        headers: new Headers({ 'Retry-After': '60' })
-      } as Response);
+    test('throws NetworkError on server errors', async () => {
+      routeFetch([jsonResponse(500, { message: 'Internal error' })]);
 
-      try {
-        await client.searchGame('Portal');
-      } catch (error) {
-        expect(client.isRateLimited()).toBe(true);
-      }
+      await expect(client.searchGames('Elden Ring')).rejects.toThrow(NetworkError);
     });
 
-    test('should prevent requests while rate limited', async () => {
-      // First request gets rate limited
-      mockFetch.mockResolvedValueOnce({
-        ok: false,
-        status: 429,
-        headers: new Headers({ 'Retry-After': '60' })
-      } as Response);
-
-      try {
-        await client.searchGame('Portal');
-      } catch (error) {
-        // Expected
-      }
-
-      // Second request should fail immediately
-      await expect(client.searchGame('Half-Life')).rejects.toThrow(RateLimitError);
-      expect(mockFetch).toHaveBeenCalledTimes(1); // Should not make second request
-    });
-
-    test('should clear rate limit after timeout', async () => {
-      jest.useFakeTimers();
-
-      mockFetch.mockResolvedValueOnce({
-        ok: false,
-        status: 429,
-        headers: new Headers({ 'Retry-After': '2' }) // 2 seconds
-      } as Response);
-
-      try {
-        await client.searchGame('Portal');
-      } catch (error) {
-        // Expected
-      }
-
-      expect(client.isRateLimited()).toBe(true);
-
-      // Advance time
-      jest.advanceTimersByTime(2100);
-
-      expect(client.isRateLimited()).toBe(false);
-
-      jest.useRealTimers();
-    });
-  });
-
-  describe('Retry Logic', () => {
-    test('should retry on network errors', async () => {
-      // Fail twice, succeed on third
-      mockFetch
-        .mockRejectedValueOnce(new Error('Network error'))
-        .mockRejectedValueOnce(new Error('Network error'))
-        .mockResolvedValueOnce({
-          ok: true,
-          status: 200,
-          json: async () => ({ data: [] }),
-          headers: new Headers()
-        } as Response);
-
-      const result = await client.searchGame('Portal');
-
-      expect(mockFetch).toHaveBeenCalledTimes(3);
-      expect(result).toBeDefined();
-    });
-
-    test('should use exponential backoff', async () => {
-      jest.useFakeTimers();
-
-      mockFetch
-        .mockRejectedValueOnce(new Error('Network error'))
-        .mockRejectedValueOnce(new Error('Network error'))
-        .mockResolvedValueOnce({
-          ok: true,
-          status: 200,
-          json: async () => ({ data: [] }),
-          headers: new Headers()
-        } as Response);
-
-      const searchPromise = client.searchGame('Portal');
-
-      // First retry after baseDelay
-      jest.advanceTimersByTime(100);
-      await Promise.resolve();
-
-      // Second retry after baseDelay * 2
-      jest.advanceTimersByTime(200);
-      await Promise.resolve();
-
-      await searchPromise;
-
-      expect(mockFetch).toHaveBeenCalledTimes(3);
-
-      jest.useRealTimers();
-    });
-
-    test('should fail after max retries', async () => {
-      mockFetch.mockRejectedValue(new Error('Network error'));
-
-      await expect(client.searchGame('Portal')).rejects.toThrow(NetworkError);
-      expect(mockFetch).toHaveBeenCalledTimes(4); // Initial + 3 retries
-    });
-
-    test('should not retry on 4xx errors (except 429)', async () => {
-      mockFetch.mockResolvedValueOnce({
-        ok: false,
-        status: 404,
-        statusText: 'Not Found',
-        headers: new Headers()
-      } as Response);
-
-      await expect(client.searchGame('Portal')).rejects.toThrow(NetworkError);
-      expect(mockFetch).toHaveBeenCalledTimes(1); // No retries
-    });
-
-    test('should retry on 5xx errors', async () => {
-      mockFetch
-        .mockResolvedValueOnce({
-          ok: false,
-          status: 500,
-          statusText: 'Internal Server Error',
-          headers: new Headers()
-        } as Response)
-        .mockResolvedValueOnce({
-          ok: true,
-          status: 200,
-          json: async () => ({ data: [] }),
-          headers: new Headers()
-        } as Response);
-
-      const result = await client.searchGame('Portal');
-
-      expect(mockFetch).toHaveBeenCalledTimes(2);
-      expect(result).toBeDefined();
-    });
-
-    test('should add jitter to prevent thundering herd', async () => {
-      jest.spyOn(Math, 'random').mockReturnValue(0.5);
-
-      mockFetch
-        .mockRejectedValueOnce(new Error('Network error'))
-        .mockResolvedValueOnce({
-          ok: true,
-          status: 200,
-          json: async () => ({ data: [] }),
-          headers: new Headers()
-        } as Response);
-
-      await client.searchGame('Portal');
-
-      // Jitter should add some randomness to delay
-      expect(mockFetch).toHaveBeenCalledTimes(2);
-
-      jest.spyOn(Math, 'random').mockRestore();
-    });
-  });
-
-  describe('Response Parsing', () => {
-    test('should parse valid game data response', async () => {
-      const mockGameData: HLTBGameData = {
-        game_id: 1234,
-        game_name: 'Portal',
-        game_name_date: 2007,
-        game_alias: '',
-        game_type: 'game',
-        game_image: 'portal.jpg',
-        comp_lvl_combine: 0,
-        comp_lvl_sp: 1,
-        comp_lvl_co: 0,
-        comp_lvl_mp: 0,
-        comp_lvl_spd: 0,
-        comp_main: 10800, // 3 hours in seconds
-        comp_plus: 14400, // 4 hours
-        comp_100: 18000,  // 5 hours
-        comp_all: 14400,
-        comp_main_count: 100,
-        comp_plus_count: 80,
-        comp_100_count: 60,
-        comp_all_count: 240,
-        review_score: 95,
-        profile_platform: 'PC'
-      };
-
-      mockFetch.mockResolvedValueOnce({
-        ok: true,
-        status: 200,
-        json: async () => ({ data: [mockGameData] }),
-        headers: new Headers()
-      } as Response);
-
-      const result = await client.searchGame('Portal');
-
-      expect(result).toEqual(mockGameData);
-    });
-
-    test('should handle empty search results', async () => {
-      mockFetch.mockResolvedValueOnce({
-        ok: true,
-        status: 200,
-        json: async () => ({ data: [] }),
-        headers: new Headers()
-      } as Response);
-
-      const result = await client.searchGame('Nonexistent Game');
-
-      expect(result).toBeNull();
-    });
-
-    test('should handle multiple search results and pick best match', async () => {
-      const games: HLTBGameData[] = [
-        {
-          game_id: 1,
-          game_name: 'Portal Reloaded',
-          game_name_date: 2021,
-          comp_main: 21600,
-          comp_plus: 28800,
-          comp_100: 36000,
-          comp_all: 25200
-        } as HLTBGameData,
-        {
-          game_id: 2,
-          game_name: 'Portal',
-          game_name_date: 2007,
-          comp_main: 10800,
-          comp_plus: 14400,
-          comp_100: 18000,
-          comp_all: 14400
-        } as HLTBGameData,
-        {
-          game_id: 3,
-          game_name: 'Portal 2',
-          game_name_date: 2011,
-          comp_main: 28800,
-          comp_plus: 36000,
-          comp_100: 50400,
-          comp_all: 32400
-        } as HLTBGameData
-      ];
-
-      mockFetch.mockResolvedValueOnce({
-        ok: true,
-        status: 200,
-        json: async () => ({ data: games }),
-        headers: new Headers()
-      } as Response);
-
-      const result = await client.searchGame('Portal');
-
-      // Should pick exact match
-      expect(result?.game_id).toBe(2);
-      expect(result?.game_name).toBe('Portal');
-    });
-
-    test('should handle malformed JSON response', async () => {
-      mockFetch.mockResolvedValueOnce({
-        ok: true,
-        status: 200,
-        json: async () => { throw new Error('Invalid JSON'); },
-        headers: new Headers()
-      } as Response);
-
-      await expect(client.searchGame('Portal')).rejects.toThrow(NetworkError);
-    });
-
-    test('should handle unexpected response structure', async () => {
-      mockFetch.mockResolvedValueOnce({
-        ok: true,
-        status: 200,
-        json: async () => ({ unexpected: 'structure' }),
-        headers: new Headers()
-      } as Response);
-
-      const result = await client.searchGame('Portal');
-      expect(result).toBeNull();
-    });
-
-    test('should convert time from seconds to hours', async () => {
-      const mockGameData: HLTBGameData = {
-        game_id: 1234,
-        game_name: 'Portal',
-        game_name_date: 2007,
-        game_alias: '',
-        game_type: 'game',
-        game_image: 'portal.jpg',
-        comp_lvl_combine: 0,
-        comp_lvl_sp: 1,
-        comp_lvl_co: 0,
-        comp_lvl_mp: 0,
-        comp_lvl_spd: 0,
-        comp_main: 10800, // 3 hours in seconds
-        comp_plus: 14400, // 4 hours
-        comp_100: 18000,  // 5 hours
-        comp_all: 14400,
-        comp_main_count: 100,
-        comp_plus_count: 80,
-        comp_100_count: 60,
-        comp_all_count: 240,
-        review_score: 95,
-        profile_platform: 'PC'
-      };
-
-      mockFetch.mockResolvedValueOnce({
-        ok: true,
-        status: 200,
-        json: async () => ({ data: [mockGameData] }),
-        headers: new Headers()
-      } as Response);
-
-      const result = await client.searchGame('Portal');
-
-      // Times should be in seconds for processing
-      expect(result?.comp_main).toBe(10800);
-      expect(result?.comp_plus).toBe(14400);
-      expect(result?.comp_100).toBe(18000);
-    });
-
-    test('should handle games with no completion times', async () => {
-      const mockGameData: HLTBGameData = {
-        game_id: 9999,
-        game_name: 'Multiplayer Only Game',
-        game_name_date: 2023,
-        game_alias: '',
-        game_type: 'game',
-        game_image: 'mp.jpg',
-        comp_lvl_combine: 0,
-        comp_lvl_sp: 0,
-        comp_lvl_co: 0,
-        comp_lvl_mp: 1,
-        comp_lvl_spd: 0,
-        comp_main: 0,
-        comp_plus: 0,
-        comp_100: 0,
-        comp_all: 0,
-        comp_main_count: 0,
-        comp_plus_count: 0,
-        comp_100_count: 0,
-        comp_all_count: 0,
-        review_score: 0,
-        profile_platform: 'PC'
-      };
-
-      mockFetch.mockResolvedValueOnce({
-        ok: true,
-        status: 200,
-        json: async () => ({ data: [mockGameData] }),
-        headers: new Headers()
-      } as Response);
-
-      const result = await client.searchGame('Multiplayer Only Game');
-
-      expect(result).toBeDefined();
-      expect(result?.comp_main).toBe(0);
-      expect(result?.comp_lvl_mp).toBe(1); // Multiplayer flag
-    });
-  });
-
-  describe('Error Handling', () => {
-    test('should throw NetworkError on fetch failure', async () => {
-      mockFetch.mockRejectedValueOnce(new Error('fetch failed'));
-
-      await expect(client.searchGame('Portal')).rejects.toThrow(NetworkError);
-    });
-
-    test('should include status code in NetworkError', async () => {
-      mockFetch.mockResolvedValueOnce({
-        ok: false,
-        status: 503,
-        statusText: 'Service Unavailable',
-        headers: new Headers()
-      } as Response);
-
-      try {
-        await client.searchGame('Portal');
-      } catch (error) {
-        expect(error).toBeInstanceOf(NetworkError);
-        expect((error as NetworkError).statusCode).toBe(503);
-      }
-    });
-
-    test('should handle timeout errors', async () => {
-      jest.useFakeTimers();
-
-      mockFetch.mockImplementationOnce(() =>
-        new Promise((resolve) => {
-          setTimeout(() => {
-            resolve({
-              ok: true,
-              status: 200,
-              json: async () => ({ data: [] }),
-              headers: new Headers()
-            } as Response);
-          }, 10000); // Longer than timeout
-        })
-      );
-
-      const searchPromise = client.searchGame('Portal');
-
-      jest.advanceTimersByTime(5100); // Just past timeout
-
-      await expect(searchPromise).rejects.toThrow();
-
-      jest.useRealTimers();
-    });
-
-    test('should preserve original error in NetworkError', async () => {
-      const originalError = new Error('Connection refused');
-      mockFetch.mockRejectedValueOnce(originalError);
-
-      try {
-        await client.searchGame('Portal');
-      } catch (error) {
-        expect(error).toBeInstanceOf(NetworkError);
-        expect((error as NetworkError).originalError).toBe(originalError);
-      }
-    });
-  });
-
-  describe('Configuration', () => {
-    test('should respect custom configuration', async () => {
-      const customClient = new HLTBApiClient({
-        maxRetries: 1,
-        baseDelay: 50,
-        timeout: 1000
+    test('surfaces auth init failures as a non-retriable HLTBAuthError', async () => {
+      let initCalls = 0;
+      mockFetch.mockImplementation(async (input: RequestInfo | URL) => {
+        const url = String(input);
+        if (url.includes('/init?t=')) { initCalls++; return jsonResponse(500, {}); }
+        if (url === 'https://howlongtobeat.com/') return textResponse(500, '');
+        throw new Error(`Unexpected fetch: ${url}`);
       });
 
-      mockFetch.mockRejectedValue(new Error('Network error'));
-
-      await expect(customClient.searchGame('Portal')).rejects.toThrow();
-      expect(mockFetch).toHaveBeenCalledTimes(2); // Initial + 1 retry
-    });
-
-    test('should use default configuration when not provided', async () => {
-      const defaultClient = new HLTBApiClient();
-
-      mockFetch.mockResolvedValueOnce({
-        ok: true,
-        status: 200,
-        json: async () => ({ data: [] }),
-        headers: new Headers()
-      } as Response);
-
-      await defaultClient.searchGame('Portal');
-      expect(mockFetch).toHaveBeenCalled();
-    });
-
-    test('should validate configuration parameters', () => {
-      expect(() => new HLTBApiClient({
-        maxRetries: -1,
-        baseDelay: 100,
-        timeout: 5000
-      })).toThrow();
-
-      expect(() => new HLTBApiClient({
-        maxRetries: 3,
-        baseDelay: -100,
-        timeout: 5000
-      })).toThrow();
-
-      expect(() => new HLTBApiClient({
-        maxRetries: 3,
-        baseDelay: 100,
-        timeout: -5000
-      })).toThrow();
-    });
-  });
-
-  describe('Cache Headers', () => {
-    test('should respect cache control headers', async () => {
-      mockFetch.mockResolvedValueOnce({
-        ok: true,
-        status: 200,
-        json: async () => ({ data: [] }),
-        headers: new Headers({
-          'Cache-Control': 'max-age=3600',
-          'ETag': '"123456"'
-        })
-      } as Response);
-
-      const result = await client.searchGame('Portal');
-
-      // Client should store cache info (implementation specific)
-      expect(mockFetch).toHaveBeenCalled();
-    });
-
-    test('should send If-None-Match header when ETag available', async () => {
-      // First request
-      mockFetch.mockResolvedValueOnce({
-        ok: true,
-        status: 200,
-        json: async () => ({ data: [] }),
-        headers: new Headers({ 'ETag': '"123456"' })
-      } as Response);
-
-      await client.searchGame('Portal');
-
-      // Second request
-      mockFetch.mockResolvedValueOnce({
-        ok: true,
-        status: 304, // Not Modified
-        headers: new Headers()
-      } as Response);
-
-      await client.searchGame('Portal');
-
-      // Should send If-None-Match on second request
-      const secondCall = mockFetch.mock.calls[1];
-      expect(secondCall[1]?.headers).toHaveProperty('If-None-Match');
-    });
-  });
-
-  describe('Performance', () => {
-    test('should complete search within timeout', async () => {
-      mockFetch.mockResolvedValueOnce({
-        ok: true,
-        status: 200,
-        json: async () => ({ data: [] }),
-        headers: new Headers()
-      } as Response);
-
-      const startTime = Date.now();
-      await client.searchGame('Portal');
-      const endTime = Date.now();
-
-      expect(endTime - startTime).toBeLessThan(5000);
-    });
-
-    test('should handle concurrent requests', async () => {
-      mockFetch.mockResolvedValue({
-        ok: true,
-        status: 200,
-        json: async () => ({ data: [] }),
-        headers: new Headers()
-      } as Response);
-
-      const promises = [
-        client.searchGame('Portal'),
-        client.searchGame('Half-Life'),
-        client.searchGame('Left 4 Dead')
-      ];
-
-      const results = await Promise.all(promises);
-
-      expect(results).toHaveLength(3);
-      expect(mockFetch).toHaveBeenCalledTimes(3);
+      // maxRetries: 2 here to prove the auth error is NOT retried
+      const retryClient = new HLTBApiClient({ maxRetries: 2, baseDelay: 5, timeout: 5000 });
+      await expect(retryClient.searchGames('Elden Ring')).rejects.toThrow(HLTBAuthError);
+      // A 500 on init is not a 404, so no discovery scan and no retry burst
+      expect(initCalls).toBe(1);
     });
   });
 });

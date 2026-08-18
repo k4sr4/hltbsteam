@@ -1,6 +1,11 @@
 import { MessageHandler } from './message-handler';
 import { hltbIntegratedService } from './services/hltb-integrated-service';
+import { ensureHltbHeaderRules } from './services/hltb-header-rules';
 import { ErrorHandler } from '../shared';
+
+// Install the Referer/Origin header rules for HLTB API requests as early as
+// possible; the API client also awaits this before every request.
+ensureHltbHeaderRules();
 
 // Initialize global error handler for background service
 const errorHandler = ErrorHandler.getInstance({
@@ -27,6 +32,10 @@ chrome.runtime.onInstalled.addListener(async (details) => {
   } else if (details.reason === 'update') {
     const previousVersion = details.previousVersion;
     console.log('[HLTB] Updated from version:', previousVersion);
+
+    // Old versions cached results sourced from the bundled fallback JSON;
+    // clear once so live API data repopulates the cache.
+    await hltbIntegratedService.clearCache();
   }
 });
 

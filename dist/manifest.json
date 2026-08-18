@@ -1,12 +1,13 @@
 {
   "manifest_version": 3,
   "name": "HLTB for Steam",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "description": "Display HowLongToBeat completion times on Steam pages",
 
   "permissions": [
     "storage",
-    "alarms"
+    "alarms",
+    "declarativeNetRequestWithHostAccess"
   ],
 
   "host_permissions": [

@@ -26,6 +26,12 @@ export interface HLTBData {
 
   /** Confidence level of the data */
   confidence?: ConfidenceLevel;
+
+  /** True when HLTB marks the game as multiplayer-only (no single-player mode) */
+  isMultiplayerOnly?: boolean;
+
+  /** Release year from HLTB (0 = announced/TBA, null/undefined = unknown) */
+  releaseYear?: number | null;
 }
 
 /**

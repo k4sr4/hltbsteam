@@ -228,6 +228,11 @@ export class HLTBIntegratedService {
             mainExtra: bestMatch.mainExtra,
             completionist: bestMatch.completionist,
             allStyles: bestMatch.allStyles,
+            // The scraper can't reliably determine these; default to
+            // "not multiplayer / release unknown" so the content script falls
+            // back to a generic "no data" notice rather than mislabeling.
+            isMultiplayerOnly: false,
+            releaseYear: null,
             source: 'scraper',
             confidence: 'medium',
             retrievalTime: Date.now()

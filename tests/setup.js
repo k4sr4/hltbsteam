@@ -63,6 +63,17 @@ global.chrome = {
       set: jest.fn().mockImplementation(() =>
         Promise.resolve()
       )
+    },
+    session: {
+      get: jest.fn().mockImplementation(() =>
+        Promise.resolve({})
+      ),
+      set: jest.fn().mockImplementation(() =>
+        Promise.resolve()
+      ),
+      remove: jest.fn().mockImplementation(() =>
+        Promise.resolve()
+      )
     }
   },
 
@@ -82,6 +93,15 @@ global.chrome = {
       Promise.resolve([])
     ),
     sendMessage: jest.fn()
+  },
+
+  declarativeNetRequest: {
+    updateSessionRules: jest.fn().mockImplementation(() =>
+      Promise.resolve()
+    ),
+    getSessionRules: jest.fn().mockImplementation(() =>
+      Promise.resolve([])
+    )
   }
 };
 
